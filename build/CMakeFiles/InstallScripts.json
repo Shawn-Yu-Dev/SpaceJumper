@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/shawn/custom_mario/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -1,0 +1,1 @@
+/usr/bin/c++ -O2 -DNDEBUG -Wl,--dependency-file=CMakeFiles/mario.dir/link.d CMakeFiles/mario.dir/main.cpp.o CMakeFiles/mario.dir/Common.cpp.o CMakeFiles/mario.dir/Font.cpp.o CMakeFiles/mario.dir/Audio.cpp.o CMakeFiles/mario.dir/Physics.cpp.o CMakeFiles/mario.dir/Level.cpp.o CMakeFiles/mario.dir/Renderer.cpp.o CMakeFiles/mario.dir/GameLogic.cpp.o -o mario  -lSDL2
