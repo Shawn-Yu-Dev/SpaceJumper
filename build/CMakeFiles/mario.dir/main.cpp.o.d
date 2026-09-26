@@ -1,4 +1,5 @@
-CMakeFiles/mario.dir/main.cpp.o: /home/shawn/custom_mario/main.cpp \
+CMakeFiles/mario.dir/main.cpp.o: \
+ /home/shawn/Projects/CC++/custom_mario/main.cpp \
  /usr/include/stdc-predef.h /usr/include/SDL2/SDL.h \
  /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h \
  /usr/include/SDL2/SDL_config.h /usr/include/SDL2/SDL_platform.h \
@@ -302,12 +303,14 @@ CMakeFiles/mario.dir/main.cpp.o: /home/shawn/custom_mario/main.cpp \
  /usr/include/c++/16/bits/basic_ios.tcc \
  /usr/include/c++/16/bits/ostream_print.h \
  /usr/include/c++/16/bits/ostream.tcc /usr/include/c++/16/istream \
- /usr/include/c++/16/bits/istream.tcc /home/shawn/custom_mario/Audio.hpp \
- /home/shawn/custom_mario/Common.hpp \
- /home/shawn/custom_mario/Entities.hpp /usr/include/c++/16/vector \
- /usr/include/c++/16/bits/stl_uninitialized.h \
+ /usr/include/c++/16/bits/istream.tcc \
+ /home/shawn/Projects/CC++/custom_mario/Audio.hpp \
+ /home/shawn/Projects/CC++/custom_mario/Common.hpp \
+ /home/shawn/Projects/CC++/custom_mario/Entities.hpp \
+ /usr/include/c++/16/vector /usr/include/c++/16/bits/stl_uninitialized.h \
  /usr/include/c++/16/bits/stl_vector.h \
  /usr/include/c++/16/bits/stl_bvector.h \
  /usr/include/c++/16/bits/vector.tcc \
- /home/shawn/custom_mario/GameLogic.hpp \
- /home/shawn/custom_mario/Level.hpp /home/shawn/custom_mario/Renderer.hpp
+ /home/shawn/Projects/CC++/custom_mario/GameLogic.hpp \
+ /home/shawn/Projects/CC++/custom_mario/Level.hpp \
+ /home/shawn/Projects/CC++/custom_mario/Renderer.hpp

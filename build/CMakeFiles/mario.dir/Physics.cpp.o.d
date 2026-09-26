@@ -1,10 +1,12 @@
-CMakeFiles/mario.dir/Physics.cpp.o: /home/shawn/custom_mario/Physics.cpp \
- /usr/include/stdc-predef.h /home/shawn/custom_mario/Physics.hpp \
- /home/shawn/custom_mario/Common.hpp /usr/include/SDL2/SDL.h \
- /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h \
- /usr/include/SDL2/SDL_config.h /usr/include/SDL2/SDL_platform.h \
- /usr/include/SDL2/begin_code.h /usr/include/SDL2/close_code.h \
- /usr/include/SDL2/SDL_config_unix.h \
+CMakeFiles/mario.dir/Physics.cpp.o: \
+ /home/shawn/Projects/CC++/custom_mario/Physics.cpp \
+ /usr/include/stdc-predef.h \
+ /home/shawn/Projects/CC++/custom_mario/Physics.hpp \
+ /home/shawn/Projects/CC++/custom_mario/Common.hpp \
+ /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
+ /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
+ /usr/include/SDL2/SDL_platform.h /usr/include/SDL2/begin_code.h \
+ /usr/include/SDL2/close_code.h /usr/include/SDL2/SDL_config_unix.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/16/include/limits.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/16/include/syslimits.h \
  /usr/include/limits.h /usr/include/bits/libc-header-start.h \
@@ -226,7 +228,8 @@ CMakeFiles/mario.dir/Physics.cpp.o: /home/shawn/custom_mario/Physics.cpp \
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_shape.h \
  /usr/include/SDL2/SDL_system.h /usr/include/SDL2/SDL_timer.h \
  /usr/include/SDL2/SDL_version.h /usr/include/SDL2/SDL_locale.h \
- /usr/include/SDL2/SDL_misc.h /home/shawn/custom_mario/Entities.hpp \
+ /usr/include/SDL2/SDL_misc.h \
+ /home/shawn/Projects/CC++/custom_mario/Entities.hpp \
  /usr/include/c++/16/string /usr/include/c++/16/bits/stringfwd.h \
  /usr/include/c++/16/bits/memoryfwd.h \
  /usr/include/c++/16/bits/char_traits.h \

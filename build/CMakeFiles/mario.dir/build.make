@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/shawn/custom_mario
+CMAKE_SOURCE_DIR = /home/shawn/Projects/CC++/custom_mario
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/shawn/custom_mario/build
+CMAKE_BINARY_DIR = /home/shawn/Projects/CC++/custom_mario/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/mario.dir/depend.make
@@ -73,116 +73,116 @@ CMakeFiles/mario.dir/codegen:
 .PHONY : CMakeFiles/mario.dir/codegen
 
 CMakeFiles/mario.dir/main.cpp.o: CMakeFiles/mario.dir/flags.make
-CMakeFiles/mario.dir/main.cpp.o: /home/shawn/custom_mario/main.cpp
+CMakeFiles/mario.dir/main.cpp.o: /home/shawn/Projects/CC++/custom_mario/main.cpp
 CMakeFiles/mario.dir/main.cpp.o: CMakeFiles/mario.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/shawn/custom_mario/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mario.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mario.dir/main.cpp.o -MF CMakeFiles/mario.dir/main.cpp.o.d -o CMakeFiles/mario.dir/main.cpp.o -c /home/shawn/custom_mario/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mario.dir/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mario.dir/main.cpp.o -MF CMakeFiles/mario.dir/main.cpp.o.d -o CMakeFiles/mario.dir/main.cpp.o -c /home/shawn/Projects/CC++/custom_mario/main.cpp
 
 CMakeFiles/mario.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/mario.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shawn/custom_mario/main.cpp > CMakeFiles/mario.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shawn/Projects/CC++/custom_mario/main.cpp > CMakeFiles/mario.dir/main.cpp.i
 
 CMakeFiles/mario.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/mario.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shawn/custom_mario/main.cpp -o CMakeFiles/mario.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shawn/Projects/CC++/custom_mario/main.cpp -o CMakeFiles/mario.dir/main.cpp.s
 
 CMakeFiles/mario.dir/Common.cpp.o: CMakeFiles/mario.dir/flags.make
-CMakeFiles/mario.dir/Common.cpp.o: /home/shawn/custom_mario/Common.cpp
+CMakeFiles/mario.dir/Common.cpp.o: /home/shawn/Projects/CC++/custom_mario/Common.cpp
 CMakeFiles/mario.dir/Common.cpp.o: CMakeFiles/mario.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/shawn/custom_mario/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mario.dir/Common.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mario.dir/Common.cpp.o -MF CMakeFiles/mario.dir/Common.cpp.o.d -o CMakeFiles/mario.dir/Common.cpp.o -c /home/shawn/custom_mario/Common.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mario.dir/Common.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mario.dir/Common.cpp.o -MF CMakeFiles/mario.dir/Common.cpp.o.d -o CMakeFiles/mario.dir/Common.cpp.o -c /home/shawn/Projects/CC++/custom_mario/Common.cpp
 
 CMakeFiles/mario.dir/Common.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/mario.dir/Common.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shawn/custom_mario/Common.cpp > CMakeFiles/mario.dir/Common.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shawn/Projects/CC++/custom_mario/Common.cpp > CMakeFiles/mario.dir/Common.cpp.i
 
 CMakeFiles/mario.dir/Common.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/mario.dir/Common.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shawn/custom_mario/Common.cpp -o CMakeFiles/mario.dir/Common.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shawn/Projects/CC++/custom_mario/Common.cpp -o CMakeFiles/mario.dir/Common.cpp.s
 
 CMakeFiles/mario.dir/Font.cpp.o: CMakeFiles/mario.dir/flags.make
-CMakeFiles/mario.dir/Font.cpp.o: /home/shawn/custom_mario/Font.cpp
+CMakeFiles/mario.dir/Font.cpp.o: /home/shawn/Projects/CC++/custom_mario/Font.cpp
 CMakeFiles/mario.dir/Font.cpp.o: CMakeFiles/mario.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/shawn/custom_mario/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mario.dir/Font.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mario.dir/Font.cpp.o -MF CMakeFiles/mario.dir/Font.cpp.o.d -o CMakeFiles/mario.dir/Font.cpp.o -c /home/shawn/custom_mario/Font.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mario.dir/Font.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mario.dir/Font.cpp.o -MF CMakeFiles/mario.dir/Font.cpp.o.d -o CMakeFiles/mario.dir/Font.cpp.o -c /home/shawn/Projects/CC++/custom_mario/Font.cpp
 
 CMakeFiles/mario.dir/Font.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/mario.dir/Font.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shawn/custom_mario/Font.cpp > CMakeFiles/mario.dir/Font.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shawn/Projects/CC++/custom_mario/Font.cpp > CMakeFiles/mario.dir/Font.cpp.i
 
 CMakeFiles/mario.dir/Font.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/mario.dir/Font.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shawn/custom_mario/Font.cpp -o CMakeFiles/mario.dir/Font.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shawn/Projects/CC++/custom_mario/Font.cpp -o CMakeFiles/mario.dir/Font.cpp.s
 
 CMakeFiles/mario.dir/Audio.cpp.o: CMakeFiles/mario.dir/flags.make
-CMakeFiles/mario.dir/Audio.cpp.o: /home/shawn/custom_mario/Audio.cpp
+CMakeFiles/mario.dir/Audio.cpp.o: /home/shawn/Projects/CC++/custom_mario/Audio.cpp
 CMakeFiles/mario.dir/Audio.cpp.o: CMakeFiles/mario.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/shawn/custom_mario/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/mario.dir/Audio.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mario.dir/Audio.cpp.o -MF CMakeFiles/mario.dir/Audio.cpp.o.d -o CMakeFiles/mario.dir/Audio.cpp.o -c /home/shawn/custom_mario/Audio.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/mario.dir/Audio.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mario.dir/Audio.cpp.o -MF CMakeFiles/mario.dir/Audio.cpp.o.d -o CMakeFiles/mario.dir/Audio.cpp.o -c /home/shawn/Projects/CC++/custom_mario/Audio.cpp
 
 CMakeFiles/mario.dir/Audio.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/mario.dir/Audio.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shawn/custom_mario/Audio.cpp > CMakeFiles/mario.dir/Audio.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shawn/Projects/CC++/custom_mario/Audio.cpp > CMakeFiles/mario.dir/Audio.cpp.i
 
 CMakeFiles/mario.dir/Audio.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/mario.dir/Audio.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shawn/custom_mario/Audio.cpp -o CMakeFiles/mario.dir/Audio.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shawn/Projects/CC++/custom_mario/Audio.cpp -o CMakeFiles/mario.dir/Audio.cpp.s
 
 CMakeFiles/mario.dir/Physics.cpp.o: CMakeFiles/mario.dir/flags.make
-CMakeFiles/mario.dir/Physics.cpp.o: /home/shawn/custom_mario/Physics.cpp
+CMakeFiles/mario.dir/Physics.cpp.o: /home/shawn/Projects/CC++/custom_mario/Physics.cpp
 CMakeFiles/mario.dir/Physics.cpp.o: CMakeFiles/mario.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/shawn/custom_mario/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/mario.dir/Physics.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mario.dir/Physics.cpp.o -MF CMakeFiles/mario.dir/Physics.cpp.o.d -o CMakeFiles/mario.dir/Physics.cpp.o -c /home/shawn/custom_mario/Physics.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/mario.dir/Physics.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mario.dir/Physics.cpp.o -MF CMakeFiles/mario.dir/Physics.cpp.o.d -o CMakeFiles/mario.dir/Physics.cpp.o -c /home/shawn/Projects/CC++/custom_mario/Physics.cpp
 
 CMakeFiles/mario.dir/Physics.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/mario.dir/Physics.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shawn/custom_mario/Physics.cpp > CMakeFiles/mario.dir/Physics.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shawn/Projects/CC++/custom_mario/Physics.cpp > CMakeFiles/mario.dir/Physics.cpp.i
 
 CMakeFiles/mario.dir/Physics.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/mario.dir/Physics.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shawn/custom_mario/Physics.cpp -o CMakeFiles/mario.dir/Physics.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shawn/Projects/CC++/custom_mario/Physics.cpp -o CMakeFiles/mario.dir/Physics.cpp.s
 
 CMakeFiles/mario.dir/Level.cpp.o: CMakeFiles/mario.dir/flags.make
-CMakeFiles/mario.dir/Level.cpp.o: /home/shawn/custom_mario/Level.cpp
+CMakeFiles/mario.dir/Level.cpp.o: /home/shawn/Projects/CC++/custom_mario/Level.cpp
 CMakeFiles/mario.dir/Level.cpp.o: CMakeFiles/mario.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/shawn/custom_mario/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/mario.dir/Level.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mario.dir/Level.cpp.o -MF CMakeFiles/mario.dir/Level.cpp.o.d -o CMakeFiles/mario.dir/Level.cpp.o -c /home/shawn/custom_mario/Level.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/mario.dir/Level.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mario.dir/Level.cpp.o -MF CMakeFiles/mario.dir/Level.cpp.o.d -o CMakeFiles/mario.dir/Level.cpp.o -c /home/shawn/Projects/CC++/custom_mario/Level.cpp
 
 CMakeFiles/mario.dir/Level.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/mario.dir/Level.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shawn/custom_mario/Level.cpp > CMakeFiles/mario.dir/Level.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shawn/Projects/CC++/custom_mario/Level.cpp > CMakeFiles/mario.dir/Level.cpp.i
 
 CMakeFiles/mario.dir/Level.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/mario.dir/Level.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shawn/custom_mario/Level.cpp -o CMakeFiles/mario.dir/Level.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shawn/Projects/CC++/custom_mario/Level.cpp -o CMakeFiles/mario.dir/Level.cpp.s
 
 CMakeFiles/mario.dir/Renderer.cpp.o: CMakeFiles/mario.dir/flags.make
-CMakeFiles/mario.dir/Renderer.cpp.o: /home/shawn/custom_mario/Renderer.cpp
+CMakeFiles/mario.dir/Renderer.cpp.o: /home/shawn/Projects/CC++/custom_mario/Renderer.cpp
 CMakeFiles/mario.dir/Renderer.cpp.o: CMakeFiles/mario.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/shawn/custom_mario/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/mario.dir/Renderer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mario.dir/Renderer.cpp.o -MF CMakeFiles/mario.dir/Renderer.cpp.o.d -o CMakeFiles/mario.dir/Renderer.cpp.o -c /home/shawn/custom_mario/Renderer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/mario.dir/Renderer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mario.dir/Renderer.cpp.o -MF CMakeFiles/mario.dir/Renderer.cpp.o.d -o CMakeFiles/mario.dir/Renderer.cpp.o -c /home/shawn/Projects/CC++/custom_mario/Renderer.cpp
 
 CMakeFiles/mario.dir/Renderer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/mario.dir/Renderer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shawn/custom_mario/Renderer.cpp > CMakeFiles/mario.dir/Renderer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shawn/Projects/CC++/custom_mario/Renderer.cpp > CMakeFiles/mario.dir/Renderer.cpp.i
 
 CMakeFiles/mario.dir/Renderer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/mario.dir/Renderer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shawn/custom_mario/Renderer.cpp -o CMakeFiles/mario.dir/Renderer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shawn/Projects/CC++/custom_mario/Renderer.cpp -o CMakeFiles/mario.dir/Renderer.cpp.s
 
 CMakeFiles/mario.dir/GameLogic.cpp.o: CMakeFiles/mario.dir/flags.make
-CMakeFiles/mario.dir/GameLogic.cpp.o: /home/shawn/custom_mario/GameLogic.cpp
+CMakeFiles/mario.dir/GameLogic.cpp.o: /home/shawn/Projects/CC++/custom_mario/GameLogic.cpp
 CMakeFiles/mario.dir/GameLogic.cpp.o: CMakeFiles/mario.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/shawn/custom_mario/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/mario.dir/GameLogic.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mario.dir/GameLogic.cpp.o -MF CMakeFiles/mario.dir/GameLogic.cpp.o.d -o CMakeFiles/mario.dir/GameLogic.cpp.o -c /home/shawn/custom_mario/GameLogic.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/mario.dir/GameLogic.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mario.dir/GameLogic.cpp.o -MF CMakeFiles/mario.dir/GameLogic.cpp.o.d -o CMakeFiles/mario.dir/GameLogic.cpp.o -c /home/shawn/Projects/CC++/custom_mario/GameLogic.cpp
 
 CMakeFiles/mario.dir/GameLogic.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/mario.dir/GameLogic.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shawn/custom_mario/GameLogic.cpp > CMakeFiles/mario.dir/GameLogic.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shawn/Projects/CC++/custom_mario/GameLogic.cpp > CMakeFiles/mario.dir/GameLogic.cpp.i
 
 CMakeFiles/mario.dir/GameLogic.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/mario.dir/GameLogic.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shawn/custom_mario/GameLogic.cpp -o CMakeFiles/mario.dir/GameLogic.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shawn/Projects/CC++/custom_mario/GameLogic.cpp -o CMakeFiles/mario.dir/GameLogic.cpp.s
 
 # Object files for target mario
 mario_OBJECTS = \
@@ -209,7 +209,7 @@ mario: CMakeFiles/mario.dir/GameLogic.cpp.o
 mario: CMakeFiles/mario.dir/build.make
 mario: CMakeFiles/mario.dir/compiler_depend.ts
 mario: CMakeFiles/mario.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/shawn/custom_mario/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable mario"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable mario"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mario.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -221,6 +221,6 @@ CMakeFiles/mario.dir/clean:
 .PHONY : CMakeFiles/mario.dir/clean
 
 CMakeFiles/mario.dir/depend:
-	cd /home/shawn/custom_mario/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/shawn/custom_mario /home/shawn/custom_mario /home/shawn/custom_mario/build /home/shawn/custom_mario/build /home/shawn/custom_mario/build/CMakeFiles/mario.dir/DependInfo.cmake "--color=$(COLOR)" mario
+	cd /home/shawn/Projects/CC++/custom_mario/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/shawn/Projects/CC++/custom_mario /home/shawn/Projects/CC++/custom_mario /home/shawn/Projects/CC++/custom_mario/build /home/shawn/Projects/CC++/custom_mario/build /home/shawn/Projects/CC++/custom_mario/build/CMakeFiles/mario.dir/DependInfo.cmake "--color=$(COLOR)" mario
 .PHONY : CMakeFiles/mario.dir/depend
 

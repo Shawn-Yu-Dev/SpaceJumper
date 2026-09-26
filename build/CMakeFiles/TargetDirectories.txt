@@ -1,3 +1,3 @@
-/home/shawn/custom_mario/build/CMakeFiles/mario.dir
-/home/shawn/custom_mario/build/CMakeFiles/edit_cache.dir
-/home/shawn/custom_mario/build/CMakeFiles/rebuild_cache.dir
+/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles/mario.dir
+/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles/edit_cache.dir
+/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles/rebuild_cache.dir
