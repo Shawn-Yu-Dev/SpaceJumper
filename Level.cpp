@@ -3,8 +3,17 @@
 #include "Entities.hpp"
 #include <cmath>
 #include <cstdlib>
-#include <utility>
-#include <vector>
+#include <type_traits>
+
+// 编译期约束: 配表必须保持 POD / 标准布局 / 可平凡拷贝 (零拷贝 memcpy 安全)
+static_assert(std::is_standard_layout_v<PitData>);
+static_assert(std::is_standard_layout_v<BrickRowData>);
+static_assert(std::is_standard_layout_v<SpecialTileData>);
+static_assert(std::is_standard_layout_v<CoinData>);
+static_assert(std::is_standard_layout_v<GoombaSpawnData>);
+static_assert(std::is_standard_layout_v<PlatformSpawnData>);
+static_assert(std::is_standard_layout_v<LevelConfig>);
+static_assert(std::is_trivially_copyable_v<LevelConfig>);
 
 void setT(Game &g, int c, int r, int v) {
   if (c >= 0 && c < MAP_COLS && r >= 0 && r < MAP_ROWS) g.tiles[tidx(c, r)] = v;
@@ -17,106 +26,198 @@ int getT(const Game &g, int c, int r) {
 
 bool solidTile(int t) { return t==T_GROUND||t==T_QUESTION||t==T_USED||t==T_BRICK||t==T_STONE; }
 
-void buildLevel(Game &g) {
+// ============================================================================
+// 静态只读关卡配置表: 单一 .rodata 实例, 启动即就绪, 运行时零拷贝只读访问.
+// 关卡 1 == 老 buildLevel 的 100% 无损抽象 (逐 tile/逐实体核对).
+// 关卡 2 == 手写高难度空中跳跃关 (宽坑 + 浮空石桥 + 垂直电梯 + 飞敌压制).
+// ============================================================================
+const LevelConfig ALL_LEVELS[] = {
+  // ---------------- 关卡 1 (老关卡无损迁移) ----------------
+  {
+    {{22,25},{38,41},{57,62},{77,82},{94,99},{106,109}}, 6,          // pits
+    {{30,33,12,1}}, 1,                                               // brickRows
+    { // stairs
+      {27,16,4,T_STONE,1,-1},{27,17,4,T_STONE,1,-1},
+      {68,16,5,T_GROUND,1,-1},{84,12,5,T_GROUND,1,1},
+      {73,16,3,T_STONE,1,0},{110,16,4,T_STONE,1,-1}
+    }, 6,
+    { // specials (35)
+      {8,13,T_QUESTION},
+      {11,13,T_BRICK},{12,13,T_QUESTION},{13,13,T_BRICK},{12,9,T_QUESTION},
+      {44,14,T_STONE},{45,14,T_STONE},{46,14,T_STONE},
+      {45,10,T_QUESTION},{46,10,T_QUESTION},
+      {48,16,T_SPIKE},{49,16,T_SPIKE},
+      {48,13,T_BRICK},{49,13,T_BRICK},{50,13,T_QUESTION},
+      {58,12,T_BRICK},{59,12,T_BRICK},{60,12,T_QUESTION},
+      {63,14,T_STONE},{64,14,T_STONE},{65,14,T_STONE},{64,10,T_QUESTION},
+      {70,9,T_QUESTION},{72,9,T_BRICK},{86,9,T_QUESTION},
+      {88,14,T_STONE},{89,14,T_STONE},{90,16,T_SPIKE},
+      {91,13,T_BRICK},{92,13,T_QUESTION},{93,13,T_BRICK},
+      {100,13,T_STONE},{101,13,T_STONE},{102,13,T_STONE},{101,9,T_QUESTION}
+    }, 35,
+    { // coins direct (16): x=c*32+2, y=r*32, 与老逻辑逐位一致
+      {14,12,0.0f},{15,12,0.3f},{16,12,0.6f},{17,12,0.9f},
+      {30,11,0.0f},{31,11,0.0f},{32,11,0.0f},
+      {44,9,0.0f},{45,9,0.2f},{46,9,0.4f},{47,9,0.6f},
+      {57,8,0.0f},{58,8,0.25f},{59,8,0.5f},{60,8,0.75f},{61,8,1.0f}
+    }, 16,
+    { // coinArcs (6)
+      {22,3,13},{38,3,13},{57,5,12},{77,5,12},{94,5,12},{106,3,13}
+    }, 6,
+    { // goombas (13)
+      {16,16,0},{28,15,0},{33,16,0},{46,13,0},{52,16,0},{54,16,0},
+      {60,11,1},{66,16,0},{71,15,0},{79,10,1},{89,13,0},{103,16,0},{104,16,0}
+    }, 13,
+    { // plats (3): 像素坐标已预乘 TILE_SIZE, 与老 p1/p2/p3 一致
+      {58.0f*32,14.5f*32, 61.0f*32,14.5f*32, 64,16,70,0.0f},
+      {78.0f*32,15.0f*32, 78.0f*32,11.5f*32, 64,16,55,1.2f},
+      {95.0f*32,14.0f*32, 98.0f*32,14.0f*32, 64,16,90,0.5f}
+    }, 3,
+    117, // flagCol
+    73   // checkpointCol
+  },
+  // ---------------- 关卡 2 (空中跳跃·高难度) ----------------
+  // 设计: 8 个宽坑 (5~8 列), 浮空石桥 + 垂直电梯衔接, 高空问号链,
+  // 窄台地刺守卫, 飞敌空中压制. 必须疾跑 + 满跳 + 平台借力才能通过.
+  {
+    {{10,14},{20,27},{33,41},{48,56},{63,71},{78,86},{93,101},{108,112}}, 8,
+    {{15,18,12,1},{50,53,11,1}}, 2,
+    {
+      {5,16,3,T_STONE,1,-1},
+      {28,14,5,T_STONE,1,0},
+      {43,12,4,T_STONE,1,0},
+      {66,11,5,T_STONE,1,0},
+      {88,13,4,T_STONE,1,0},
+      {110,16,4,T_STONE,1,-1}
+    }, 6,
+    { // specials (36)
+      {6,13,T_QUESTION},
+      {11,12,T_BRICK},{12,12,T_QUESTION},{13,12,T_BRICK},{16,9,T_QUESTION},
+      {22,11,T_BRICK},{23,11,T_BRICK},{24,11,T_QUESTION},
+      {35,10,T_STONE},{36,10,T_STONE},{38,9,T_QUESTION},
+      {45,14,T_STONE},{46,14,T_STONE},
+      {49,16,T_SPIKE},{50,16,T_SPIKE},
+      {52,10,T_QUESTION},{53,10,T_BRICK},
+      {60,9,T_STONE},{61,9,T_STONE},{62,9,T_STONE},{65,7,T_QUESTION},
+      {72,12,T_BRICK},{73,12,T_QUESTION},{74,12,T_BRICK},
+      {80,16,T_SPIKE},
+      {81,13,T_BRICK},{82,13,T_QUESTION},{83,13,T_BRICK},
+      {95,11,T_STONE},{96,11,T_STONE},{97,11,T_STONE},{96,8,T_QUESTION},
+      {103,14,T_STONE},{104,14,T_STONE},{105,16,T_SPIKE},{106,12,T_QUESTION}
+    }, 36,
+    { // coins direct (12): 天空路径引导线
+      {16,8,0.0f},{17,8,0.2f},
+      {35,9,0.0f},{36,9,0.2f},
+      {60,8,0.0f},{61,8,0.2f},{62,8,0.4f},{65,6,0.0f},
+      {95,10,0.0f},{96,10,0.2f},{97,10,0.4f},{106,11,0.0f}
+    }, 12,
+    { // coinArcs (8): 每个宽坑上一条弧线
+      {10,4,12},{20,5,11},{33,5,11},{48,5,10},
+      {63,5,9},{78,5,11},{93,5,12},{108,4,13}
+    }, 8,
+    { // goombas (14): 地面 + 飞敌混合压制
+      {12,16,0},{18,16,0},{30,13,0},{37,16,0},{44,13,0},
+      {54,11,1},{62,8,1},{68,10,1},{75,16,0},{84,12,1},
+      {92,16,0},{99,10,1},{105,16,0},{107,16,0}
+    }, 14,
+    { // plats (4): 高速横移 + 垂直电梯
+      {21.0f*32,14.5f*32, 26.0f*32,14.5f*32, 64,16,90,0.0f},
+      {49.0f*32,15.0f*32, 49.0f*32,10.5f*32, 64,16,75,0.5f},
+      {64.0f*32,13.0f*32, 69.0f*32,13.0f*32, 64,16,100,0.0f},
+      {79.0f*32,15.0f*32, 79.0f*32,11.0f*32, 64,16,80,1.0f}
+    }, 4,
+    117, // flagCol (与关卡1一致, 城堡/渲染复用)
+    60   // checkpointCol (天空段中点)
+  }
+};
+
+const int LEVEL_COUNT = sizeof(ALL_LEVELS) / sizeof(ALL_LEVELS[0]);
+
+void buildLevel(Game &g, int levelIndex) {
+  if (levelIndex < 0) levelIndex = 0;
+  if (levelIndex >= LEVEL_COUNT) levelIndex = LEVEL_COUNT - 1;
+  const LevelConfig &L = ALL_LEVELS[levelIndex];
+
+  // 先 clear 运行时数组 (保留 vector 容量, 不产生新分配; 与老逻辑一致)
   g.tiles.assign(MAP_COLS * MAP_ROWS, T_EMPTY);
   g.foes.clear(); g.shrooms.clear(); g.coins.clear();
   g.parts.clear(); g.popups.clear(); g.bumps.clear(); g.plats.clear();
   g.checkpointOn = false; g.checkpoint = g.spawn = {64, 400};
   g.combo = 0;
 
-  // 地面: 底部两行, 留出深坑
-  std::vector<std::pair<int,int>> pits = {{22,25},{38,41},{57,62},{77,82},{94,99},{106,109}};
-  auto inPit = [&](int c){ for(auto &p:pits) if(c>=p.first&&c<p.second) return true; return false; };
+  // 地面: 底部两行, 按配表 pits 留坑 (半开区间, 缓存友好的线性扫描, 无 vector 分配)
   for (int c = 0; c < MAP_COLS; ++c) {
-    if (inPit(c)) continue;
+    bool inPit = false;
+    for (int i = 0; i < L.pitCount; ++i) {
+      if (c >= L.pits[i].c0 && c < L.pits[i].c1) { inPit = true; break; }
+    }
+    if (inPit) continue;
     setT(g, c, 17, T_GROUND); setT(g, c, 18, T_GROUND);
   }
-  // 起点小土丘装饰下的实地已足够
 
-  auto brickRow = [&](int c0, int c1, int r, bool withQ){
-    for (int c = c0; c <= c1; ++c) setT(g, c, r, withQ && (c== (c0+c1)/2) ? T_QUESTION : T_BRICK);
-  };
+  // 连续砖块行 (中点变问号, 公式与老 brickRow lambda 一致)
+  for (int i = 0; i < L.brickRowCount; ++i) {
+    const BrickRowData &b = L.brickRows[i];
+    int mid = (b.c0 + b.c1) / 2;
+    for (int c = b.c0; c <= b.c1; ++c)
+      setT(g, c, b.r, (b.withQ && c == mid) ? T_QUESTION : T_BRICK);
+  }
 
-  // 第一组问号砖 (教学跳)
-  setT(g, 8, 13, T_QUESTION);
-  setT(g, 11, 13, T_BRICK); setT(g, 12, 13, T_QUESTION); setT(g, 13, 13, T_BRICK);
-  setT(g, 12, 9, T_QUESTION); // 高处奖励(蘑菇在高处问号里, 鼓励探索)
-  // 金币弧线
-  for (int i = 0; i < 4; ++i) g.coins.push_back({{float((14+i)*TILE_SIZE+2), float(12*TILE_SIZE)}, false, float(i)*0.3f});
+  // 楼梯 / 浮空桥 (含双层厚楼梯的拆分条目, 与老 for 循环逐 tile 一致)
+  for (int i = 0; i < L.stairCount; ++i) {
+    const StairData &s = L.stairs[i];
+    for (int k = 0; k < s.steps; ++k)
+      setT(g, s.c0 + s.dx * k, s.rBase + s.dy * k, s.tile);
+  }
 
-  // 楼梯 + 石台教学跑跳
-  for (int i = 0; i < 4; ++i) { setT(g, 27+i, 16-i, T_STONE); setT(g, 27+i, 17-i, T_STONE); }
-  brickRow(30, 33, 12, true);
-  for (int i = 0; i < 3; ++i) g.coins.push_back({{float((30+i)*TILE_SIZE+2), float(11*TILE_SIZE)}, false, 0});
+  // 零散特殊砖 (问号/砖块/石头/地刺)
+  for (int i = 0; i < L.specialCount; ++i)
+    setT(g, L.specials[i].c, L.specials[i].r, L.specials[i].tile);
 
-  // 中段: 高低石台 + 尖刺
-  setT(g, 44, 14, T_STONE); setT(g, 45, 14, T_STONE); setT(g, 46, 14, T_STONE);
-  setT(g, 45, 10, T_QUESTION); setT(g, 46, 10, T_QUESTION);
-  setT(g, 48, 16, T_SPIKE); setT(g, 49, 16, T_SPIKE);
-  setT(g, 48, 13, T_BRICK); setT(g, 49, 13, T_BRICK); setT(g, 50, 13, T_QUESTION);
-  for (int i = 0; i < 4; ++i) g.coins.push_back({{float((44+i)*TILE_SIZE+2), float(9*TILE_SIZE)}, false, float(i)*0.2f});
-
-  // 大坑区: 上方浮空砖给落脚点
-  setT(g, 58, 12, T_BRICK); setT(g, 59, 12, T_BRICK); setT(g, 60, 12, T_QUESTION);
-  setT(g, 63, 14, T_STONE); setT(g, 64, 14, T_STONE); setT(g, 65, 14, T_STONE);
-  setT(g, 64, 10, T_QUESTION);
-  for (int i = 0; i < 5; ++i) g.coins.push_back({{float((57+i)*TILE_SIZE+2), float(8*TILE_SIZE)}, false, float(i)*0.25f});
-
-  // 双层楼梯峡谷
-  for (int i = 0; i < 5; ++i) { setT(g, 68+i, 16-i, T_GROUND); }
-  for (int i = 0; i < 5; ++i) { setT(g, 84+i, 12+i, T_GROUND); }
-  setT(g, 70, 9, T_QUESTION); setT(g, 72, 9, T_BRICK); setT(g, 86, 9, T_QUESTION);
-
-  // 检查点 (中点小旗台)
-  for (int i = 0; i < 3; ++i) setT(g, 73+i, 16, T_STONE);
-
-  // 后段高难度: 窄台 + 尖刺 + 问号
-  setT(g, 88, 14, T_STONE); setT(g, 89, 14, T_STONE);
-  setT(g, 90, 16, T_SPIKE);
-  setT(g, 91, 13, T_BRICK); setT(g, 92, 13, T_QUESTION); setT(g, 93, 13, T_BRICK);
-  setT(g, 100, 13, T_STONE); setT(g, 101, 13, T_STONE); setT(g, 102, 13, T_STONE);
-  setT(g, 101, 9, T_QUESTION);
-
-  // 终点前楼梯
-  for (int i = 0; i < 4; ++i) setT(g, 110+i, 16-i, T_STONE);
-
-  // 旗杆
-  g.flagCol = 117;
+  // 旗杆 + 城堡地基 (由 flagCol 程序化生成, 老逻辑: 旗 r=5..16, 城堡 c=flag+2..flag+6)
+  g.flagCol = L.flagCol;
   for (int r = 5; r <= 16; ++r) setT(g, g.flagCol, r, T_FLAG);
-  // 城堡地基
-  for (int c = 119; c < 124; ++c) { setT(g, c, 16, T_STONE); setT(g, c, 17, T_GROUND); setT(g, c, 18, T_GROUND); }
+  for (int c = g.flagCol + 2; c <= g.flagCol + 6 && c < MAP_COLS; ++c) {
+    setT(g, c, 16, T_STONE); setT(g, c, 17, T_GROUND); setT(g, c, 18, T_GROUND);
+  }
 
-  // 金币: 坑上弧线
-  auto coinArc = [&](int c0, int n, int rBase){
-    for (int i = 0; i < n; ++i) {
-      float arc = -fabsf(i - (n-1)/2.0f) * 14.0f;
-      g.coins.push_back({{float((c0+i)*TILE_SIZE+2), float(rBase*TILE_SIZE + arc)}, false, float(i)*0.2f});
+  // 金币直线 (像素公式与老逻辑逐位一致: x=c*32+2, y=r*32)
+  for (int i = 0; i < L.coinCount; ++i) {
+    const CoinData &cd = L.coins[i];
+    g.coins.push_back({{(float)(cd.c * TILE_SIZE + 2), (float)(cd.r * TILE_SIZE)}, false, cd.anim});
+  }
+
+  // 金币坑上弧线 (弧高公式与老 coinArc 一致)
+  for (int i = 0; i < L.coinArcCount; ++i) {
+    const CoinArcData &a = L.coinArcs[i];
+    for (int k = 0; k < a.n; ++k) {
+      float arc = -fabsf(k - (a.n - 1) / 2.0f) * 14.0f;
+      g.coins.push_back({{(float)((a.c0 + k) * TILE_SIZE + 2), (float)(a.rBase * TILE_SIZE + arc)}, false, (float)k * 0.2f});
     }
-  };
-  coinArc(22, 3, 13); coinArc(38, 3, 13); coinArc(57, 5, 12);
-  coinArc(77, 5, 12); coinArc(94, 5, 12); coinArc(106, 3, 13);
+  }
 
-  // 敌人
-  auto addG = [&](int c, int r, bool flyer){
-    Goomba e; e.pos = {float(c*TILE_SIZE+2), float(r*TILE_SIZE+4)};
-    e.vel = {flyer ? 0.0f : -70.0f, 0.0f}; e.flyer = flyer; e.baseY = e.pos.y; e.phase = c*0.7f;
+  // 敌人 (位置/速度/相位公式与老 addG 一致)
+  for (int i = 0; i < L.goombaCount; ++i) {
+    const GoombaSpawnData &sp = L.goombas[i];
+    Goomba e;
+    e.pos = {(float)(sp.c * TILE_SIZE + 2), (float)(sp.r * TILE_SIZE + 4)};
+    e.vel = {sp.flyer ? 0.0f : -70.0f, 0.0f};
+    e.flyer = sp.flyer != 0;
+    e.baseY = e.pos.y; e.phase = sp.c * 0.7f;
     g.foes.push_back(e);
-  };
-  addG(16, 16, false); addG(28, 15, false); addG(33, 16, false);
-  addG(46, 13, false); addG(52, 16, false); addG(54, 16, false);
-  addG(60, 11, true);  addG(66, 16, false); addG(71, 15, false);
-  addG(79, 10, true);  addG(89, 13, false); addG(103, 16, false);
-  addG(104, 16, false);
+  }
 
-  // 移动平台: 大坑电梯 + 终点前横移平台
-  Platform p1; p1.a = {58.0f*TILE_SIZE, 14.5f*TILE_SIZE}; p1.b = {61.0f*TILE_SIZE, 14.5f*TILE_SIZE};
-  p1.pos = p1.a; p1.prev = p1.a; p1.size = {64, 16}; p1.speed = 70; p1.t = 0; g.plats.push_back(p1);
-  Platform p2; p2.a = {78.0f*TILE_SIZE, 15.0f*TILE_SIZE}; p2.b = {78.0f*TILE_SIZE, 11.5f*TILE_SIZE};
-  p2.pos = p2.a; p2.prev = p2.a; p2.size = {64, 16}; p2.speed = 55; p2.t = 1.2f; g.plats.push_back(p2);
-  Platform p3; p3.a = {95.0f*TILE_SIZE, 14.0f*TILE_SIZE}; p3.b = {98.0f*TILE_SIZE, 14.0f*TILE_SIZE};
-  p3.pos = p3.a; p3.prev = p3.a; p3.size = {64, 16}; p3.speed = 90; p3.t = 0.5f; g.plats.push_back(p3);
+  // 移动平台 (像素坐标已预乘, 与老 p1/p2/p3 一致)
+  for (int i = 0; i < L.platCount; ++i) {
+    const PlatformSpawnData &sp = L.plats[i];
+    Platform p;
+    p.a = {sp.ax, sp.ay}; p.b = {sp.bx, sp.by};
+    p.pos = p.a; p.prev = p.a;
+    p.size = {sp.w, sp.h}; p.speed = sp.speed; p.t = sp.t;
+    g.plats.push_back(p);
+  }
 
-  // 云
+  // 云 (运行时随机装饰, 非配表, 与老逻辑一致)
   g.clouds.clear();
   for (int i = 0; i < 14; ++i)
     g.clouds.push_back({float(i*320 + (rand()%160)), float(50 + rand()%160), float(0.7+ (rand()%40)/50.0f), float(6+rand()%10)});

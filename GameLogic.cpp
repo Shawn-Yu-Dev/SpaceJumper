@@ -8,11 +8,35 @@
 #include <cstdlib>
 
 void App::resetRun() {
+  if (currentLevelIndex < 0) currentLevelIndex = 0;
+  if (currentLevelIndex >= levelCount()) currentLevelIndex = 0;
   game.score = 0; game.coinCount = 0; game.lives = 3; game.timeLeft = 300;
-  buildLevel(game);
+  buildLevel(game, currentLevelIndex);
   player = Player(); player.pos = game.spawn; player.size = {24, 40};
   cam = {0, 0}; state = ST_PLAY; paused = false;
   cpSaved = false;
+  cpPos = {(float)levelCheckpointCol(currentLevelIndex) * TILE_SIZE, 12.0f * TILE_SIZE};
+}
+
+void App::resetToFirstLevel() {
+  currentLevelIndex = 0;
+  resetRun();
+}
+
+void App::loadLevelKeepScore(int idx) {
+  if (idx < 0) idx = 0;
+  if (idx >= levelCount()) idx = levelCount() - 1;
+  currentLevelIndex = idx;
+  // 切关: 保留分数/金币/命 (街机继承制), 时间回满, 检查点/玩家/相机重置
+  int sc = game.score, cc = game.coinCount, lv = game.lives;
+  buildLevel(game, currentLevelIndex);
+  game.score = sc; game.coinCount = cc; game.lives = lv; game.timeLeft = 300;
+  cpSaved = false;
+  cpPos = {(float)levelCheckpointCol(currentLevelIndex) * TILE_SIZE, 12.0f * TILE_SIZE};
+  player = Player(); player.pos = game.spawn; player.size = {24, 40};
+  cam = {0, 0};
+  paused = false;
+  state = ST_PLAY;
 }
 
 void updateFx(Game &g, float DT) {
@@ -46,12 +70,15 @@ void updateFixedStep(App &app, float DT, const Uint8 *kb) {
     g.timeLeft -= DT;
     if (g.timeLeft <= 0) { g.timeLeft = 0; SFX.die(); state = ST_DYING; g.stateT = 0; pl.dead = true; pl.vel = {0, -650}; }
 
-    // ---- 检查点 (x 超过中点即激活) ----
-    if (!app.cpSaved && pl.pos.x > 73 * TILE_SIZE) {
-      app.cpSaved = true; app.cpPos = {73.0f * TILE_SIZE, 12.0f * TILE_SIZE};
+    // ---- 检查点 (x 超过本关中点即激活, 配表驱动) ----
+    {
+      int cpCol = levelCheckpointCol(app.currentLevelIndex);
+      if (!app.cpSaved && pl.pos.x > cpCol * TILE_SIZE) {
+        app.cpSaved = true; app.cpPos = {(float)cpCol * TILE_SIZE, 12.0f * TILE_SIZE};
       g.checkpointOn = true; g.checkpoint = app.cpPos;
       g.popups.push_back({{pl.pos.x, pl.pos.y - 30}, "CHECKPOINT!", 1.4f, {120, 255, 120, 255}});
       SFX.power();
+      }
     }
 
     // ---- 玩家横向 (加速度+摩擦, 疾跑) ----
@@ -349,10 +376,10 @@ void updateFixedStep(App &app, float DT, const Uint8 *kb) {
       g.lives--;
       if (g.lives < 0) { state = ST_GAMEOVER; }
       else {
-        // 回档: 重建地图, 保留分数/金币/命/时间, 出生点为检查点
+        // 回档: 按当前关索引重建地图, 保留分数/金币/命/时间, 出生点为检查点
         int sc = g.score, cc = g.coinCount, lv = g.lives;
         float tm = std::max(g.timeLeft, 60.0f);
-        buildLevel(g);
+        buildLevel(g, app.currentLevelIndex);
         g.score = sc; g.coinCount = cc; g.lives = lv; g.timeLeft = tm;
         if (app.cpSaved) { g.checkpointOn = true; g.checkpoint = app.cpPos; }
         pl = Player();
@@ -377,7 +404,22 @@ void updateFixedStep(App &app, float DT, const Uint8 *kb) {
     if (g.stateT > 3.2f) {
       int bonus = (int)g.timeLeft * 10;
       g.score += 2000 + bonus;
-      state = ST_WIN;
+      // 多关卡结算: 还有后续关卡则进入过渡态, 否则大结局
+      app.currentLevelIndex++;
+      if (app.currentLevelIndex >= levelCount()) {
+        state = ST_WIN;
+      } else {
+        state = ST_NEXTLEVEL; g.stateT = 0;
+        g.popups.push_back({{pl.pos.x, pl.pos.y - 60}, "LOAD NEXT LEVEL", 2.0f, {255, 230, 90, 255}});
+        SFX.power();
+      }
+    }
+  } else if (state == ST_NEXTLEVEL) {
+    // 关卡间过渡: 定格 2 秒展示提示, 然后无缝载入下一关
+    // (保留分数/金币/命, 时间回满, 玩家/相机重置; 物理逻辑冻结, 特效照常推进)
+    g.stateT += DT;
+    if (g.stateT > 2.0f) {
+      app.loadLevelKeepScore(app.currentLevelIndex);
     }
   }
   // 特效推进 (与原单文件一致: 每个固定步长都跑一次)

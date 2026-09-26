@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
   SFX.init();
 
   App app;
-  buildLevel(app.game);
+  buildLevel(app.game, app.currentLevelIndex);
 
   // 烟雾测试模式: 传参 --smoke 则跑 4 秒自动退出(供 CI/无头验证)
   app.smoke = argc > 1 && std::string(argv[1]) == "--smoke";
@@ -64,10 +64,10 @@ int main(int argc, char *argv[]) {
         auto sym = ev.key.keysym.sym;
         if (sym == SDLK_m) SFX.muted = !SFX.muted;
         if (sym == SDLK_p && app.state == ST_PLAY) app.paused = !app.paused;
-        if (sym == SDLK_r) { app.resetRun(); }
+        if (sym == SDLK_r) { app.resetRun(); } // 按当前关索引重开 (分数清零, 地形按索引加载)
         if (sym == SDLK_RETURN || sym == SDLK_KP_ENTER) {
           if (app.state == ST_TITLE) { app.resetRun(); }
-          else if (app.state == ST_WIN || app.state == ST_GAMEOVER) { app.resetRun(); }
+          else if (app.state == ST_WIN || app.state == ST_GAMEOVER) { app.resetToFirstLevel(); } // 通关/失败重试: 归零从第一关起
         }
         if ((sym == SDLK_SPACE || sym == SDLK_w || sym == SDLK_UP) && app.state == ST_PLAY && !app.paused) {
           app.player.buffer = BUFFER_TIME; app.player.jumpHeld = true;

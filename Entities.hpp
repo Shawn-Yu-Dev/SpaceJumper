@@ -68,6 +68,7 @@ enum State {
   ST_PLAY,
   ST_DYING,
   ST_WINANIM,
+  ST_NEXTLEVEL, // 关卡间过渡: 显示 LOAD NEXT LEVEL, 2 秒后无缝载入下一关
   ST_WIN,
   ST_GAMEOVER
 };

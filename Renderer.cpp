@@ -233,15 +233,15 @@ void renderAll(SDL_Renderer *ren, App &app) {
       SDL_SetRenderDrawColor(ren, 240, 240, 240, 255);
       SDL_Rect ball{fx+8, 5*TILE_SIZE-10-camY, 16, 16}; SDL_RenderFillRect(ren, &ball);
       float wv = sinf(globalT*6)*4;
-      int fy = 5*TILE_SIZE+20 - camY + (state==ST_WINANIM ? (int)(g.stateT*60) : 0);
+      int fy = 5*TILE_SIZE+20 - camY + ((state==ST_WINANIM || state==ST_NEXTLEVEL) ? (int)(g.stateT*60) : 0);
       if (fy > 12*TILE_SIZE-camY) fy = 12*TILE_SIZE-camY;
       SDL_SetRenderDrawColor(ren, 40, 200, 60, 255);
       SDL_Rect flag{fx-44, fy, 50, 32}; SDL_RenderFillRect(ren, &flag);
       SDL_SetRenderDrawColor(ren, 255, 255, 255, 255);
       drawText(ren, "*", fx-28, fy+2, 2, {255,255,255,255});
       (void)wv;
-      // 城堡
-      int cx = 120*TILE_SIZE - camX, cy = 16*TILE_SIZE - camY;
+      // 城堡 (跟随配表 flagCol+3, 关卡1即 120, 与老逻辑一致)
+      int cx = (g.flagCol+3)*TILE_SIZE - camX, cy = 16*TILE_SIZE - camY;
       SDL_SetRenderDrawColor(ren, 200, 120, 60, 255);
       SDL_Rect cb{cx-30, cy-90, 110, 90}; SDL_RenderFillRect(ren, &cb);
       SDL_SetRenderDrawColor(ren, 160, 90, 40, 255);
@@ -251,9 +251,10 @@ void renderAll(SDL_Renderer *ren, App &app) {
       SDL_Rect win1{cx-14, cy-70, 14, 14}, win2{cx+50, cy-70, 14, 14};
       SDL_SetRenderDrawColor(ren, 200, 230, 255, 255);
       SDL_RenderFillRect(ren, &win1); SDL_RenderFillRect(ren, &win2);
-      // 检查点小旗
+      // 检查点小旗 (跟随配表 checkpointCol+1, 关卡1即 74, 与老逻辑一致)
       if (true) {
-        int qx = 74*TILE_SIZE - camX, qy = 16*TILE_SIZE - camY;
+        int cpCol = levelCheckpointCol(app.currentLevelIndex);
+        int qx = (cpCol+1)*TILE_SIZE - camX, qy = 16*TILE_SIZE - camY;
         SDL_SetRenderDrawColor(ren, 120, 120, 120, 255);
         SDL_Rect qp{qx, qy-110, 4, 110}; SDL_RenderFillRect(ren, &qp);
         if (g.checkpointOn) SDL_SetRenderDrawColor(ren, 60, 220, 60, 255);
@@ -337,7 +338,7 @@ void renderAll(SDL_Renderer *ren, App &app) {
     drawText(ren, buf, 12, 6, 2, {255,255,255,255});
     snprintf(buf, sizeof(buf), "COINS X%02d", g.coinCount);
     drawText(ren, buf, 250, 6, 2, {255,220,80,255});
-    snprintf(buf, sizeof(buf), "WORLD 1-1");
+    snprintf(buf, sizeof(buf), "WORLD 1-%d", app.currentLevelIndex + 1);
     drawText(ren, buf, 470, 6, 2, {150,220,255,255});
     snprintf(buf, sizeof(buf), "TIME %03d", (int)ceil(g.timeLeft));
     SDL_Color tc = g.timeLeft < 60 ? SDL_Color{255,80,80,255} : SDL_Color{255,255,255,255};
@@ -384,11 +385,27 @@ void renderAll(SDL_Renderer *ren, App &app) {
       SDL_Rect o{0,0,WINDOW_WIDTH,WINDOW_HEIGHT}; SDL_RenderFillRect(ren, &o);
       SDL_SetRenderDrawBlendMode(ren, SDL_BLENDMODE_NONE);
     }
+  } else if (state == ST_NEXTLEVEL) {
+    // 切关过渡: 世界定格为背景, 中央提示下一关 (2 秒倒计时)
+    SDL_SetRenderDrawColor(ren, 0, 0, 0, 130);
+    SDL_Rect o{0,0,WINDOW_WIDTH,WINDOW_HEIGHT}; SDL_RenderFillRect(ren, &o);
+    drawTextCenter(ren, "LOAD NEXT LEVEL", WINDOW_WIDTH/2, 220, 4, {255,230,90,255});
+    {
+      char buf[64];
+      snprintf(buf, sizeof(buf), "LEVEL %d", app.currentLevelIndex + 1);
+      drawTextCenter(ren, buf, WINDOW_WIDTH/2, 280, 3, {150,220,255,255});
+      float remain = 2.0f - g.stateT;
+      if (remain < 0) remain = 0;
+      snprintf(buf, sizeof(buf), "START IN %d", (int)ceil(remain));
+      drawTextCenter(ren, buf, WINDOW_WIDTH/2, 330, 2, {255,255,255,255});
+    }
   } else if (state == ST_WIN) {
     SDL_SetRenderDrawColor(ren, 0, 0, 0, 170);
     SDL_Rect o{0,0,WINDOW_WIDTH,WINDOW_HEIGHT}; SDL_RenderFillRect(ren, &o);
     drawTextCenter(ren, "YOU WIN!", WINDOW_WIDTH/2, 150, 6, {120,255,120,255});
     char buf[64];
+    snprintf(buf, sizeof(buf), "CLEAR ALL %d LEVELS!", levelCount());
+    drawTextCenter(ren, buf, WINDOW_WIDTH/2, 205, 2, {150,220,255,255});
     snprintf(buf, sizeof(buf), "SCORE %06d", g.score);
     drawTextCenter(ren, buf, WINDOW_WIDTH/2, 240, 3, {255,230,90,255});
     snprintf(buf, sizeof(buf), "COINS X%d  TIME %d", g.coinCount, (int)g.timeLeft);
