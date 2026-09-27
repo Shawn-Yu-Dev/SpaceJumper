@@ -6,19 +6,33 @@
 #include <string>
 #include <vector>
 
+struct Bullet {
+  gml::vec2 pos, vel, size{10, 6};
+  float life = 0;
+  bool dead = false;
+};
+
 struct Player {
   gml::vec2 pos{64, 400}, vel{0, 0}, size{24, 40};
   bool grounded = false, wasGrounded = false;
   float coyote = 0, buffer = 0, anim = 0, squash = 0;
-  float invincible = 0, skidT = 0;
-  int face = 1; bool big = false; bool jumpHeld = false;
+  float skidT = 0;
+  int face = 1; bool jumpHeld = false;
   bool dead = false;
+  // 新机制: 盾牌 (按住 Q 展开, 松开收回, 最多格挡 2 次后损毁)
+  bool shieldUp = false;
+  int shieldCharges = 2;
+  // 新机制: 射击 (E 发射, I/K 控制上下分量, 无限弹药 + 冷却限制)
+  float fireCd = 0;
+  int aimY = 0; // -1 上, 0 平, +1 下
+  bool firing = false; // E 是否按住 (渲染层据此决定是否画预瞄虚线)
 };
 
 struct Goomba {
   gml::vec2 pos, vel, size{28, 28};
   bool alive = true, flyer = false;
   float anim = 0, squashT = 0, baseY = 0, phase = 0;
+  int hp = 2; // 怪物血量: 需 2 发子弹消灭
 };
 
 struct Shroom {
@@ -76,13 +90,15 @@ enum State {
 struct Game {
   std::vector<int> tiles;
   std::vector<Goomba> foes;
-  std::vector<Shroom> shrooms;
+  std::vector<Shroom> shrooms; // 已弃用: 蘑菇机制移除, 保留字段避免破坏存档/关卡加载
   std::vector<CoinItem> coins;
+  std::vector<Bullet> bullets; // 新机制: 玩家子弹 (攻击用, 无法穿透方块)
   std::vector<Particle> parts;
   std::vector<Popup> popups;
   std::vector<Bump> bumps;
   std::vector<Platform> plats;
   std::vector<Cloud> clouds;
+  // lives 即心数: 初始 3, 怪物攻击 -1, 归零 GAMEOVER; 掉坑/超时直接 GAMEOVER
   int score = 0, coinCount = 0, lives = 3;
   float timeLeft = 300;
   int combo = 0;

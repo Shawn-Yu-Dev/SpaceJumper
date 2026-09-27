@@ -46,3 +46,7 @@ void Sfx::oneup()  { tone(660,660,90); tone(880,880,90); tone(1320,1320,260); }
 void Sfx::skid()   { tone(900, 500, 60, 2500); }
 void Sfx::spring() { tone(200, 900, 180); }
 void Sfx::win()    { tone(523,523,120); tone(659,659,120); tone(784,784,120); tone(1046,1046,320); }
+void Sfx::shoot()      { tone(900, 1400, 90, 5000); }
+void Sfx::shieldHit()  { tone(300, 200, 120, 7000, 1); }
+void Sfx::shieldBreak(){ tone(500, 80, 350, 7000, 2); }
+void Sfx::heart()      { tone(520,520,100); tone(780,780,100); tone(1040,1040,220); }

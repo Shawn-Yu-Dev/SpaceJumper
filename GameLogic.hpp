@@ -21,9 +21,12 @@ struct App {
   // 多关卡: 当前关索引 (0..LEVEL_COUNT-1). resetRun 按此索引加载地形.
   int currentLevelIndex = 0;
 
-  void resetRun();          // 全重置 (分数/命/时间清零) 并按 currentLevelIndex 加载
+  // 死亡原因: true = 掉坑/超时 (当前关卡重开), false = 心归零 (直接 GAMEOVER)
+  bool respawnLevel = false;
+
+  void resetRun();          // 全重置 (分数/心/盾牌/时间清零) 并按 currentLevelIndex 加载
   void resetToFirstLevel(); // 回到第一关并全重置 (WIN/GAMEOVER 重试用)
-  void loadLevelKeepScore(int idx); // 切关加载: 保留分数/金币/命, 重置时间/检查点/玩家/相机
+  void loadLevelKeepScore(int idx); // 切关加载: 保留分数/金币/心, 重置时间/检查点/玩家/相机
 };
 
 // 单个固定步长 (DT = 1/60) 的状态推进; kb 来自 SDL_GetKeyboardState

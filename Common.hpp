@@ -42,10 +42,20 @@ constexpr float COYOTE_TIME = 0.12f;
 constexpr float BUFFER_TIME = 0.16f;
 
 // Tile 类型
+// T_QUESTION 渲染为 ! 能量舱 (顶撞给随机奖励: 金币/心/盾牌/星)
 enum Tile : int {
   T_EMPTY = 0, T_GROUND = 1, T_QUESTION = 2, T_FLAG = 3,
   T_USED = 4, T_BRICK = 5, T_STONE = 7, T_SPIKE = 9
 };
+
+// 新机制参数: 盾牌 / 子弹 / 心数
+constexpr int MAX_HEARTS = 3;
+constexpr int SHIELD_MAX_CHARGES = 2;
+constexpr float SHIELD_SLOW = 0.55f;   // 举盾时移速倍率 (变慢)
+constexpr float BULLET_SPEED = 640.0f; // 子弹速度 (像素/秒)
+constexpr float BULLET_COOLDOWN = 0.25f; // 发射冷却 (秒, 无限弹药)
+constexpr float BULLET_LIFE = 2.0f;      // 子弹存活时间 (秒)
+constexpr float TRAJ_PREVIEW_LEN = 320.0f; // 预瞄虚线最大长度 (像素)
 
 inline int tidx(int c, int r) { return r * MAP_COLS + c; }
 

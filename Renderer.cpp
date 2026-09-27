@@ -14,16 +14,16 @@
 // 说明: 本文件只负责外观绘制, 不触碰任何碰撞/跳跃/状态机逻辑。
 // 映射关系 (逻辑 Tile/实体不变, 仅换皮):
 //   T_GROUND   -> 月面合金甲板 (深灰 + 青色能量条)
-//   T_BRICK    -> 货运金属箱 (紫灰 + 铆钉 + 琥珀指示灯)
-//   T_QUESTION -> 补给能量舱 (青色脉动 + 白色描边)
+//   T_BRICK    -> 蓝色能量箱 (宝蓝 + 铆钉 + 琥珀指示灯, 与紫色星云区分)
+//   T_QUESTION -> ! 能量舱 (青色脉动 + 白色描边, 顶撞给随机奖励)
 //   T_USED     -> 耗尽能量舱 (暗灰蓝)
 //   T_STONE    -> 空间站船体板 (银灰 + 高光 + 螺栓)
 //   T_FLAG     -> 信标桅杆段 (银杆 + 青色灯点)
-//   T_SPIKE    -> 等离子晶簇 (暗座 + 品红/青色晶体)
+//   T_SPIKE    -> 熔岩尖刺 (深红基座 + 亮红刺体 + 橙黄内芯, 高辨识度)
 //   Player     -> 宇航员 Nova (白衣 + 橙色喷气背包 + 青色面罩)
 //   Goomba     -> 虚空幼体 (紫色 blob + 发光眼 + 天线; 飞行种为品红侦察种)
 //   Coin       -> 星能碎片 (青色等离子椭圆 + 白核)
-//   Shroom     -> 燃料电池 (青色电芯 + 灰色接口)
+//   Shroom     -> 已移除 (顶撞 ! 方块改为随机奖励, 无掉落物)
 //   Castle     -> 月球前哨站 (穹顶 + 太阳能板 + 青色舷窗)
 //   Flag/Castle-> 信标塔 + 太阳帆
 //   Cloud/Bush -> 电离星云 / 晶簇
@@ -97,15 +97,15 @@ void renderTile(SDL_Renderer *r, int tile, int sx, int sy, float pulse, float bu
     SDL_SetRenderDrawColor(r, 28, 34, 52, 255);
     SDL_Rect sh{sx, y+TILE_SIZE-3, TILE_SIZE, 3}; SDL_RenderFillRect(r, &sh);
   } else if (tile == T_BRICK) {
-    // 货运金属箱
-    SDL_SetRenderDrawColor(r, 86, 68, 130, 255); SDL_RenderFillRect(r, &rc);
-    SDL_SetRenderDrawColor(r, 40, 32, 70, 255);
+    // 蓝色能量箱 (可踩踏, 与紫色星云区分)
+    SDL_SetRenderDrawColor(r, 45, 110, 200, 255); SDL_RenderFillRect(r, &rc);
+    SDL_SetRenderDrawColor(r, 20, 55, 120, 255);
     for (int i = 1; i < 4; ++i) { SDL_RenderDrawLine(r, sx, y+i*8, sx+TILE_SIZE, y+i*8); }
     SDL_RenderDrawLine(r, sx+16, y, sx+16, y+8); SDL_RenderDrawLine(r, sx+8, y+8, sx+8, y+16);
     SDL_RenderDrawLine(r, sx+24, y+8, sx+24, y+16); SDL_RenderDrawLine(r, sx+16, y+16, sx+16, y+24);
     SDL_RenderDrawLine(r, sx+8, y+24, sx+8, y+TILE_SIZE); SDL_RenderDrawLine(r, sx+24, y+24, sx+24, y+TILE_SIZE);
-    // 铆钉 + 琥珀指示灯 (太空货运感)
-    SDL_SetRenderDrawColor(r, 150, 130, 200, 255);
+    // 铆钉 + 琥珀指示灯 (蓝底上更醒目)
+    SDL_SetRenderDrawColor(r, 150, 200, 255, 255);
     SDL_Rect b1{sx+2, y+2, 3, 3}, b2{sx+TILE_SIZE-5, y+2, 3, 3};
     SDL_RenderFillRect(r, &b1); SDL_RenderFillRect(r, &b2);
     SDL_SetRenderDrawColor(r, 255, 170, 60, 255);
@@ -122,7 +122,7 @@ void renderTile(SDL_Renderer *r, int tile, int sx, int sy, float pulse, float bu
     SDL_SetRenderDrawColor(r, 200, 245, 255, 255);
     SDL_Rect bolt1{sx+5, y+TILE_SIZE-6, 3, 3}, bolt2{sx+TILE_SIZE-8, y+TILE_SIZE-6, 3, 3};
     SDL_RenderFillRect(r, &bolt1); SDL_RenderFillRect(r, &bolt2);
-    drawText(r, "?", sx+9, y+6, 2, {240,255,255,255});
+    drawText(r, "!", sx+9, y+6, 2, {240,255,255,255});
   } else if (tile == T_USED) {
     // 耗尽能量舱
     SDL_SetRenderDrawColor(r, 62, 72, 98, 255); SDL_RenderFillRect(r, &rc);
@@ -155,17 +155,17 @@ void renderTile(SDL_Renderer *r, int tile, int sx, int sy, float pulse, float bu
     SDL_Rect lamp{sx+13, y+6, 6, 4}; SDL_RenderFillRect(r, &lamp);
     SDL_Rect lamp2{sx+13, y+20, 6, 4}; SDL_RenderFillRect(r, &lamp2);
   } else if (tile == T_SPIKE) {
-    // 等离子晶簇
-    SDL_SetRenderDrawColor(r, 38, 42, 62, 255);
+    // 熔岩尖刺 (红色高辨识度: 深红基座 + 亮红刺体 + 橙黄内芯)
+    SDL_SetRenderDrawColor(r, 90, 20, 20, 255);
     SDL_Rect base{sx, y+22, TILE_SIZE, 10}; SDL_RenderFillRect(r, &base);
     for (int i = 0; i < 4; ++i) {
       int x0 = sx + i*8;
-      // 外层品红晶壁
-      SDL_SetRenderDrawColor(r, 220, 110, 255, 255);
+      // 外层亮红刺壁
+      SDL_SetRenderDrawColor(r, 255, 60, 60, 255);
       SDL_RenderDrawLine(r, x0, y+22, x0+4, y+8);
       SDL_RenderDrawLine(r, x0+4, y+8, x0+8, y+22);
-      // 内芯青色
-      SDL_SetRenderDrawColor(r, 120, 240, 255, 255);
+      // 内芯橙黄 (警示色)
+      SDL_SetRenderDrawColor(r, 255, 200, 60, 255);
       SDL_RenderDrawLine(r, x0+4, y+22, x0+4, y+10);
     }
     SDL_SetRenderDrawColor(r, 255, 255, 255, 255);
@@ -173,7 +173,7 @@ void renderTile(SDL_Renderer *r, int tile, int sx, int sy, float pulse, float bu
       SDL_Rect tip{sx+i*8+3, y+7, 2, 2};
       SDL_RenderFillRect(r, &tip);
     }
-    SDL_SetRenderDrawColor(r, 70, 230, 255, 255);
+    SDL_SetRenderDrawColor(r, 255, 80, 80, 255);
     SDL_Rect w{sx, y+22, TILE_SIZE, 2}; SDL_RenderFillRect(r, &w);
   }
 }
@@ -187,8 +187,7 @@ void drawPlayer(SDL_Renderer *r, const Player &p, int sx, int sy, float time) {
   bool running = fabsf(p.vel.x) > 30 && p.grounded;
   int legF = running ? (int)(time * 12) % 2 : 0;
 
-  // 护盾闪烁 (原无敌闪烁逻辑不变)
-  if (p.invincible > 0 && ((int)(time * 14) % 2 == 0)) return;
+  // 无无敌帧: 受伤无闪烁, 直接扣心 (靠位移分离避免连续受伤)
 
   // 磁力靴
   SDL_SetRenderDrawColor(r, 55, 65, 90, 255);
@@ -255,18 +254,53 @@ void drawPlayer(SDL_Renderer *r, const Player &p, int sx, int sy, float time) {
   SDL_RenderDrawLine(r, dx+dw/2, dy, dx+dw/2, dy-5);
   SDL_SetRenderDrawColor(r, 255, 120, 50, 255);
   SDL_Rect ant{dx+dw/2-1, dy-7, 3, 3}; SDL_RenderFillRect(r, &ant);
-  // 强化形态: 青色护盾描边 (原金色描边改为青色)
-  if (p.big) {
+  // 举盾形态: 按住 Q 展开青色护盾 (剩余格挡次数越多越亮)
+  if (p.shieldUp && p.shieldCharges > 0) {
+    int a = 140 + 60 * p.shieldCharges / SHIELD_MAX_CHARGES;
     SDL_SetRenderDrawColor(r, 90, 240, 255, 255);
-    SDL_Rect o{dx-1, dy-8, dw+2, dh+9};
+    SDL_Rect o{dx-4, dy-10, dw+8, dh+12};
     SDL_RenderDrawRect(r, &o);
-    SDL_SetRenderDrawColor(r, 90, 240, 255, 255);
-    SDL_Rect o2{dx-2, dy-9, dw+4, dh+11};
-    // 只画四角以示护盾 (避免全框太亮)
-    SDL_RenderDrawLine(r, o2.x, o2.y, o2.x+6, o2.y);
-    SDL_RenderDrawLine(r, o2.x, o2.y, o2.x, o2.y+6);
-    SDL_RenderDrawLine(r, o2.x+o2.w, o2.y, o2.x+o2.w-6, o2.y);
-    SDL_RenderDrawLine(r, o2.x+o2.w, o2.y, o2.x+o2.w, o2.y+6);
+    (void)a;
+    // 四角加固线以示护盾
+    SDL_RenderDrawLine(r, o.x, o.y, o.x+7, o.y);
+    SDL_RenderDrawLine(r, o.x, o.y, o.x, o.y+7);
+    SDL_RenderDrawLine(r, o.x+o.w, o.y, o.x+o.w-7, o.y);
+    SDL_RenderDrawLine(r, o.x+o.w, o.y, o.x+o.w, o.y+7);
+    SDL_RenderDrawLine(r, o.x, o.y+o.h, o.x+7, o.y+o.h);
+    SDL_RenderDrawLine(r, o.x, o.y+o.h, o.x, o.y+o.h-7);
+    SDL_RenderDrawLine(r, o.x+o.w, o.y+o.h, o.x+o.w-7, o.y+o.h);
+    SDL_RenderDrawLine(r, o.x+o.w, o.y+o.h, o.x+o.w, o.y+o.h-7);
+  }
+}
+
+void drawBullet(SDL_Renderer *r, const Bullet &b, int camX, int camY) {
+  // 子弹: 黄白等离子弹 (攻击用)
+  int sx = (int)(b.pos.x - camX), sy = (int)(b.pos.y - camY);
+  SDL_SetRenderDrawColor(r, 255, 180, 60, 255);
+  SDL_Rect glow{sx-2, sy-2, (int)b.size.x+4, (int)b.size.y+4};
+  SDL_RenderFillRect(r, &glow);
+  SDL_SetRenderDrawColor(r, 255, 245, 200, 255);
+  SDL_Rect core{sx, sy, (int)b.size.x, (int)b.size.y};
+  SDL_RenderFillRect(r, &core);
+}
+
+void drawTrajectory(SDL_Renderer *r, const Game &g, const Player &pl, int camX, int camY) {
+  // 预瞄虚线: 从玩家中心沿发射方向步进, 遇实心方块即止
+  float dx = (float)pl.face, dy = (float)pl.aimY * 0.6f;
+  float len = sqrtf(dx*dx + dy*dy);
+  if (len < 0.01f) return;
+  dx /= len; dy /= len;
+  float ox = pl.pos.x + pl.size.x / 2, oy = pl.pos.y + pl.size.y * 0.4f;
+  SDL_SetRenderDrawColor(r, 255, 220, 120, 255);
+  for (float t = 16.0f; t < TRAJ_PREVIEW_LEN; t += 14.0f) {
+    float px = ox + dx * t, py = oy + dy * t;
+    int c = (int)floorf(px / TILE_SIZE), rr = (int)floorf(py / TILE_SIZE);
+    if (c < 0 || c >= MAP_COLS || rr < 0 || rr >= MAP_ROWS) break;
+    int tile = g.tiles[tidx(c, rr)];
+    if (tile == T_GROUND || tile == T_QUESTION || tile == T_USED ||
+        tile == T_BRICK || tile == T_STONE) break;
+    SDL_Rect dot{(int)(px - camX), (int)(py - camY), 3, 3};
+    SDL_RenderFillRect(r, &dot);
   }
 }
 
@@ -283,9 +317,10 @@ void drawGoomba(SDL_Renderer *r, const Goomba &e, int sx, int sy, float time) {
   }
   float bob = sinf(time * 10 + e.phase) * 1.5f;
   int by = sy + (int)bob;
-  // 身体
-  if (e.flyer) SDL_SetRenderDrawColor(r, 225, 110, 190, 255); // 品红侦察种
-  else SDL_SetRenderDrawColor(r, 135, 105, 230, 255);         // 紫色幼体
+  // 身体 (受伤后变红提示: 还需 1 发)
+  if (e.hp <= 1) SDL_SetRenderDrawColor(r, 235, 90, 90, 255);
+  else if (e.flyer) SDL_SetRenderDrawColor(r, 225, 110, 190, 255); // 品红侦察种
+  else SDL_SetRenderDrawColor(r, 135, 105, 230, 255);              // 紫色幼体
   SDL_Rect body{sx, by, w, h-6}; SDL_RenderFillRect(r, &body);
   // 肚皮高光
   SDL_SetRenderDrawColor(r, 190, 170, 255, 255);
@@ -552,33 +587,22 @@ void renderAll(SDL_Renderer *ren, App &app) {
       SDL_SetRenderDrawColor(ren, 255, 255, 255, 255);
       SDL_Rect core{sx+12, sy+11, 4, 4}; SDL_RenderFillRect(ren, &core);
     }
-    // 燃料电池 (原蘑菇位置/逻辑不变)
-    for (auto &s : g.shrooms) {
-      if (!s.active || s.dead) continue;
-      int sx=(int)(s.pos.x-camX), sy=(int)(s.pos.y-camY);
-      // 顶部电芯
-      SDL_SetRenderDrawColor(ren, 70, 215, 255, 255);
-      SDL_Rect cap{sx, sy, 28, 16}; SDL_RenderFillRect(ren, &cap);
-      SDL_SetRenderDrawColor(ren, 20, 80, 110, 255); SDL_RenderDrawRect(ren, &cap);
-      SDL_SetRenderDrawColor(ren, 230, 255, 255, 255);
-      SDL_Rect b1{sx+4,sy+4,6,5}, b2{sx+18,sy+4,6,5}; SDL_RenderFillRect(ren,&b1); SDL_RenderFillRect(ren,&b2);
-      // 中环
-      SDL_SetRenderDrawColor(ren, 35, 55, 85, 255);
-      SDL_Rect mid{sx, sy+16, 28, 4}; SDL_RenderFillRect(ren, &mid);
-      // 底部接口
-      SDL_SetRenderDrawColor(ren, 180, 190, 205, 255);
-      SDL_Rect stem{sx+7, sy+20, 14, 8}; SDL_RenderFillRect(ren, &stem);
-      SDL_SetRenderDrawColor(ren, 30, 45, 70, 255);
-      SDL_Rect e1{sx+9,sy+22,3,4}, e2{sx+16,sy+22,3,4}; SDL_RenderFillRect(ren,&e1); SDL_RenderFillRect(ren,&e2);
-      SDL_SetRenderDrawColor(ren, 90, 235, 255, 255);
-      SDL_Rect led{sx+12, sy+16, 4, 2}; SDL_RenderFillRect(ren, &led);
-    }
+    // 蘑菇/燃料电池机制已移除 (顶撞 ! 方块改为随机奖励, 无掉落物)
     // 敌人
     for (auto &e : g.foes) {
       if (!e.alive && e.squashT <= 0) continue;
       int sx=(int)(e.pos.x-camX), sy=(int)(e.pos.y-camY);
       if (sx < -60 || sx > WINDOW_WIDTH+60) continue;
       drawGoomba(ren, e, sx, sy, globalT);
+    }
+    // 预瞄虚线 (仅按住 E 时显示, 松开即消失; 遇方块即止)
+    if (state == ST_PLAY && !paused && pl.firing) {
+      drawTrajectory(ren, g, pl, camX, camY);
+    }
+    // 子弹
+    for (auto &b : g.bullets) {
+      if (b.dead) continue;
+      drawBullet(ren, b, camX, camY);
     }
     // 玩家
     if (state != ST_GAMEOVER) {
@@ -606,20 +630,31 @@ void renderAll(SDL_Renderer *ren, App &app) {
   SDL_RenderDrawLine(ren, 0, HUD_HEIGHT, WINDOW_WIDTH, HUD_HEIGHT);
   {
     char buf[64];
+    // 左上角心数 (初始 3 颗, 怪物攻击 -1)
+    {
+      int hp = std::max(0, g.lives);
+      char stars[4] = {' ', ' ', ' ', '\0'};
+      for (int i = 0; i < hp && i < 3; ++i) stars[i] = '*';
+      snprintf(buf, sizeof(buf), "HP %s", stars);
+      SDL_Color hc = hp >= 3 ? SDL_Color{140,255,180,255}
+                   : hp == 2 ? SDL_Color{255,230,130,255}
+                             : SDL_Color{255,120,120,255};
+      drawText(ren, buf, 12, 6, 2, hc);
+    }
     snprintf(buf, sizeof(buf), "SCORE %06d", g.score);
-    drawText(ren, buf, 12, 6, 2, {255,255,255,255});
+    drawText(ren, buf, 130, 6, 2, {255,255,255,255});
     snprintf(buf, sizeof(buf), "SHARDS X%02d", g.coinCount);
-    drawText(ren, buf, 250, 6, 2, {120,240,255,255});
+    drawText(ren, buf, 340, 6, 2, {120,240,255,255});
     snprintf(buf, sizeof(buf), "SECTOR 1-%d", app.currentLevelIndex + 1);
-    drawText(ren, buf, 470, 6, 2, {150,220,255,255});
+    drawText(ren, buf, 540, 6, 2, {150,220,255,255});
     snprintf(buf, sizeof(buf), "TIME %03d", (int)ceil(g.timeLeft));
     SDL_Color tc = g.timeLeft < 60 ? SDL_Color{255,120,120,255} : SDL_Color{255,255,255,255};
-    drawText(ren, buf, 650, 6, 2, tc);
-    snprintf(buf, sizeof(buf), "LIVES X%d", std::max(0, g.lives));
-    drawText(ren, buf, 810, 6, 2, {140,255,180,255});
+    drawText(ren, buf, 720, 6, 2, tc);
+    snprintf(buf, sizeof(buf), "SHD X%d", std::max(0, pl.shieldCharges));
+    drawText(ren, buf, 860, 6, 2, {90,235,255,255});
     // 第二行小提示
     SDL_Color dim{130,150,180,255};
-    drawText(ren, pl.big ? "SHIELD UP  SHIFT BOOST  P PAUSE" : "SHIFT BOOST  SPACE JUMP  P PAUSE", 12, 26, 1, dim);
+    drawText(ren, "Q SHIELD  E FIRE  I/K AIM  SPACE JUMP", 12, 26, 1, dim);
     if (SFX.muted) drawText(ren, "MUTED", WINDOW_WIDTH-70, 26, 1, {255,120,120,255});
   }
 
@@ -642,8 +677,8 @@ void renderAll(SDL_Renderer *ren, App &app) {
       SDL_Rect strip{bx-80, by+42, 220, 3}; SDL_RenderFillRect(ren, &strip);
     }
     drawTextCenter(ren, "A/D MOVE  SPACE JUMP  SHIFT BOOST", WINDOW_WIDTH/2, 380, 2, {255,255,255,255});
-    drawTextCenter(ren, "STOMP ALIENS  BUMP PODS  REACH BEACON", WINDOW_WIDTH/2, 404, 2, {170,240,255,255});
-    drawTextCenter(ren, "30 SHARDS = 1UP  FUEL CELL = SHIELD", WINDOW_WIDTH/2, 428, 2, {255,220,150,255});
+    drawTextCenter(ren, "E FIRE  I/K AIM  Q SHIELD  REACH BEACON", WINDOW_WIDTH/2, 404, 2, {170,240,255,255});
+    drawTextCenter(ren, "3 HEARTS  SHIELD X2  FOES X2 HITS", WINDOW_WIDTH/2, 428, 2, {255,220,150,255});
     if ((int)(globalT*2)%2==0)
       drawTextCenter(ren, "PRESS ENTER TO START", WINDOW_WIDTH/2, 480, 3, {255,255,255,255});
     drawTextCenter(ren, "M MUTE  R RESTART", WINDOW_WIDTH/2, 530, 1, {150,150,150,255});

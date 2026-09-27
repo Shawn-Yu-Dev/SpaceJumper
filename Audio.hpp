@@ -22,6 +22,10 @@ struct Sfx {
   void skid();
   void spring();
   void win();
+  void shoot();      // 新机制: 子弹发射
+  void shieldHit();  // 新机制: 盾牌格挡
+  void shieldBreak();// 新机制: 盾牌损毁
+  void heart();      // 新机制: 回复心
 };
 
 extern Sfx SFX;
