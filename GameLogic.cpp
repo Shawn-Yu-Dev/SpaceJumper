@@ -57,12 +57,15 @@ void updateFx(Game &g, float DT) {
   for (auto &c : g.clouds) { c.x += c.v * DT; if (c.x > WORLD_WIDTH + 200) c.x = -200; }
 }
 
-// 新机制: 玩家受伤判定 (无无敌帧, 用位移分离避免同帧连续受伤)
+// 受伤判定 (1 秒无敌帧: 受伤后 invincT 内免伤 + 红色闪烁)
 // 返回 true 表示此次受伤致死 (心归零, 调用方负责切 ST_DYING)
 static bool hurtPlayer(Game &g, Player &pl, float srcX) {
+  // 无敌时间内直接免伤 (不再扣心/扣盾, 也不做击退, 避免抖动)
+  if (pl.invincT > 0 || pl.dead) return false;
   // 盾牌优先: 举盾且有剩余格挡次数则消耗一次格挡
   if (pl.shieldUp && pl.shieldCharges > 0) {
     pl.shieldCharges--;
+    pl.invincT = HURT_INVINCIBLE_TIME; // 格挡成功同样进无敌, 避免连续接触瞬间耗光盾
     if (pl.shieldCharges <= 0) {
       SFX.shieldBreak();
       g.popups.push_back({{pl.pos.x, pl.pos.y - 40}, "SHIELD BROKEN!", 1.4f, {255,120,120,255}});
@@ -72,20 +75,21 @@ static bool hurtPlayer(Game &g, Player &pl, float srcX) {
       g.popups.push_back({{pl.pos.x, pl.pos.y - 40}, buf, 1.0f, {90,235,255,255}});
     }
     burst(g, {pl.pos.x + 12, pl.pos.y + 20}, 10, {90,235,255,255}, 180, 500, 3);
-    // 推离伤害源 (无无敌帧, 靠位移分离)
+    // 推离伤害源 (无敌帧内靠 invincT 免伤, 位移分离仅做手感)
     pl.pos.x += (pl.pos.x + pl.size.x / 2 < srcX) ? -14.0f : 14.0f;
     pl.vel.y = -260.0f;
     return false;
   }
-  // 无盾: 掉 1 心
+  // 无盾: 掉 1 心, 并进入 1 秒无敌
   g.lives--;
+  pl.invincT = HURT_INVINCIBLE_TIME;
   SFX.hurt();
   burst(g, {pl.pos.x + 12, pl.pos.y + 20}, 10, {255,80,80,255}, 180, 500, 3);
   if (g.lives > 0) {
     char buf[32]; snprintf(buf, sizeof(buf), "-1 HEART X%d", g.lives);
     g.popups.push_back({{pl.pos.x, pl.pos.y - 40}, buf, 1.2f, {255,120,120,255}});
   }
-  // 推离伤害源 (无无敌帧, 靠位移分离)
+  // 推离伤害源 (无敌帧内靠 invincT 免伤, 位移分离仅做手感)
   pl.pos.x += (pl.pos.x + pl.size.x / 2 < srcX) ? -14.0f : 14.0f;
   pl.vel.y = -260.0f;
   return g.lives <= 0;
@@ -103,6 +107,11 @@ void updateFixedStep(App &app, float DT, const Uint8 *kb) {
     // ---- 计时 ----
     g.timeLeft -= DT;
     if (g.timeLeft <= 0) { g.timeLeft = 0; SFX.die(); state = ST_DYING; g.stateT = 0; pl.dead = true; pl.vel = {0, -650}; app.respawnLevel = true; }
+    // ---- 受伤无敌计时 (1 秒免伤, 渲染层据此红色闪烁) ----
+    if (pl.invincT > 0) {
+      pl.invincT -= DT;
+      if (pl.invincT < 0) pl.invincT = 0;
+    }
 
     // ---- 检查点 (x 超过本关中点即激活, 配表驱动) ----
     {
@@ -364,9 +373,9 @@ void updateFixedStep(App &app, float DT, const Uint8 *kb) {
         }
       }
       if (e.pos.y > WORLD_HEIGHT + 80) { e.alive = false; continue; }
-      // 与玩家交互 (新机制: 踩踏已移除, 接触即受伤; 子弹用于攻击, 盾牌用于防卫)
-      if (!pl.dead && aabb(pl.pos, pl.size, e.pos, e.size)) {
-        // 弹开敌人避免同帧连续受伤 (无无敌帧, 靠位移分离)
+      // 与玩家交互 (踩踏已移除, 接触即受伤; 子弹攻击, 盾牌防卫; 无敌帧内免伤)
+      if (!pl.dead && pl.invincT <= 0 && aabb(pl.pos, pl.size, e.pos, e.size)) {
+        // 仅实际受伤时才弹开敌人, 无敌帧内不翻转避免抖动
         e.vel.x = -e.vel.x;
         if (hurtPlayer(g, pl, e.pos.x + e.size.x / 2)) {
           SFX.die(); state = ST_DYING; g.stateT = 0; pl.dead = true; pl.vel = {60,-650};

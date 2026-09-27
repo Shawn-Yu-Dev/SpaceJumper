@@ -19,6 +19,8 @@ struct Player {
   float skidT = 0;
   int face = 1; bool jumpHeld = false;
   bool dead = false;
+  // 受伤无敌: 受伤后 1 秒内免伤 (HURT_INVINCIBLE_TIME), 渲染层据此做红色闪烁
+  float invincT = 0;
   // 新机制: 盾牌 (按住 Q 展开, 松开收回, 最多格挡 2 次后损毁)
   bool shieldUp = false;
   int shieldCharges = 2;

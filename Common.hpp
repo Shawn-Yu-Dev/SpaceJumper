@@ -56,6 +56,7 @@ constexpr float BULLET_SPEED = 640.0f; // 子弹速度 (像素/秒)
 constexpr float BULLET_COOLDOWN = 0.25f; // 发射冷却 (秒, 无限弹药)
 constexpr float BULLET_LIFE = 2.0f;      // 子弹存活时间 (秒)
 constexpr float TRAJ_PREVIEW_LEN = 320.0f; // 预瞄虚线最大长度 (像素)
+constexpr float HURT_INVINCIBLE_TIME = 1.0f; // 受伤后无敌时间 (秒), 期间红色闪烁+免伤
 
 inline int tidx(int c, int r) { return r * MAP_COLS + c; }
 

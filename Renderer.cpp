@@ -187,7 +187,7 @@ void drawPlayer(SDL_Renderer *r, const Player &p, int sx, int sy, float time) {
   bool running = fabsf(p.vel.x) > 30 && p.grounded;
   int legF = running ? (int)(time * 12) % 2 : 0;
 
-  // 无无敌帧: 受伤无闪烁, 直接扣心 (靠位移分离避免连续受伤)
+  // 受伤无敌: 红色闪烁由函数尾部统一叠加 (见文末 invincT 处理)
 
   // 磁力靴
   SDL_SetRenderDrawColor(r, 55, 65, 90, 255);
@@ -270,6 +270,18 @@ void drawPlayer(SDL_Renderer *r, const Player &p, int sx, int sy, float time) {
     SDL_RenderDrawLine(r, o.x, o.y+o.h, o.x, o.y+o.h-7);
     SDL_RenderDrawLine(r, o.x+o.w, o.y+o.h, o.x+o.w-7, o.y+o.h);
     SDL_RenderDrawLine(r, o.x+o.w, o.y+o.h, o.x+o.w, o.y+o.h-7);
+  }
+  // 受伤无敌: 红色闪烁 (1 秒内约 6Hz 明灭, 半透明红罩提示免伤中)
+  if (p.invincT > 0 && ((int)(time * 12.0f) % 2 == 0)) {
+    SDL_SetRenderDrawBlendMode(r, SDL_BLENDMODE_BLEND);
+    SDL_SetRenderDrawColor(r, 255, 45, 45, 130);
+    SDL_Rect flash{dx - 2, dy - 7, dw + 4, dh + 7};
+    SDL_RenderFillRect(r, &flash);
+    // 红罩内再加一层实心红核以强化“变红”观感
+    SDL_SetRenderDrawColor(r, 255, 70, 70, 200);
+    SDL_Rect coreFlash{dx + 2, dy + 14, dw - 4, dh - 22};
+    SDL_RenderFillRect(r, &coreFlash);
+    SDL_SetRenderDrawBlendMode(r, SDL_BLENDMODE_NONE);
   }
 }
 
