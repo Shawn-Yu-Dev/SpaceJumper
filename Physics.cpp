@@ -1,5 +1,6 @@
 #include "Physics.hpp"
 #include "Entities.hpp"
+#include "Level.hpp"
 #include <algorithm>
 #include <cmath>
 #include <cstdlib>
@@ -12,9 +13,7 @@ bool boxHitTile(const Game &g, const gml::vec2 &pos, const gml::vec2 &sz) {
   for (int r = r0; r <= r1; ++r)
     for (int c = c0; c <= c1; ++c) {
       int t = g.tiles[tidx(c, r)];
-      // solidTile 内联于此以避免跨模块调用开销 (性能不妥协)
-      bool solid = (t==T_GROUND||t==T_QUESTION||t==T_USED||t==T_BRICK||t==T_STONE);
-      if (solid) return true;
+      if (solidTile(t)) return true;
     }
   return false;
 }

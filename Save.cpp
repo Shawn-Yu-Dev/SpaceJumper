@@ -1,5 +1,7 @@
 #include "Save.hpp"
+#include "Level.hpp"
 #include <cstdio>
+#include <cstring>
 
 const char *saveFilePath() { return "save.dat"; }
 
@@ -24,13 +26,13 @@ bool loadGameFromFile(SaveData &d) {
   fclose(f);
   if (n != 7) return false;
   // C++17 起 __func__ 外可用; 此处用普通字符串比较
-  bool okMagic = (magic[0] == 'M' && magic[1] == 'A' && magic[2] == 'R');
+  bool okMagic = (strncmp(magic, "MARIO1", 6) == 0);
   if (!okMagic) return false;
   int expect = unlocked * 31 + level * 17 + score * 7 + coins * 13 + lives * 19;
   if (expect != chk) return false;
   // 钳制 (防坏档导致越界)
   if (unlocked < 0) unlocked = 0;
-  if (unlocked > 9) unlocked = 9;
+  if (unlocked > LEVEL_COUNT - 1) unlocked = LEVEL_COUNT - 1;
   if (level < 0) level = 0;
   if (level > unlocked) level = unlocked;
   if (score < 0) score = 0;
@@ -46,9 +48,6 @@ bool loadGameFromFile(SaveData &d) {
 }
 
 bool hasSaveFile() {
-  FILE *f = fopen(saveFilePath(), "r");
-  if (!f) return false;
-  fclose(f);
   SaveData d;
   return loadGameFromFile(d);
 }

@@ -709,7 +709,7 @@ void buildLevel(Game &g, int levelIndex) {
       if (c >= L.pits[i].c0 && c < L.pits[i].c1) { inPit = true; break; }
     }
     if (inPit) continue;
-    setT(g, c, 17, T_GROUND); setT(g, c, 18, T_GROUND);
+    setT(g, c, GROUND_ROW, T_GROUND); setT(g, c, GROUND_ROW + 1, T_GROUND);
   }
 
   // 连续砖块行 (中点变问号, 公式与老 brickRow lambda 一致)
@@ -731,11 +731,11 @@ void buildLevel(Game &g, int levelIndex) {
   for (int i = 0; i < L.specialCount; ++i)
     setT(g, L.specials[i].c, L.specials[i].r, L.specials[i].tile);
 
-  // 旗杆 + 城堡地基 (由 flagCol 程序化生成, 老逻辑: 旗 r=5..16, 城堡 c=flag+2..flag+6)
+  // 旗杆 + 城堡地基 (由 flagCol 程序化生成)
   g.flagCol = L.flagCol;
-  for (int r = 5; r <= 16; ++r) setT(g, g.flagCol, r, T_FLAG);
+  for (int r = FLAG_TOP_ROW; r <= SURFACE_ROW; ++r) setT(g, g.flagCol, r, T_FLAG);
   for (int c = g.flagCol + 2; c <= g.flagCol + 6 && c < MAP_COLS; ++c) {
-    setT(g, c, 16, T_STONE); setT(g, c, 17, T_GROUND); setT(g, c, 18, T_GROUND);
+    setT(g, c, SURFACE_ROW, T_STONE); setT(g, c, GROUND_ROW, T_GROUND); setT(g, c, GROUND_ROW + 1, T_GROUND);
   }
 
   // 金币直线 (像素公式与老逻辑逐位一致: x=c*32+2, y=r*32)

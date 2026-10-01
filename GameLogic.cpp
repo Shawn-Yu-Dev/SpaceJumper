@@ -495,7 +495,7 @@ void updateFixedStep(App &app, float DT, const Uint8 *kb) {
         if (e.pos.x < 0) { e.pos.x = 0; e.moveDir = 1; }
         if (e.pos.x > WORLD_WIDTH - e.size.x) { e.pos.x = WORLD_WIDTH - e.size.x; e.moveDir = -1; }
         if (e.pos.y < 40) e.pos.y = 40;
-        if (e.pos.y > 16 * TILE_SIZE - 20) e.pos.y = 16 * TILE_SIZE - 20;
+        if (e.pos.y > SURFACE_ROW * TILE_SIZE - 20) e.pos.y = SURFACE_ROW * TILE_SIZE - 20;
         e.vel.x = vx; e.vel.y = vy;
         // 掉队迁巢: 落后镜头太远则前移到镜头前方 (保持压力, 同时更新 homeX)
         if (e.pos.x + 30 < cam.x - 400) {
@@ -695,7 +695,7 @@ void updateFixedStep(App &app, float DT, const Uint8 *kb) {
     }
     // ---- 到旗 ----
     float flagX = g.flagCol * TILE_SIZE + 6;
-    if (pl.pos.x + pl.size.x >= flagX && pl.pos.y + pl.size.y > 5 * TILE_SIZE) {
+    if (pl.pos.x + pl.size.x >= flagX && pl.pos.y + pl.size.y > FLAG_TOP_ROW * TILE_SIZE) {
       state = ST_WINANIM; g.stateT = 0; g.winT = 0;
       pl.pos.x = flagX - pl.size.x - 2;
       SFX.win();
@@ -738,10 +738,10 @@ void updateFixedStep(App &app, float DT, const Uint8 *kb) {
   } else if (state == ST_WINANIM) {
     g.stateT += DT;
     // 沿旗下滑
-    if (pl.pos.y + pl.size.y < 16 * TILE_SIZE) {
+    if (pl.pos.y + pl.size.y < SURFACE_ROW * TILE_SIZE) {
       pl.pos.y += 220 * DT;
     } else {
-      pl.pos.y = 16*TILE_SIZE - pl.size.y;
+      pl.pos.y = SURFACE_ROW * TILE_SIZE - pl.size.y;
       pl.pos.x += 120 * DT; // 自动向右走向城堡
       pl.anim += DT * 8;
     }

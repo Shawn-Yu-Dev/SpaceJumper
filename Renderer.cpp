@@ -482,25 +482,25 @@ void renderAll(SDL_Renderer *ren, App &app) {
     {
       int fx = g.flagCol*TILE_SIZE - camX;
       SDL_SetRenderDrawColor(ren, 185, 195, 215, 255);
-      SDL_Rect pole{fx+13, 5*TILE_SIZE-camY, 6, 12*TILE_SIZE};
+      SDL_Rect pole{fx+13, FLAG_TOP_ROW*TILE_SIZE-camY, 6, (GROUND_ROW-FLAG_TOP_ROW)*TILE_SIZE};
       SDL_RenderFillRect(ren, &pole);
       SDL_SetRenderDrawColor(ren, 110, 125, 150, 255);
-      SDL_RenderDrawLine(ren, fx+13, 5*TILE_SIZE-camY, fx+13, 17*TILE_SIZE-camY);
+      SDL_RenderDrawLine(ren, fx+13, FLAG_TOP_ROW*TILE_SIZE-camY, fx+13, GROUND_ROW*TILE_SIZE-camY);
       // 横向能量环
       SDL_SetRenderDrawColor(ren, 80, 230, 255, 255);
-      for (int yy = 6*TILE_SIZE; yy < 16*TILE_SIZE; yy += TILE_SIZE) {
+      for (int yy = (FLAG_TOP_ROW+1)*TILE_SIZE; yy < SURFACE_ROW*TILE_SIZE; yy += TILE_SIZE) {
         SDL_Rect ring{fx+11, yy-camY, 10, 2};
         SDL_RenderFillRect(ren, &ring);
       }
       // 顶部信标灯 (呼吸)
       int pulse = (int)(200 + 55 * sinf(globalT * 5.0f));
       SDL_SetRenderDrawColor(ren, 255, 175, 70, 255);
-      SDL_Rect ball{fx+8, 5*TILE_SIZE-10-camY, 16, 16}; SDL_RenderFillRect(ren, &ball);
+      SDL_Rect ball{fx+8, FLAG_TOP_ROW*TILE_SIZE-10-camY, 16, 16}; SDL_RenderFillRect(ren, &ball);
       SDL_SetRenderDrawColor(ren, 255, pulse, 120, 255);
-      SDL_Rect hot{fx+11, 5*TILE_SIZE-7-camY, 10, 10}; SDL_RenderFillRect(ren, &hot);
+      SDL_Rect hot{fx+11, FLAG_TOP_ROW*TILE_SIZE-7-camY, 10, 10}; SDL_RenderFillRect(ren, &hot);
       float wv = sinf(globalT*6)*4;
-      int fy = 5*TILE_SIZE+20 - camY + ((state==ST_WINANIM || state==ST_NEXTLEVEL) ? (int)(g.stateT*60) : 0);
-      if (fy > 12*TILE_SIZE-camY) fy = 12*TILE_SIZE-camY;
+      int fy = FLAG_TOP_ROW*TILE_SIZE+20 - camY + ((state==ST_WINANIM || state==ST_NEXTLEVEL) ? (int)(g.stateT*60) : 0);
+      if (fy > FLAG_STOP_ROW*TILE_SIZE-camY) fy = FLAG_STOP_ROW*TILE_SIZE-camY;
       // 太阳帆
       SDL_SetRenderDrawColor(ren, 35, 55, 120, 255);
       SDL_Rect flag{fx-44, fy, 50, 32}; SDL_RenderFillRect(ren, &flag);
@@ -511,7 +511,7 @@ void renderAll(SDL_Renderer *ren, App &app) {
       drawText(ren, "*", fx-28, fy+2, 2, {180,240,255,255});
       (void)wv;
       // 月球前哨站 (穹顶 + 太阳能板, 与老城堡同包络)
-      int cx = (g.flagCol+3)*TILE_SIZE - camX, cy = 16*TILE_SIZE - camY;
+      int cx = (g.flagCol+3)*TILE_SIZE - camX, cy = SURFACE_ROW*TILE_SIZE - camY;
       SDL_SetRenderDrawColor(ren, 150, 165, 190, 255);
       SDL_Rect cb{cx-30, cy-90, 110, 90}; SDL_RenderFillRect(ren, &cb);
       SDL_SetRenderDrawColor(ren, 110, 125, 155, 255);
@@ -542,7 +542,7 @@ void renderAll(SDL_Renderer *ren, App &app) {
       // 检查点信号塔 (跟随配表 checkpointCol+1, 逻辑不变)
       if (true) {
         int cpCol = levelCheckpointCol(app.currentLevelIndex);
-        int qx = (cpCol+1)*TILE_SIZE - camX, qy = 16*TILE_SIZE - camY;
+        int qx = (cpCol+1)*TILE_SIZE - camX, qy = SURFACE_ROW*TILE_SIZE - camY;
         SDL_SetRenderDrawColor(ren, 120, 130, 155, 255);
         SDL_Rect qp{qx, qy-110, 4, 110}; SDL_RenderFillRect(ren, &qp);
         if (g.checkpointOn) {
@@ -562,8 +562,8 @@ void renderAll(SDL_Renderer *ren, App &app) {
     }
     // 晶簇 (地面装饰, 位置逻辑不变)
     for (int c = c0; c <= c1; ++c) {
-      if (getT(g,c,17)==T_GROUND && getT(g,c,16)!=T_SPIKE && c%7==3) {
-        drawBush(ren, c*TILE_SIZE-camX, 17*TILE_SIZE-camY, 40);
+      if (getT(g,c,GROUND_ROW)==T_GROUND && getT(g,c,SURFACE_ROW)!=T_SPIKE && c%7==3) {
+        drawBush(ren, c*TILE_SIZE-camX, GROUND_ROW*TILE_SIZE-camY, 40);
       }
     }
     // 悬浮平台 (磁悬浮甲板)

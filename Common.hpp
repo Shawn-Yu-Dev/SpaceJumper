@@ -15,7 +15,6 @@ struct vec2 {
 } // namespace gml
 
 // 固定视野缩放: 玩法/渲染一律用 960x600 逻辑坐标, SDL 自动缩放到任意窗口.
-// winActualW/H 仅记录 OS 实际窗口像素, 不参与任何相机/绘制.
 constexpr int LOGICAL_WIDTH = 960;
 constexpr int LOGICAL_HEIGHT = 600;
 constexpr int WINDOW_WIDTH = 960;
@@ -27,6 +26,12 @@ constexpr int MAP_COLS = 124;
 constexpr int MAP_ROWS = 19;
 constexpr int WORLD_WIDTH = MAP_COLS * TILE_SIZE;
 constexpr int WORLD_HEIGHT = MAP_ROWS * TILE_SIZE;
+
+// 地图布局常量: 所有行高统一在此, 关卡生成/渲染/逻辑全部引用同一个 token.
+constexpr int GROUND_ROW = 17;          // 地面 tiles 起始行 (连续两行: GROUND_ROW, GROUND_ROW+1)
+constexpr int SURFACE_ROW = 16;         // 地表行 (建筑地基 / 飞行怪下界 / 晶簇检测行)
+constexpr int FLAG_TOP_ROW = 5;         // 旗杆顶端行 (旗面起始悬挂点)
+constexpr int FLAG_STOP_ROW = 12;       // 通关动画中旗帜最终停靠行 (城堡上方)
 
 // 物理手感参数
 constexpr float GRAVITY = 1500.0f;
@@ -50,7 +55,7 @@ enum Tile : int {
 
 // 新机制参数: 盾牌 / 子弹 / 心数
 constexpr int MAX_HEARTS = 3;
-constexpr int SHIELD_MAX_CHARGES = 2;
+constexpr int SHIELD_MAX_CHARGES = 3;
 constexpr float SHIELD_SLOW = 0.55f;   // 举盾时移速倍率 (变慢)
 constexpr float BULLET_SPEED = 640.0f; // 子弹速度 (像素/秒)
 constexpr float BULLET_COOLDOWN = 0.25f; // 发射冷却 (秒, 无限弹药)
@@ -59,7 +64,3 @@ constexpr float TRAJ_PREVIEW_LEN = 320.0f; // 预瞄虚线最大长度 (像素)
 constexpr float HURT_INVINCIBLE_TIME = 1.0f; // 受伤后无敌时间 (秒), 期间红色闪烁+免伤
 
 inline int tidx(int c, int r) { return r * MAP_COLS + c; }
-
-// 可变全局: 仅声明, 定义在 Common.cpp (消除头文件全局污染)
-extern int winActualW;
-extern int winActualH;

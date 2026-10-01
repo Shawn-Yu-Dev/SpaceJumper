@@ -55,13 +55,6 @@ int main(int argc, char *argv[]) {
     SDL_Event ev;
     while (SDL_PollEvent(&ev)) {
       if (ev.type == SDL_QUIT) running = false;
-      if (ev.type == SDL_WINDOWEVENT &&
-          (ev.window.event == SDL_WINDOWEVENT_RESIZED ||
-           ev.window.event == SDL_WINDOWEVENT_SIZE_CHANGED)) {
-        // 仅记录实际窗口像素, 不碰逻辑视口(玩法/渲染保持 960x600, 由 SDL 自动缩放)
-        winActualW = ev.window.data1;
-        winActualH = ev.window.data2;
-      }
       if (ev.type == SDL_KEYDOWN && ev.key.repeat == 0) {
         auto sym = ev.key.keysym.sym;
         if (sym == SDLK_m) SFX.muted = !SFX.muted;
