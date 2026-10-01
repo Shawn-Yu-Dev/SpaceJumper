@@ -129,221 +129,221 @@ mario/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/build
 .PHONY : mario/fast
 
-Audio.o: Audio.cpp.o
-.PHONY : Audio.o
+src/audio/Audio.o: src/audio/Audio.cpp.o
+.PHONY : src/audio/Audio.o
 
 # target to build an object file
-Audio.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/Audio.cpp.o
-.PHONY : Audio.cpp.o
+src/audio/Audio.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/audio/Audio.cpp.o
+.PHONY : src/audio/Audio.cpp.o
 
-Audio.i: Audio.cpp.i
-.PHONY : Audio.i
+src/audio/Audio.i: src/audio/Audio.cpp.i
+.PHONY : src/audio/Audio.i
 
 # target to preprocess a source file
-Audio.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/Audio.cpp.i
-.PHONY : Audio.cpp.i
+src/audio/Audio.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/audio/Audio.cpp.i
+.PHONY : src/audio/Audio.cpp.i
 
-Audio.s: Audio.cpp.s
-.PHONY : Audio.s
+src/audio/Audio.s: src/audio/Audio.cpp.s
+.PHONY : src/audio/Audio.s
 
 # target to generate assembly for a file
-Audio.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/Audio.cpp.s
-.PHONY : Audio.cpp.s
+src/audio/Audio.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/audio/Audio.cpp.s
+.PHONY : src/audio/Audio.cpp.s
 
-Common.o: Common.cpp.o
-.PHONY : Common.o
+src/core/Common.o: src/core/Common.cpp.o
+.PHONY : src/core/Common.o
 
 # target to build an object file
-Common.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/Common.cpp.o
-.PHONY : Common.cpp.o
+src/core/Common.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/core/Common.cpp.o
+.PHONY : src/core/Common.cpp.o
 
-Common.i: Common.cpp.i
-.PHONY : Common.i
+src/core/Common.i: src/core/Common.cpp.i
+.PHONY : src/core/Common.i
 
 # target to preprocess a source file
-Common.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/Common.cpp.i
-.PHONY : Common.cpp.i
+src/core/Common.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/core/Common.cpp.i
+.PHONY : src/core/Common.cpp.i
 
-Common.s: Common.cpp.s
-.PHONY : Common.s
+src/core/Common.s: src/core/Common.cpp.s
+.PHONY : src/core/Common.s
 
 # target to generate assembly for a file
-Common.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/Common.cpp.s
-.PHONY : Common.cpp.s
+src/core/Common.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/core/Common.cpp.s
+.PHONY : src/core/Common.cpp.s
 
-Font.o: Font.cpp.o
-.PHONY : Font.o
+src/core/GameLogic.o: src/core/GameLogic.cpp.o
+.PHONY : src/core/GameLogic.o
 
 # target to build an object file
-Font.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/Font.cpp.o
-.PHONY : Font.cpp.o
+src/core/GameLogic.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/core/GameLogic.cpp.o
+.PHONY : src/core/GameLogic.cpp.o
 
-Font.i: Font.cpp.i
-.PHONY : Font.i
+src/core/GameLogic.i: src/core/GameLogic.cpp.i
+.PHONY : src/core/GameLogic.i
 
 # target to preprocess a source file
-Font.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/Font.cpp.i
-.PHONY : Font.cpp.i
+src/core/GameLogic.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/core/GameLogic.cpp.i
+.PHONY : src/core/GameLogic.cpp.i
 
-Font.s: Font.cpp.s
-.PHONY : Font.s
+src/core/GameLogic.s: src/core/GameLogic.cpp.s
+.PHONY : src/core/GameLogic.s
 
 # target to generate assembly for a file
-Font.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/Font.cpp.s
-.PHONY : Font.cpp.s
+src/core/GameLogic.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/core/GameLogic.cpp.s
+.PHONY : src/core/GameLogic.cpp.s
 
-GameLogic.o: GameLogic.cpp.o
-.PHONY : GameLogic.o
+src/core/Physics.o: src/core/Physics.cpp.o
+.PHONY : src/core/Physics.o
 
 # target to build an object file
-GameLogic.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/GameLogic.cpp.o
-.PHONY : GameLogic.cpp.o
+src/core/Physics.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/core/Physics.cpp.o
+.PHONY : src/core/Physics.cpp.o
 
-GameLogic.i: GameLogic.cpp.i
-.PHONY : GameLogic.i
+src/core/Physics.i: src/core/Physics.cpp.i
+.PHONY : src/core/Physics.i
 
 # target to preprocess a source file
-GameLogic.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/GameLogic.cpp.i
-.PHONY : GameLogic.cpp.i
+src/core/Physics.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/core/Physics.cpp.i
+.PHONY : src/core/Physics.cpp.i
 
-GameLogic.s: GameLogic.cpp.s
-.PHONY : GameLogic.s
+src/core/Physics.s: src/core/Physics.cpp.s
+.PHONY : src/core/Physics.s
 
 # target to generate assembly for a file
-GameLogic.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/GameLogic.cpp.s
-.PHONY : GameLogic.cpp.s
+src/core/Physics.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/core/Physics.cpp.s
+.PHONY : src/core/Physics.cpp.s
 
-Level.o: Level.cpp.o
-.PHONY : Level.o
+src/level/Level.o: src/level/Level.cpp.o
+.PHONY : src/level/Level.o
 
 # target to build an object file
-Level.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/Level.cpp.o
-.PHONY : Level.cpp.o
+src/level/Level.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/level/Level.cpp.o
+.PHONY : src/level/Level.cpp.o
 
-Level.i: Level.cpp.i
-.PHONY : Level.i
+src/level/Level.i: src/level/Level.cpp.i
+.PHONY : src/level/Level.i
 
 # target to preprocess a source file
-Level.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/Level.cpp.i
-.PHONY : Level.cpp.i
+src/level/Level.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/level/Level.cpp.i
+.PHONY : src/level/Level.cpp.i
 
-Level.s: Level.cpp.s
-.PHONY : Level.s
+src/level/Level.s: src/level/Level.cpp.s
+.PHONY : src/level/Level.s
 
 # target to generate assembly for a file
-Level.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/Level.cpp.s
-.PHONY : Level.cpp.s
+src/level/Level.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/level/Level.cpp.s
+.PHONY : src/level/Level.cpp.s
 
-Physics.o: Physics.cpp.o
-.PHONY : Physics.o
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
 
 # target to build an object file
-Physics.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/Physics.cpp.o
-.PHONY : Physics.cpp.o
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
 
-Physics.i: Physics.cpp.i
-.PHONY : Physics.i
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
 
 # target to preprocess a source file
-Physics.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/Physics.cpp.i
-.PHONY : Physics.cpp.i
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
 
-Physics.s: Physics.cpp.s
-.PHONY : Physics.s
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
 
 # target to generate assembly for a file
-Physics.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/Physics.cpp.s
-.PHONY : Physics.cpp.s
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
-Renderer.o: Renderer.cpp.o
-.PHONY : Renderer.o
+src/render/Font.o: src/render/Font.cpp.o
+.PHONY : src/render/Font.o
 
 # target to build an object file
-Renderer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/Renderer.cpp.o
-.PHONY : Renderer.cpp.o
+src/render/Font.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/render/Font.cpp.o
+.PHONY : src/render/Font.cpp.o
 
-Renderer.i: Renderer.cpp.i
-.PHONY : Renderer.i
+src/render/Font.i: src/render/Font.cpp.i
+.PHONY : src/render/Font.i
 
 # target to preprocess a source file
-Renderer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/Renderer.cpp.i
-.PHONY : Renderer.cpp.i
+src/render/Font.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/render/Font.cpp.i
+.PHONY : src/render/Font.cpp.i
 
-Renderer.s: Renderer.cpp.s
-.PHONY : Renderer.s
+src/render/Font.s: src/render/Font.cpp.s
+.PHONY : src/render/Font.s
 
 # target to generate assembly for a file
-Renderer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/Renderer.cpp.s
-.PHONY : Renderer.cpp.s
+src/render/Font.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/render/Font.cpp.s
+.PHONY : src/render/Font.cpp.s
 
-Save.o: Save.cpp.o
-.PHONY : Save.o
+src/render/Renderer.o: src/render/Renderer.cpp.o
+.PHONY : src/render/Renderer.o
 
 # target to build an object file
-Save.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/Save.cpp.o
-.PHONY : Save.cpp.o
+src/render/Renderer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/render/Renderer.cpp.o
+.PHONY : src/render/Renderer.cpp.o
 
-Save.i: Save.cpp.i
-.PHONY : Save.i
+src/render/Renderer.i: src/render/Renderer.cpp.i
+.PHONY : src/render/Renderer.i
 
 # target to preprocess a source file
-Save.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/Save.cpp.i
-.PHONY : Save.cpp.i
+src/render/Renderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/render/Renderer.cpp.i
+.PHONY : src/render/Renderer.cpp.i
 
-Save.s: Save.cpp.s
-.PHONY : Save.s
+src/render/Renderer.s: src/render/Renderer.cpp.s
+.PHONY : src/render/Renderer.s
 
 # target to generate assembly for a file
-Save.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/Save.cpp.s
-.PHONY : Save.cpp.s
+src/render/Renderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/render/Renderer.cpp.s
+.PHONY : src/render/Renderer.cpp.s
 
-main.o: main.cpp.o
-.PHONY : main.o
+src/save/Save.o: src/save/Save.cpp.o
+.PHONY : src/save/Save.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/main.cpp.o
-.PHONY : main.cpp.o
+src/save/Save.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/save/Save.cpp.o
+.PHONY : src/save/Save.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+src/save/Save.i: src/save/Save.cpp.i
+.PHONY : src/save/Save.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/main.cpp.i
-.PHONY : main.cpp.i
+src/save/Save.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/save/Save.cpp.i
+.PHONY : src/save/Save.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+src/save/Save.s: src/save/Save.cpp.s
+.PHONY : src/save/Save.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/main.cpp.s
-.PHONY : main.cpp.s
+src/save/Save.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/src/save/Save.cpp.s
+.PHONY : src/save/Save.cpp.s
 
 # Help Target
 help:
@@ -354,33 +354,33 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... mario"
-	@echo "... Audio.o"
-	@echo "... Audio.i"
-	@echo "... Audio.s"
-	@echo "... Common.o"
-	@echo "... Common.i"
-	@echo "... Common.s"
-	@echo "... Font.o"
-	@echo "... Font.i"
-	@echo "... Font.s"
-	@echo "... GameLogic.o"
-	@echo "... GameLogic.i"
-	@echo "... GameLogic.s"
-	@echo "... Level.o"
-	@echo "... Level.i"
-	@echo "... Level.s"
-	@echo "... Physics.o"
-	@echo "... Physics.i"
-	@echo "... Physics.s"
-	@echo "... Renderer.o"
-	@echo "... Renderer.i"
-	@echo "... Renderer.s"
-	@echo "... Save.o"
-	@echo "... Save.i"
-	@echo "... Save.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... src/audio/Audio.o"
+	@echo "... src/audio/Audio.i"
+	@echo "... src/audio/Audio.s"
+	@echo "... src/core/Common.o"
+	@echo "... src/core/Common.i"
+	@echo "... src/core/Common.s"
+	@echo "... src/core/GameLogic.o"
+	@echo "... src/core/GameLogic.i"
+	@echo "... src/core/GameLogic.s"
+	@echo "... src/core/Physics.o"
+	@echo "... src/core/Physics.i"
+	@echo "... src/core/Physics.s"
+	@echo "... src/level/Level.o"
+	@echo "... src/level/Level.i"
+	@echo "... src/level/Level.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
+	@echo "... src/render/Font.o"
+	@echo "... src/render/Font.i"
+	@echo "... src/render/Font.s"
+	@echo "... src/render/Renderer.o"
+	@echo "... src/render/Renderer.i"
+	@echo "... src/render/Renderer.s"
+	@echo "... src/save/Save.o"
+	@echo "... src/save/Save.i"
+	@echo "... src/save/Save.s"
 .PHONY : help
 
 

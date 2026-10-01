@@ -8,15 +8,15 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/shawn/Projects/CC++/custom_mario/Audio.cpp" "CMakeFiles/mario.dir/Audio.cpp.o" "gcc" "CMakeFiles/mario.dir/Audio.cpp.o.d"
-  "/home/shawn/Projects/CC++/custom_mario/Common.cpp" "CMakeFiles/mario.dir/Common.cpp.o" "gcc" "CMakeFiles/mario.dir/Common.cpp.o.d"
-  "/home/shawn/Projects/CC++/custom_mario/Font.cpp" "CMakeFiles/mario.dir/Font.cpp.o" "gcc" "CMakeFiles/mario.dir/Font.cpp.o.d"
-  "/home/shawn/Projects/CC++/custom_mario/GameLogic.cpp" "CMakeFiles/mario.dir/GameLogic.cpp.o" "gcc" "CMakeFiles/mario.dir/GameLogic.cpp.o.d"
-  "/home/shawn/Projects/CC++/custom_mario/Level.cpp" "CMakeFiles/mario.dir/Level.cpp.o" "gcc" "CMakeFiles/mario.dir/Level.cpp.o.d"
-  "/home/shawn/Projects/CC++/custom_mario/Physics.cpp" "CMakeFiles/mario.dir/Physics.cpp.o" "gcc" "CMakeFiles/mario.dir/Physics.cpp.o.d"
-  "/home/shawn/Projects/CC++/custom_mario/Renderer.cpp" "CMakeFiles/mario.dir/Renderer.cpp.o" "gcc" "CMakeFiles/mario.dir/Renderer.cpp.o.d"
-  "/home/shawn/Projects/CC++/custom_mario/Save.cpp" "CMakeFiles/mario.dir/Save.cpp.o" "gcc" "CMakeFiles/mario.dir/Save.cpp.o.d"
-  "/home/shawn/Projects/CC++/custom_mario/main.cpp" "CMakeFiles/mario.dir/main.cpp.o" "gcc" "CMakeFiles/mario.dir/main.cpp.o.d"
+  "/home/shawn/Projects/CC++/custom_mario/src/audio/Audio.cpp" "CMakeFiles/mario.dir/src/audio/Audio.cpp.o" "gcc" "CMakeFiles/mario.dir/src/audio/Audio.cpp.o.d"
+  "/home/shawn/Projects/CC++/custom_mario/src/core/Common.cpp" "CMakeFiles/mario.dir/src/core/Common.cpp.o" "gcc" "CMakeFiles/mario.dir/src/core/Common.cpp.o.d"
+  "/home/shawn/Projects/CC++/custom_mario/src/core/GameLogic.cpp" "CMakeFiles/mario.dir/src/core/GameLogic.cpp.o" "gcc" "CMakeFiles/mario.dir/src/core/GameLogic.cpp.o.d"
+  "/home/shawn/Projects/CC++/custom_mario/src/core/Physics.cpp" "CMakeFiles/mario.dir/src/core/Physics.cpp.o" "gcc" "CMakeFiles/mario.dir/src/core/Physics.cpp.o.d"
+  "/home/shawn/Projects/CC++/custom_mario/src/level/Level.cpp" "CMakeFiles/mario.dir/src/level/Level.cpp.o" "gcc" "CMakeFiles/mario.dir/src/level/Level.cpp.o.d"
+  "/home/shawn/Projects/CC++/custom_mario/src/main.cpp" "CMakeFiles/mario.dir/src/main.cpp.o" "gcc" "CMakeFiles/mario.dir/src/main.cpp.o.d"
+  "/home/shawn/Projects/CC++/custom_mario/src/render/Font.cpp" "CMakeFiles/mario.dir/src/render/Font.cpp.o" "gcc" "CMakeFiles/mario.dir/src/render/Font.cpp.o.d"
+  "/home/shawn/Projects/CC++/custom_mario/src/render/Renderer.cpp" "CMakeFiles/mario.dir/src/render/Renderer.cpp.o" "gcc" "CMakeFiles/mario.dir/src/render/Renderer.cpp.o.d"
+  "/home/shawn/Projects/CC++/custom_mario/src/save/Save.cpp" "CMakeFiles/mario.dir/src/save/Save.cpp.o" "gcc" "CMakeFiles/mario.dir/src/save/Save.cpp.o.d"
   "" "mario" "gcc" "CMakeFiles/mario.dir/link.d"
   )
 

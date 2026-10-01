@@ -2,15 +2,15 @@ mario: \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/Scrt1.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o \
-  CMakeFiles/mario.dir/main.cpp.o \
-  CMakeFiles/mario.dir/Common.cpp.o \
-  CMakeFiles/mario.dir/Font.cpp.o \
-  CMakeFiles/mario.dir/Audio.cpp.o \
-  CMakeFiles/mario.dir/Physics.cpp.o \
-  CMakeFiles/mario.dir/Level.cpp.o \
-  CMakeFiles/mario.dir/Renderer.cpp.o \
-  CMakeFiles/mario.dir/GameLogic.cpp.o \
-  CMakeFiles/mario.dir/Save.cpp.o \
+  CMakeFiles/mario.dir/src/main.cpp.o \
+  CMakeFiles/mario.dir/src/core/Common.cpp.o \
+  CMakeFiles/mario.dir/src/core/GameLogic.cpp.o \
+  CMakeFiles/mario.dir/src/core/Physics.cpp.o \
+  CMakeFiles/mario.dir/src/level/Level.cpp.o \
+  CMakeFiles/mario.dir/src/render/Renderer.cpp.o \
+  CMakeFiles/mario.dir/src/render/Font.cpp.o \
+  CMakeFiles/mario.dir/src/audio/Audio.cpp.o \
+  CMakeFiles/mario.dir/src/save/Save.cpp.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/libSDL2.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16/libstdc++.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/libm.so \
@@ -50,23 +50,23 @@ mario: \
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o:
 
-CMakeFiles/mario.dir/main.cpp.o:
+CMakeFiles/mario.dir/src/main.cpp.o:
 
-CMakeFiles/mario.dir/Common.cpp.o:
+CMakeFiles/mario.dir/src/core/Common.cpp.o:
 
-CMakeFiles/mario.dir/Font.cpp.o:
+CMakeFiles/mario.dir/src/core/GameLogic.cpp.o:
 
-CMakeFiles/mario.dir/Audio.cpp.o:
+CMakeFiles/mario.dir/src/core/Physics.cpp.o:
 
-CMakeFiles/mario.dir/Physics.cpp.o:
+CMakeFiles/mario.dir/src/level/Level.cpp.o:
 
-CMakeFiles/mario.dir/Level.cpp.o:
+CMakeFiles/mario.dir/src/render/Renderer.cpp.o:
 
-CMakeFiles/mario.dir/Renderer.cpp.o:
+CMakeFiles/mario.dir/src/render/Font.cpp.o:
 
-CMakeFiles/mario.dir/GameLogic.cpp.o:
+CMakeFiles/mario.dir/src/audio/Audio.cpp.o:
 
-CMakeFiles/mario.dir/Save.cpp.o:
+CMakeFiles/mario.dir/src/save/Save.cpp.o:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/libSDL2.so:
 

@@ -1,8 +1,7 @@
-CMakeFiles/mario.dir/Renderer.cpp.o: \
- /home/shawn/Projects/CC++/custom_mario/Renderer.cpp \
+CMakeFiles/mario.dir/src/render/Font.cpp.o: \
+ /home/shawn/Projects/CC++/custom_mario/src/render/Font.cpp \
  /usr/include/stdc-predef.h \
- /home/shawn/Projects/CC++/custom_mario/Renderer.hpp \
- /home/shawn/Projects/CC++/custom_mario/Common.hpp \
+ /home/shawn/Projects/CC++/custom_mario/src/render/Font.hpp \
  /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
  /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
  /usr/include/SDL2/SDL_platform.h /usr/include/SDL2/begin_code.h \
@@ -228,10 +227,8 @@ CMakeFiles/mario.dir/Renderer.cpp.o: \
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_shape.h \
  /usr/include/SDL2/SDL_system.h /usr/include/SDL2/SDL_timer.h \
  /usr/include/SDL2/SDL_version.h /usr/include/SDL2/SDL_locale.h \
- /usr/include/SDL2/SDL_misc.h \
- /home/shawn/Projects/CC++/custom_mario/Audio.hpp \
- /home/shawn/Projects/CC++/custom_mario/Entities.hpp \
- /usr/include/c++/16/string /usr/include/c++/16/bits/stringfwd.h \
+ /usr/include/SDL2/SDL_misc.h /usr/include/c++/16/string \
+ /usr/include/c++/16/bits/stringfwd.h \
  /usr/include/c++/16/bits/memoryfwd.h \
  /usr/include/c++/16/bits/char_traits.h \
  /usr/include/c++/16/bits/postypes.h /usr/include/c++/16/cwchar \
@@ -266,18 +263,14 @@ CMakeFiles/mario.dir/Renderer.cpp.o: \
  /usr/include/c++/16/bits/memory_resource.h /usr/include/c++/16/cstddef \
  /usr/include/c++/16/bits/uses_allocator.h \
  /usr/include/c++/16/bits/uses_allocator_args.h /usr/include/c++/16/tuple \
- /usr/include/c++/16/bits/invoke.h /usr/include/c++/16/vector \
+ /usr/include/c++/16/bits/invoke.h /usr/include/c++/16/unordered_map \
+ /usr/include/c++/16/bits/unordered_map.h \
+ /usr/include/c++/16/bits/hashtable.h \
+ /usr/include/c++/16/bits/hashtable_policy.h \
+ /usr/include/c++/16/ext/aligned_buffer.h \
+ /usr/include/c++/16/bits/enable_special_members.h \
+ /usr/include/c++/16/bits/node_handle.h /usr/include/c++/16/vector \
  /usr/include/c++/16/bits/stl_uninitialized.h \
  /usr/include/c++/16/bits/stl_vector.h \
  /usr/include/c++/16/bits/stl_bvector.h \
- /usr/include/c++/16/bits/vector.tcc \
- /home/shawn/Projects/CC++/custom_mario/Font.hpp \
- /home/shawn/Projects/CC++/custom_mario/GameLogic.hpp \
- /home/shawn/Projects/CC++/custom_mario/Level.hpp \
- /usr/include/c++/16/algorithm /usr/include/c++/16/bits/stl_algo.h \
- /usr/include/c++/16/bits/algorithmfwd.h \
- /usr/include/c++/16/bits/stl_heap.h \
- /usr/include/c++/16/bits/uniform_int_dist.h \
- /usr/include/c++/16/bits/stl_tempbuf.h \
- /usr/include/c++/16/pstl/glue_algorithm_defs.h \
- /usr/include/c++/16/pstl/execution_defs.h
+ /usr/include/c++/16/bits/vector.tcc

@@ -1,56 +1,56 @@
 [
 {
   "directory": "/home/shawn/Projects/CC++/custom_mario/build",
-  "command": "/usr/bin/c++  -I/home/shawn/Projects/CC++/custom_mario -I/usr/include/SDL2 -O2 -DNDEBUG -std=gnu++17 -D_GNU_SOURCE=1 -D_REENTRANT -o CMakeFiles/mario.dir/main.cpp.o -c /home/shawn/Projects/CC++/custom_mario/main.cpp",
-  "file": "/home/shawn/Projects/CC++/custom_mario/main.cpp",
-  "output": "CMakeFiles/mario.dir/main.cpp.o"
+  "command": "/usr/bin/c++  -I/home/shawn/Projects/CC++/custom_mario/src/core -I/home/shawn/Projects/CC++/custom_mario/src/level -I/home/shawn/Projects/CC++/custom_mario/src/render -I/home/shawn/Projects/CC++/custom_mario/src/audio -I/home/shawn/Projects/CC++/custom_mario/src/save -I/usr/include/SDL2 -O3 -DNDEBUG -std=gnu++17 -D_GNU_SOURCE=1 -D_REENTRANT -O3 -DNDEBUG -march=native -o CMakeFiles/mario.dir/src/main.cpp.o -c /home/shawn/Projects/CC++/custom_mario/src/main.cpp",
+  "file": "/home/shawn/Projects/CC++/custom_mario/src/main.cpp",
+  "output": "CMakeFiles/mario.dir/src/main.cpp.o"
 },
 {
   "directory": "/home/shawn/Projects/CC++/custom_mario/build",
-  "command": "/usr/bin/c++  -I/home/shawn/Projects/CC++/custom_mario -I/usr/include/SDL2 -O2 -DNDEBUG -std=gnu++17 -D_GNU_SOURCE=1 -D_REENTRANT -o CMakeFiles/mario.dir/Common.cpp.o -c /home/shawn/Projects/CC++/custom_mario/Common.cpp",
-  "file": "/home/shawn/Projects/CC++/custom_mario/Common.cpp",
-  "output": "CMakeFiles/mario.dir/Common.cpp.o"
+  "command": "/usr/bin/c++  -I/home/shawn/Projects/CC++/custom_mario/src/core -I/home/shawn/Projects/CC++/custom_mario/src/level -I/home/shawn/Projects/CC++/custom_mario/src/render -I/home/shawn/Projects/CC++/custom_mario/src/audio -I/home/shawn/Projects/CC++/custom_mario/src/save -I/usr/include/SDL2 -O3 -DNDEBUG -std=gnu++17 -D_GNU_SOURCE=1 -D_REENTRANT -O3 -DNDEBUG -march=native -o CMakeFiles/mario.dir/src/core/Common.cpp.o -c /home/shawn/Projects/CC++/custom_mario/src/core/Common.cpp",
+  "file": "/home/shawn/Projects/CC++/custom_mario/src/core/Common.cpp",
+  "output": "CMakeFiles/mario.dir/src/core/Common.cpp.o"
 },
 {
   "directory": "/home/shawn/Projects/CC++/custom_mario/build",
-  "command": "/usr/bin/c++  -I/home/shawn/Projects/CC++/custom_mario -I/usr/include/SDL2 -O2 -DNDEBUG -std=gnu++17 -D_GNU_SOURCE=1 -D_REENTRANT -o CMakeFiles/mario.dir/Font.cpp.o -c /home/shawn/Projects/CC++/custom_mario/Font.cpp",
-  "file": "/home/shawn/Projects/CC++/custom_mario/Font.cpp",
-  "output": "CMakeFiles/mario.dir/Font.cpp.o"
+  "command": "/usr/bin/c++  -I/home/shawn/Projects/CC++/custom_mario/src/core -I/home/shawn/Projects/CC++/custom_mario/src/level -I/home/shawn/Projects/CC++/custom_mario/src/render -I/home/shawn/Projects/CC++/custom_mario/src/audio -I/home/shawn/Projects/CC++/custom_mario/src/save -I/usr/include/SDL2 -O3 -DNDEBUG -std=gnu++17 -D_GNU_SOURCE=1 -D_REENTRANT -O3 -DNDEBUG -march=native -o CMakeFiles/mario.dir/src/core/GameLogic.cpp.o -c /home/shawn/Projects/CC++/custom_mario/src/core/GameLogic.cpp",
+  "file": "/home/shawn/Projects/CC++/custom_mario/src/core/GameLogic.cpp",
+  "output": "CMakeFiles/mario.dir/src/core/GameLogic.cpp.o"
 },
 {
   "directory": "/home/shawn/Projects/CC++/custom_mario/build",
-  "command": "/usr/bin/c++  -I/home/shawn/Projects/CC++/custom_mario -I/usr/include/SDL2 -O2 -DNDEBUG -std=gnu++17 -D_GNU_SOURCE=1 -D_REENTRANT -o CMakeFiles/mario.dir/Audio.cpp.o -c /home/shawn/Projects/CC++/custom_mario/Audio.cpp",
-  "file": "/home/shawn/Projects/CC++/custom_mario/Audio.cpp",
-  "output": "CMakeFiles/mario.dir/Audio.cpp.o"
+  "command": "/usr/bin/c++  -I/home/shawn/Projects/CC++/custom_mario/src/core -I/home/shawn/Projects/CC++/custom_mario/src/level -I/home/shawn/Projects/CC++/custom_mario/src/render -I/home/shawn/Projects/CC++/custom_mario/src/audio -I/home/shawn/Projects/CC++/custom_mario/src/save -I/usr/include/SDL2 -O3 -DNDEBUG -std=gnu++17 -D_GNU_SOURCE=1 -D_REENTRANT -O3 -DNDEBUG -march=native -o CMakeFiles/mario.dir/src/core/Physics.cpp.o -c /home/shawn/Projects/CC++/custom_mario/src/core/Physics.cpp",
+  "file": "/home/shawn/Projects/CC++/custom_mario/src/core/Physics.cpp",
+  "output": "CMakeFiles/mario.dir/src/core/Physics.cpp.o"
 },
 {
   "directory": "/home/shawn/Projects/CC++/custom_mario/build",
-  "command": "/usr/bin/c++  -I/home/shawn/Projects/CC++/custom_mario -I/usr/include/SDL2 -O2 -DNDEBUG -std=gnu++17 -D_GNU_SOURCE=1 -D_REENTRANT -o CMakeFiles/mario.dir/Physics.cpp.o -c /home/shawn/Projects/CC++/custom_mario/Physics.cpp",
-  "file": "/home/shawn/Projects/CC++/custom_mario/Physics.cpp",
-  "output": "CMakeFiles/mario.dir/Physics.cpp.o"
+  "command": "/usr/bin/c++  -I/home/shawn/Projects/CC++/custom_mario/src/core -I/home/shawn/Projects/CC++/custom_mario/src/level -I/home/shawn/Projects/CC++/custom_mario/src/render -I/home/shawn/Projects/CC++/custom_mario/src/audio -I/home/shawn/Projects/CC++/custom_mario/src/save -I/usr/include/SDL2 -O3 -DNDEBUG -std=gnu++17 -D_GNU_SOURCE=1 -D_REENTRANT -O3 -DNDEBUG -march=native -o CMakeFiles/mario.dir/src/level/Level.cpp.o -c /home/shawn/Projects/CC++/custom_mario/src/level/Level.cpp",
+  "file": "/home/shawn/Projects/CC++/custom_mario/src/level/Level.cpp",
+  "output": "CMakeFiles/mario.dir/src/level/Level.cpp.o"
 },
 {
   "directory": "/home/shawn/Projects/CC++/custom_mario/build",
-  "command": "/usr/bin/c++  -I/home/shawn/Projects/CC++/custom_mario -I/usr/include/SDL2 -O2 -DNDEBUG -std=gnu++17 -D_GNU_SOURCE=1 -D_REENTRANT -o CMakeFiles/mario.dir/Level.cpp.o -c /home/shawn/Projects/CC++/custom_mario/Level.cpp",
-  "file": "/home/shawn/Projects/CC++/custom_mario/Level.cpp",
-  "output": "CMakeFiles/mario.dir/Level.cpp.o"
+  "command": "/usr/bin/c++  -I/home/shawn/Projects/CC++/custom_mario/src/core -I/home/shawn/Projects/CC++/custom_mario/src/level -I/home/shawn/Projects/CC++/custom_mario/src/render -I/home/shawn/Projects/CC++/custom_mario/src/audio -I/home/shawn/Projects/CC++/custom_mario/src/save -I/usr/include/SDL2 -O3 -DNDEBUG -std=gnu++17 -D_GNU_SOURCE=1 -D_REENTRANT -O3 -DNDEBUG -march=native -o CMakeFiles/mario.dir/src/render/Renderer.cpp.o -c /home/shawn/Projects/CC++/custom_mario/src/render/Renderer.cpp",
+  "file": "/home/shawn/Projects/CC++/custom_mario/src/render/Renderer.cpp",
+  "output": "CMakeFiles/mario.dir/src/render/Renderer.cpp.o"
 },
 {
   "directory": "/home/shawn/Projects/CC++/custom_mario/build",
-  "command": "/usr/bin/c++  -I/home/shawn/Projects/CC++/custom_mario -I/usr/include/SDL2 -O2 -DNDEBUG -std=gnu++17 -D_GNU_SOURCE=1 -D_REENTRANT -o CMakeFiles/mario.dir/Renderer.cpp.o -c /home/shawn/Projects/CC++/custom_mario/Renderer.cpp",
-  "file": "/home/shawn/Projects/CC++/custom_mario/Renderer.cpp",
-  "output": "CMakeFiles/mario.dir/Renderer.cpp.o"
+  "command": "/usr/bin/c++  -I/home/shawn/Projects/CC++/custom_mario/src/core -I/home/shawn/Projects/CC++/custom_mario/src/level -I/home/shawn/Projects/CC++/custom_mario/src/render -I/home/shawn/Projects/CC++/custom_mario/src/audio -I/home/shawn/Projects/CC++/custom_mario/src/save -I/usr/include/SDL2 -O3 -DNDEBUG -std=gnu++17 -D_GNU_SOURCE=1 -D_REENTRANT -O3 -DNDEBUG -march=native -o CMakeFiles/mario.dir/src/render/Font.cpp.o -c /home/shawn/Projects/CC++/custom_mario/src/render/Font.cpp",
+  "file": "/home/shawn/Projects/CC++/custom_mario/src/render/Font.cpp",
+  "output": "CMakeFiles/mario.dir/src/render/Font.cpp.o"
 },
 {
   "directory": "/home/shawn/Projects/CC++/custom_mario/build",
-  "command": "/usr/bin/c++  -I/home/shawn/Projects/CC++/custom_mario -I/usr/include/SDL2 -O2 -DNDEBUG -std=gnu++17 -D_GNU_SOURCE=1 -D_REENTRANT -o CMakeFiles/mario.dir/GameLogic.cpp.o -c /home/shawn/Projects/CC++/custom_mario/GameLogic.cpp",
-  "file": "/home/shawn/Projects/CC++/custom_mario/GameLogic.cpp",
-  "output": "CMakeFiles/mario.dir/GameLogic.cpp.o"
+  "command": "/usr/bin/c++  -I/home/shawn/Projects/CC++/custom_mario/src/core -I/home/shawn/Projects/CC++/custom_mario/src/level -I/home/shawn/Projects/CC++/custom_mario/src/render -I/home/shawn/Projects/CC++/custom_mario/src/audio -I/home/shawn/Projects/CC++/custom_mario/src/save -I/usr/include/SDL2 -O3 -DNDEBUG -std=gnu++17 -D_GNU_SOURCE=1 -D_REENTRANT -O3 -DNDEBUG -march=native -o CMakeFiles/mario.dir/src/audio/Audio.cpp.o -c /home/shawn/Projects/CC++/custom_mario/src/audio/Audio.cpp",
+  "file": "/home/shawn/Projects/CC++/custom_mario/src/audio/Audio.cpp",
+  "output": "CMakeFiles/mario.dir/src/audio/Audio.cpp.o"
 },
 {
   "directory": "/home/shawn/Projects/CC++/custom_mario/build",
-  "command": "/usr/bin/c++  -I/home/shawn/Projects/CC++/custom_mario -I/usr/include/SDL2 -O2 -DNDEBUG -std=gnu++17 -D_GNU_SOURCE=1 -D_REENTRANT -o CMakeFiles/mario.dir/Save.cpp.o -c /home/shawn/Projects/CC++/custom_mario/Save.cpp",
-  "file": "/home/shawn/Projects/CC++/custom_mario/Save.cpp",
-  "output": "CMakeFiles/mario.dir/Save.cpp.o"
+  "command": "/usr/bin/c++  -I/home/shawn/Projects/CC++/custom_mario/src/core -I/home/shawn/Projects/CC++/custom_mario/src/level -I/home/shawn/Projects/CC++/custom_mario/src/render -I/home/shawn/Projects/CC++/custom_mario/src/audio -I/home/shawn/Projects/CC++/custom_mario/src/save -I/usr/include/SDL2 -O3 -DNDEBUG -std=gnu++17 -D_GNU_SOURCE=1 -D_REENTRANT -O3 -DNDEBUG -march=native -o CMakeFiles/mario.dir/src/save/Save.cpp.o -c /home/shawn/Projects/CC++/custom_mario/src/save/Save.cpp",
+  "file": "/home/shawn/Projects/CC++/custom_mario/src/save/Save.cpp",
+  "output": "CMakeFiles/mario.dir/src/save/Save.cpp.o"
 }
 ]

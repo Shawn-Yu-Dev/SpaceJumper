@@ -1,8 +1,8 @@
-CMakeFiles/mario.dir/Save.cpp.o: \
- /home/shawn/Projects/CC++/custom_mario/Save.cpp \
+CMakeFiles/mario.dir/src/save/Save.cpp.o: \
+ /home/shawn/Projects/CC++/custom_mario/src/save/Save.cpp \
  /usr/include/stdc-predef.h \
- /home/shawn/Projects/CC++/custom_mario/Save.hpp \
- /home/shawn/Projects/CC++/custom_mario/Level.hpp \
+ /home/shawn/Projects/CC++/custom_mario/src/save/Save.hpp \
+ /home/shawn/Projects/CC++/custom_mario/src/level/Level.hpp \
  /usr/include/c++/16/cstdio \
  /usr/include/c++/16/x86_64-pc-linux-gnu/bits/c++config.h \
  /usr/include/c++/16/x86_64-pc-linux-gnu/bits/os_defines.h \

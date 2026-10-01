@@ -1,8 +1,8 @@
-CMakeFiles/mario.dir/Physics.cpp.o: \
- /home/shawn/Projects/CC++/custom_mario/Physics.cpp \
+CMakeFiles/mario.dir/src/core/Physics.cpp.o: \
+ /home/shawn/Projects/CC++/custom_mario/src/core/Physics.cpp \
  /usr/include/stdc-predef.h \
- /home/shawn/Projects/CC++/custom_mario/Physics.hpp \
- /home/shawn/Projects/CC++/custom_mario/Common.hpp \
+ /home/shawn/Projects/CC++/custom_mario/src/core/Physics.hpp \
+ /home/shawn/Projects/CC++/custom_mario/src/core/Common.hpp \
  /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
  /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
  /usr/include/SDL2/SDL_platform.h /usr/include/SDL2/begin_code.h \
@@ -229,7 +229,7 @@ CMakeFiles/mario.dir/Physics.cpp.o: \
  /usr/include/SDL2/SDL_system.h /usr/include/SDL2/SDL_timer.h \
  /usr/include/SDL2/SDL_version.h /usr/include/SDL2/SDL_locale.h \
  /usr/include/SDL2/SDL_misc.h \
- /home/shawn/Projects/CC++/custom_mario/Entities.hpp \
+ /home/shawn/Projects/CC++/custom_mario/src/core/Entities.hpp \
  /usr/include/c++/16/string /usr/include/c++/16/bits/stringfwd.h \
  /usr/include/c++/16/bits/memoryfwd.h \
  /usr/include/c++/16/bits/char_traits.h \
@@ -270,7 +270,7 @@ CMakeFiles/mario.dir/Physics.cpp.o: \
  /usr/include/c++/16/bits/stl_vector.h \
  /usr/include/c++/16/bits/stl_bvector.h \
  /usr/include/c++/16/bits/vector.tcc \
- /home/shawn/Projects/CC++/custom_mario/Level.hpp \
+ /home/shawn/Projects/CC++/custom_mario/src/level/Level.hpp \
  /usr/include/c++/16/algorithm /usr/include/c++/16/bits/stl_algo.h \
  /usr/include/c++/16/bits/algorithmfwd.h \
  /usr/include/c++/16/bits/stl_heap.h \

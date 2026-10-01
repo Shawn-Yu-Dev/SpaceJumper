@@ -1,9 +1,9 @@
-CMakeFiles/mario.dir/GameLogic.cpp.o: \
- /home/shawn/Projects/CC++/custom_mario/GameLogic.cpp \
+CMakeFiles/mario.dir/src/core/GameLogic.cpp.o: \
+ /home/shawn/Projects/CC++/custom_mario/src/core/GameLogic.cpp \
  /usr/include/stdc-predef.h \
- /home/shawn/Projects/CC++/custom_mario/GameLogic.hpp \
- /home/shawn/Projects/CC++/custom_mario/Common.hpp \
- /home/shawn/Projects/CC++/custom_mario/Entities.hpp \
+ /home/shawn/Projects/CC++/custom_mario/src/core/GameLogic.hpp \
+ /home/shawn/Projects/CC++/custom_mario/src/core/Common.hpp \
+ /home/shawn/Projects/CC++/custom_mario/src/core/Entities.hpp \
  /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
  /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
  /usr/include/SDL2/SDL_platform.h /usr/include/SDL2/begin_code.h \
@@ -270,10 +270,10 @@ CMakeFiles/mario.dir/GameLogic.cpp.o: \
  /usr/include/c++/16/bits/stl_vector.h \
  /usr/include/c++/16/bits/stl_bvector.h \
  /usr/include/c++/16/bits/vector.tcc \
- /home/shawn/Projects/CC++/custom_mario/Audio.hpp \
- /home/shawn/Projects/CC++/custom_mario/Level.hpp \
- /home/shawn/Projects/CC++/custom_mario/Physics.hpp \
- /home/shawn/Projects/CC++/custom_mario/Save.hpp \
+ /home/shawn/Projects/CC++/custom_mario/src/audio/Audio.hpp \
+ /home/shawn/Projects/CC++/custom_mario/src/level/Level.hpp \
+ /home/shawn/Projects/CC++/custom_mario/src/core/Physics.hpp \
+ /home/shawn/Projects/CC++/custom_mario/src/save/Save.hpp \
  /usr/include/c++/16/algorithm /usr/include/c++/16/bits/stl_algo.h \
  /usr/include/c++/16/bits/algorithmfwd.h \
  /usr/include/c++/16/bits/stl_heap.h \

@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/shawn/Projects/CC++/custom_mario -I/usr/include/SDL2
+CXX_INCLUDES = -I/home/shawn/Projects/CC++/custom_mario/src/core -I/home/shawn/Projects/CC++/custom_mario/src/level -I/home/shawn/Projects/CC++/custom_mario/src/render -I/home/shawn/Projects/CC++/custom_mario/src/audio -I/home/shawn/Projects/CC++/custom_mario/src/save -I/usr/include/SDL2
 
-CXX_FLAGS = -O2 -DNDEBUG -std=gnu++17 -D_GNU_SOURCE=1 -D_REENTRANT
+CXX_FLAGS = -O3 -DNDEBUG -std=gnu++17 -D_GNU_SOURCE=1 -D_REENTRANT -O3 -DNDEBUG -march=native
 

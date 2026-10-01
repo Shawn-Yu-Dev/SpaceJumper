@@ -1,10 +1,13 @@
-CMakeFiles/mario.dir/main.cpp.o: \
- /home/shawn/Projects/CC++/custom_mario/main.cpp \
- /usr/include/stdc-predef.h /usr/include/SDL2/SDL.h \
- /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h \
- /usr/include/SDL2/SDL_config.h /usr/include/SDL2/SDL_platform.h \
- /usr/include/SDL2/begin_code.h /usr/include/SDL2/close_code.h \
- /usr/include/SDL2/SDL_config_unix.h \
+CMakeFiles/mario.dir/src/level/Level.cpp.o: \
+ /home/shawn/Projects/CC++/custom_mario/src/level/Level.cpp \
+ /usr/include/stdc-predef.h \
+ /home/shawn/Projects/CC++/custom_mario/src/level/Level.hpp \
+ /home/shawn/Projects/CC++/custom_mario/src/core/Common.hpp \
+ /home/shawn/Projects/CC++/custom_mario/src/core/Entities.hpp \
+ /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
+ /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
+ /usr/include/SDL2/SDL_platform.h /usr/include/SDL2/begin_code.h \
+ /usr/include/SDL2/close_code.h /usr/include/SDL2/SDL_config_unix.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/16/include/limits.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/16/include/syslimits.h \
  /usr/include/limits.h /usr/include/bits/libc-header-start.h \
@@ -226,47 +229,22 @@ CMakeFiles/mario.dir/main.cpp.o: \
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_shape.h \
  /usr/include/SDL2/SDL_system.h /usr/include/SDL2/SDL_timer.h \
  /usr/include/SDL2/SDL_version.h /usr/include/SDL2/SDL_locale.h \
- /usr/include/SDL2/SDL_misc.h /usr/include/c++/16/iostream \
- /usr/include/c++/16/ostream /usr/include/c++/16/bits/ostream.h \
- /usr/include/c++/16/ios /usr/include/c++/16/iosfwd \
+ /usr/include/SDL2/SDL_misc.h /usr/include/c++/16/string \
  /usr/include/c++/16/bits/stringfwd.h \
- /usr/include/c++/16/bits/memoryfwd.h /usr/include/c++/16/bits/postypes.h \
- /usr/include/c++/16/cwchar /usr/include/c++/16/exception \
- /usr/include/c++/16/bits/exception.h \
- /usr/include/c++/16/bits/exception_ptr.h \
- /usr/include/c++/16/bits/cxxabi_init_exception.h \
- /usr/include/c++/16/typeinfo /usr/include/c++/16/bits/hash_bytes.h \
- /usr/include/c++/16/new /usr/include/c++/16/bits/new_except.h \
- /usr/include/c++/16/bits/nested_exception.h \
+ /usr/include/c++/16/bits/memoryfwd.h \
  /usr/include/c++/16/bits/char_traits.h \
+ /usr/include/c++/16/bits/postypes.h /usr/include/c++/16/cwchar \
+ /usr/include/c++/16/bits/allocator.h \
+ /usr/include/c++/16/x86_64-pc-linux-gnu/bits/c++allocator.h \
+ /usr/include/c++/16/bits/new_allocator.h /usr/include/c++/16/new \
+ /usr/include/c++/16/bits/exception.h \
+ /usr/include/c++/16/bits/new_except.h \
+ /usr/include/c++/16/bits/new_throw.h \
  /usr/include/c++/16/bits/localefwd.h \
  /usr/include/c++/16/x86_64-pc-linux-gnu/bits/c++locale.h \
  /usr/include/c++/16/clocale /usr/include/locale.h \
- /usr/include/bits/locale.h /usr/include/c++/16/cctype \
- /usr/include/c++/16/bits/ios_base.h /usr/include/c++/16/ext/atomicity.h \
- /usr/include/c++/16/x86_64-pc-linux-gnu/bits/gthr.h \
- /usr/include/c++/16/x86_64-pc-linux-gnu/bits/gthr-default.h \
- /usr/include/pthread.h /usr/include/sched.h /usr/include/bits/sched.h \
- /usr/include/linux/sched/types.h /usr/include/linux/types.h \
- /usr/include/asm/types.h /usr/include/asm-generic/types.h \
- /usr/include/asm-generic/int-ll64.h /usr/include/asm/bitsperlong.h \
- /usr/include/asm-generic/bitsperlong.h /usr/include/linux/posix_types.h \
- /usr/include/linux/stddef.h /usr/include/asm/posix_types.h \
- /usr/include/asm/posix_types_64.h /usr/include/asm-generic/posix_types.h \
- /usr/include/bits/types/struct_sched_param.h /usr/include/bits/cpu-set.h \
- /usr/include/time.h /usr/include/bits/time.h /usr/include/bits/timex.h \
- /usr/include/bits/types/struct_tm.h \
- /usr/include/bits/types/struct_itimerspec.h /usr/include/bits/setjmp.h \
- /usr/include/bits/types/struct___jmp_buf_tag.h \
- /usr/include/c++/16/x86_64-pc-linux-gnu/bits/atomic_word.h \
- /usr/include/sys/single_threaded.h \
- /usr/include/c++/16/bits/locale_classes.h \
- /usr/include/c++/16/bits/functexcept.h /usr/include/c++/16/string \
- /usr/include/c++/16/bits/allocator.h \
- /usr/include/c++/16/x86_64-pc-linux-gnu/bits/c++allocator.h \
- /usr/include/c++/16/bits/new_allocator.h \
- /usr/include/c++/16/bits/new_throw.h \
- /usr/include/c++/16/bits/ostream_insert.h \
+ /usr/include/bits/locale.h /usr/include/c++/16/iosfwd \
+ /usr/include/c++/16/cctype /usr/include/c++/16/bits/ostream_insert.h \
  /usr/include/c++/16/bits/cxxabi_forced.h \
  /usr/include/c++/16/bits/range_access.h \
  /usr/include/c++/16/initializer_list /usr/include/c++/16/bits/erase_if.h \
@@ -275,6 +253,7 @@ CMakeFiles/mario.dir/main.cpp.o: \
  /usr/include/c++/16/bits/alloc_traits.h \
  /usr/include/c++/16/bits/stl_construct.h /usr/include/c++/16/string_view \
  /usr/include/c++/16/bits/functional_hash.h \
+ /usr/include/c++/16/bits/hash_bytes.h \
  /usr/include/c++/16/bits/string_view.tcc \
  /usr/include/c++/16/ext/string_conversions.h /usr/include/c++/16/cstdio \
  /usr/include/c++/16/cerrno /usr/include/errno.h \
@@ -286,32 +265,8 @@ CMakeFiles/mario.dir/main.cpp.o: \
  /usr/include/c++/16/bits/memory_resource.h /usr/include/c++/16/cstddef \
  /usr/include/c++/16/bits/uses_allocator.h \
  /usr/include/c++/16/bits/uses_allocator_args.h /usr/include/c++/16/tuple \
- /usr/include/c++/16/bits/invoke.h \
- /usr/include/c++/16/bits/locale_classes.tcc \
- /usr/include/c++/16/system_error \
- /usr/include/c++/16/x86_64-pc-linux-gnu/bits/error_constants.h \
- /usr/include/c++/16/stdexcept \
- /usr/include/c++/16/bits/stdexcept_except.h \
- /usr/include/c++/16/streambuf /usr/include/c++/16/bits/streambuf.tcc \
- /usr/include/c++/16/bits/basic_ios.h \
- /usr/include/c++/16/bits/locale_facets.h /usr/include/c++/16/cwctype \
- /usr/include/wctype.h /usr/include/bits/wctype-wchar.h \
- /usr/include/c++/16/x86_64-pc-linux-gnu/bits/ctype_base.h \
- /usr/include/c++/16/bits/streambuf_iterator.h \
- /usr/include/c++/16/x86_64-pc-linux-gnu/bits/ctype_inline.h \
- /usr/include/c++/16/bits/locale_facets.tcc \
- /usr/include/c++/16/bits/basic_ios.tcc \
- /usr/include/c++/16/bits/ostream_print.h \
- /usr/include/c++/16/bits/ostream.tcc /usr/include/c++/16/istream \
- /usr/include/c++/16/bits/istream.tcc \
- /home/shawn/Projects/CC++/custom_mario/Audio.hpp \
- /home/shawn/Projects/CC++/custom_mario/Common.hpp \
- /home/shawn/Projects/CC++/custom_mario/Entities.hpp \
- /usr/include/c++/16/vector /usr/include/c++/16/bits/stl_uninitialized.h \
+ /usr/include/c++/16/bits/invoke.h /usr/include/c++/16/vector \
+ /usr/include/c++/16/bits/stl_uninitialized.h \
  /usr/include/c++/16/bits/stl_vector.h \
  /usr/include/c++/16/bits/stl_bvector.h \
- /usr/include/c++/16/bits/vector.tcc \
- /home/shawn/Projects/CC++/custom_mario/GameLogic.hpp \
- /home/shawn/Projects/CC++/custom_mario/Level.hpp \
- /home/shawn/Projects/CC++/custom_mario/Renderer.hpp \
- /home/shawn/Projects/CC++/custom_mario/Save.hpp
+ /usr/include/c++/16/bits/vector.tcc

@@ -26,6 +26,8 @@ events:
       - "/home/shawn/.local/bin/"
       - "/home/shawn/.cargo/bin/"
       - "/home/shawn/.npm-global/bin/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/bin/"
@@ -44,6 +46,8 @@ events:
       - "/home/shawn/.local/bin/uname"
       - "/home/shawn/.cargo/bin/uname"
       - "/home/shawn/.npm-global/bin/uname"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/uname"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/uname"
       - "/usr/local/sbin/uname"
       - "/usr/local/bin/uname"
     found: "/usr/bin/uname"
@@ -57,6 +61,8 @@ events:
         - "/home/shawn/.cargo/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.npm-global/bin"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/home/shawn/.local/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.local/bin"
@@ -104,6 +110,8 @@ events:
       - "/home/shawn/.local/bin/"
       - "/home/shawn/.cargo/bin/"
       - "/home/shawn/.npm-global/bin/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/bin/"
@@ -121,6 +129,8 @@ events:
       - "/home/shawn/.local/bin/gmake"
       - "/home/shawn/.cargo/bin/gmake"
       - "/home/shawn/.npm-global/bin/gmake"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/gmake"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/gmake"
       - "/usr/local/sbin/gmake"
       - "/usr/local/bin/gmake"
       - "/usr/bin/gmake"
@@ -137,6 +147,8 @@ events:
       - "/home/shawn/.local/bin/make"
       - "/home/shawn/.cargo/bin/make"
       - "/home/shawn/.npm-global/bin/make"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/make"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/make"
       - "/usr/local/sbin/make"
       - "/usr/local/bin/make"
     found: "/usr/bin/make"
@@ -150,6 +162,8 @@ events:
         - "/home/shawn/.cargo/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.npm-global/bin"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/home/shawn/.local/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.local/bin"
@@ -198,6 +212,8 @@ events:
       - "/home/shawn/.local/bin/"
       - "/home/shawn/.cargo/bin/"
       - "/home/shawn/.npm-global/bin/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/bin/"
@@ -215,6 +231,8 @@ events:
       - "/home/shawn/.local/bin/c++"
       - "/home/shawn/.cargo/bin/c++"
       - "/home/shawn/.npm-global/bin/c++"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/c++"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/c++"
       - "/usr/local/sbin/c++"
       - "/usr/local/bin/c++"
     found: "/usr/bin/c++"
@@ -228,6 +246,8 @@ events:
         - "/home/shawn/.cargo/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.npm-global/bin"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/home/shawn/.local/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.local/bin"
@@ -276,6 +296,8 @@ events:
         - "/home/shawn/.cargo/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.npm-global/bin"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/home/shawn/.local/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.local/bin"
@@ -338,6 +360,8 @@ events:
       - "/home/shawn/.local/bin/"
       - "/home/shawn/.cargo/bin/"
       - "/home/shawn/.npm-global/bin/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/opt/android-sdk/cmdline-tools/latest/bin/"
@@ -358,6 +382,8 @@ events:
         - "/home/shawn/.cargo/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.npm-global/bin"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/home/shawn/.local/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.local/bin"
@@ -398,6 +424,8 @@ events:
       - "/home/shawn/.local/bin/"
       - "/home/shawn/.cargo/bin/"
       - "/home/shawn/.npm-global/bin/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/opt/android-sdk/cmdline-tools/latest/bin/"
@@ -418,6 +446,8 @@ events:
         - "/home/shawn/.cargo/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.npm-global/bin"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/home/shawn/.local/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.local/bin"
@@ -458,6 +488,8 @@ events:
       - "/home/shawn/.local/bin/"
       - "/home/shawn/.cargo/bin/"
       - "/home/shawn/.npm-global/bin/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/opt/android-sdk/cmdline-tools/latest/bin/"
@@ -478,6 +510,8 @@ events:
         - "/home/shawn/.cargo/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.npm-global/bin"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/home/shawn/.local/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.local/bin"
@@ -518,6 +552,8 @@ events:
       - "/home/shawn/.local/bin/"
       - "/home/shawn/.cargo/bin/"
       - "/home/shawn/.npm-global/bin/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/opt/android-sdk/cmdline-tools/latest/bin/"
@@ -538,6 +574,8 @@ events:
         - "/home/shawn/.cargo/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.npm-global/bin"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/home/shawn/.local/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.local/bin"
@@ -578,6 +616,8 @@ events:
       - "/home/shawn/.local/bin/"
       - "/home/shawn/.cargo/bin/"
       - "/home/shawn/.npm-global/bin/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/opt/android-sdk/cmdline-tools/latest/bin/"
@@ -598,6 +638,8 @@ events:
         - "/home/shawn/.cargo/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.npm-global/bin"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/home/shawn/.local/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.local/bin"
@@ -638,6 +680,8 @@ events:
       - "/home/shawn/.local/bin/"
       - "/home/shawn/.cargo/bin/"
       - "/home/shawn/.npm-global/bin/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/opt/android-sdk/cmdline-tools/latest/bin/"
@@ -658,6 +702,8 @@ events:
         - "/home/shawn/.cargo/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.npm-global/bin"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/home/shawn/.local/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.local/bin"
@@ -698,6 +744,8 @@ events:
       - "/home/shawn/.local/bin/"
       - "/home/shawn/.cargo/bin/"
       - "/home/shawn/.npm-global/bin/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/opt/android-sdk/cmdline-tools/latest/bin/"
@@ -718,6 +766,8 @@ events:
         - "/home/shawn/.cargo/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.npm-global/bin"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/home/shawn/.local/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.local/bin"
@@ -758,6 +808,8 @@ events:
       - "/home/shawn/.local/bin/"
       - "/home/shawn/.cargo/bin/"
       - "/home/shawn/.npm-global/bin/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/opt/android-sdk/cmdline-tools/latest/bin/"
@@ -778,6 +830,8 @@ events:
         - "/home/shawn/.cargo/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.npm-global/bin"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/home/shawn/.local/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.local/bin"
@@ -818,6 +872,8 @@ events:
       - "/home/shawn/.local/bin/"
       - "/home/shawn/.cargo/bin/"
       - "/home/shawn/.npm-global/bin/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/opt/android-sdk/cmdline-tools/latest/bin/"
@@ -835,6 +891,8 @@ events:
       - "/home/shawn/.local/bin/dlltool"
       - "/home/shawn/.cargo/bin/dlltool"
       - "/home/shawn/.npm-global/bin/dlltool"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/dlltool"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/dlltool"
       - "/usr/local/sbin/dlltool"
       - "/usr/local/bin/dlltool"
       - "/opt/android-sdk/cmdline-tools/latest/bin/dlltool"
@@ -855,6 +913,8 @@ events:
         - "/home/shawn/.cargo/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.npm-global/bin"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/home/shawn/.local/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.local/bin"
@@ -895,6 +955,8 @@ events:
       - "/home/shawn/.local/bin/"
       - "/home/shawn/.cargo/bin/"
       - "/home/shawn/.npm-global/bin/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/opt/android-sdk/cmdline-tools/latest/bin/"
@@ -915,6 +977,8 @@ events:
         - "/home/shawn/.cargo/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.npm-global/bin"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/home/shawn/.local/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.local/bin"
@@ -955,6 +1019,8 @@ events:
       - "/home/shawn/.local/bin/"
       - "/home/shawn/.cargo/bin/"
       - "/home/shawn/.npm-global/bin/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/opt/android-sdk/cmdline-tools/latest/bin/"
@@ -972,6 +1038,8 @@ events:
       - "/home/shawn/.local/bin/tapi"
       - "/home/shawn/.cargo/bin/tapi"
       - "/home/shawn/.npm-global/bin/tapi"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/tapi"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/tapi"
       - "/usr/local/sbin/tapi"
       - "/usr/local/bin/tapi"
       - "/opt/android-sdk/cmdline-tools/latest/bin/tapi"
@@ -992,6 +1060,8 @@ events:
         - "/home/shawn/.cargo/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.npm-global/bin"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/home/shawn/.local/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.local/bin"
@@ -1035,6 +1105,8 @@ events:
       - "/home/shawn/.local/bin/"
       - "/home/shawn/.cargo/bin/"
       - "/home/shawn/.npm-global/bin/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/opt/android-sdk/cmdline-tools/latest/bin/"
@@ -1052,6 +1124,8 @@ events:
       - "/home/shawn/.local/bin/gcc-ar-16.2"
       - "/home/shawn/.cargo/bin/gcc-ar-16.2"
       - "/home/shawn/.npm-global/bin/gcc-ar-16.2"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar-16.2"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar-16.2"
       - "/usr/local/sbin/gcc-ar-16.2"
       - "/usr/local/bin/gcc-ar-16.2"
       - "/opt/android-sdk/cmdline-tools/latest/bin/gcc-ar-16.2"
@@ -1068,6 +1142,8 @@ events:
       - "/home/shawn/.local/bin/gcc-ar-16"
       - "/home/shawn/.cargo/bin/gcc-ar-16"
       - "/home/shawn/.npm-global/bin/gcc-ar-16"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar-16"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar-16"
       - "/usr/local/sbin/gcc-ar-16"
       - "/usr/local/bin/gcc-ar-16"
       - "/opt/android-sdk/cmdline-tools/latest/bin/gcc-ar-16"
@@ -1084,6 +1160,8 @@ events:
       - "/home/shawn/.local/bin/gcc-ar16"
       - "/home/shawn/.cargo/bin/gcc-ar16"
       - "/home/shawn/.npm-global/bin/gcc-ar16"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar16"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar16"
       - "/usr/local/sbin/gcc-ar16"
       - "/usr/local/bin/gcc-ar16"
       - "/opt/android-sdk/cmdline-tools/latest/bin/gcc-ar16"
@@ -1104,6 +1182,8 @@ events:
         - "/home/shawn/.cargo/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.npm-global/bin"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/home/shawn/.local/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.local/bin"
@@ -1147,6 +1227,8 @@ events:
       - "/home/shawn/.local/bin/"
       - "/home/shawn/.cargo/bin/"
       - "/home/shawn/.npm-global/bin/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/opt/android-sdk/cmdline-tools/latest/bin/"
@@ -1164,6 +1246,8 @@ events:
       - "/home/shawn/.local/bin/gcc-ranlib-16.2"
       - "/home/shawn/.cargo/bin/gcc-ranlib-16.2"
       - "/home/shawn/.npm-global/bin/gcc-ranlib-16.2"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib-16.2"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib-16.2"
       - "/usr/local/sbin/gcc-ranlib-16.2"
       - "/usr/local/bin/gcc-ranlib-16.2"
       - "/opt/android-sdk/cmdline-tools/latest/bin/gcc-ranlib-16.2"
@@ -1180,6 +1264,8 @@ events:
       - "/home/shawn/.local/bin/gcc-ranlib-16"
       - "/home/shawn/.cargo/bin/gcc-ranlib-16"
       - "/home/shawn/.npm-global/bin/gcc-ranlib-16"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib-16"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib-16"
       - "/usr/local/sbin/gcc-ranlib-16"
       - "/usr/local/bin/gcc-ranlib-16"
       - "/opt/android-sdk/cmdline-tools/latest/bin/gcc-ranlib-16"
@@ -1196,6 +1282,8 @@ events:
       - "/home/shawn/.local/bin/gcc-ranlib16"
       - "/home/shawn/.cargo/bin/gcc-ranlib16"
       - "/home/shawn/.npm-global/bin/gcc-ranlib16"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib16"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib16"
       - "/usr/local/sbin/gcc-ranlib16"
       - "/usr/local/bin/gcc-ranlib16"
       - "/opt/android-sdk/cmdline-tools/latest/bin/gcc-ranlib16"
@@ -1216,6 +1304,8 @@ events:
         - "/home/shawn/.cargo/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.npm-global/bin"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/home/shawn/.local/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.local/bin"
@@ -1238,8 +1328,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles/CMakeScratch/TryCompile-KLMJ0C"
-      binary: "/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles/CMakeScratch/TryCompile-KLMJ0C"
+      source: "/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles/CMakeScratch/TryCompile-Jsa7zD"
+      binary: "/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles/CMakeScratch/TryCompile-Jsa7zD"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -1250,13 +1340,13 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: false
       stdout: |
-        Change Dir: '/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles/CMakeScratch/TryCompile-KLMJ0C'
+        Change Dir: '/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles/CMakeScratch/TryCompile-Jsa7zD'
         
-        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_d498a/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_d498a.dir/build.make CMakeFiles/cmTC_d498a.dir/build
-        make[1]: Entering directory '/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles/CMakeScratch/TryCompile-KLMJ0C'
-        Building CXX object CMakeFiles/cmTC_d498a.dir/CMakeCXXCompilerABI.cpp.o
-        /usr/bin/c++   -v -o CMakeFiles/cmTC_d498a.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_d75c8/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_d75c8.dir/build.make CMakeFiles/cmTC_d75c8.dir/build
+        make[1]: Entering directory '/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles/CMakeScratch/TryCompile-Jsa7zD'
+        Building CXX object CMakeFiles/cmTC_d75c8.dir/CMakeCXXCompilerABI.cpp.o
+        /usr/bin/c++   -v -o CMakeFiles/cmTC_d75c8.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
         Using built-in specs.
         COLLECT_GCC=/usr/bin/c++
         Target: x86_64-pc-linux-gnu
@@ -1264,8 +1354,8 @@ events:
         Thread model: posix
         Supported LTO compression algorithms: zlib zstd
         gcc version 16.2.1 20260810 (GCC) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d498a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d498a.dir/'
-         /usr/lib/gcc/x86_64-pc-linux-gnu/16/cc1plus -quiet -v -D_GNU_SOURCE /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_d498a.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o /tmp/cc33oZOT.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d75c8.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d75c8.dir/'
+         /usr/lib/gcc/x86_64-pc-linux-gnu/16/cc1plus -quiet -v -D_GNU_SOURCE /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_d75c8.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o /tmp/cc2k4cEz.s
         GNU C++20 (GCC) version 16.2.1 20260810 (x86_64-pc-linux-gnu)
         	compiled by GNU C version 16.2.1 20260810, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.4.1, isl version isl-0.28-GMP
         
@@ -1282,14 +1372,14 @@ events:
          /usr/include
         End of search list.
         Compiler executable checksum: 4e9ac8b201f4ca740be09d0c7a39f82f
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d498a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d498a.dir/'
-         as -v --64 -o CMakeFiles/cmTC_d498a.dir/CMakeCXXCompilerABI.cpp.o /tmp/cc33oZOT.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d75c8.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d75c8.dir/'
+         as -v --64 -o CMakeFiles/cmTC_d75c8.dir/CMakeCXXCompilerABI.cpp.o /tmp/cc2k4cEz.s
         GNU assembler version 2.47 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.47
         COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d498a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d498a.dir/CMakeCXXCompilerABI.cpp.'
-        Linking CXX executable cmTC_d498a
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d498a.dir/link.txt --verbose=1
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d75c8.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d75c8.dir/CMakeCXXCompilerABI.cpp.'
+        Linking CXX executable cmTC_d75c8
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d75c8.dir/link.txt --verbose=1
         Using built-in specs.
         COLLECT_GCC=/usr/bin/c++
         COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/16/lto-wrapper
@@ -1300,14 +1390,14 @@ events:
         gcc version 16.2.1 20260810 (GCC) 
         COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d498a' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_d498a.'
-         /usr/lib/gcc/x86_64-pc-linux-gnu/16/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/16/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16/lto-wrapper -plugin-opt=-fresolution=/tmp/ccMRFYm5.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-latomic_asneeded -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_d498a /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/16 -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_d498a.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -latomic_asneeded -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d75c8' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_d75c8.'
+         /usr/lib/gcc/x86_64-pc-linux-gnu/16/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/16/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16/lto-wrapper -plugin-opt=-fresolution=/tmp/ccFI7c58.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-latomic_asneeded -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_d75c8 /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/16 -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_d75c8.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -latomic_asneeded -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crtn.o
         collect2 version 16.2.1 20260810
-        /usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/16/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16/lto-wrapper -plugin-opt=-fresolution=/tmp/ccMRFYm5.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-latomic_asneeded -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_d498a /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/16 -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_d498a.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -latomic_asneeded -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crtn.o
+        /usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/16/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16/lto-wrapper -plugin-opt=-fresolution=/tmp/ccFI7c58.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-latomic_asneeded -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_d75c8 /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/16 -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_d75c8.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -latomic_asneeded -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crtn.o
         GNU ld (GNU Binutils) 2.47
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d498a' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_d498a.'
-        /usr/bin/c++  -v -Wl,-v CMakeFiles/cmTC_d498a.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_d498a
-        make[1]: Leaving directory '/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles/CMakeScratch/TryCompile-KLMJ0C'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d75c8' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_d75c8.'
+        /usr/bin/c++  -v -Wl,-v CMakeFiles/cmTC_d75c8.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_d75c8
+        make[1]: Leaving directory '/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles/CMakeScratch/TryCompile-Jsa7zD'
         
       exitCode: 0
   -
@@ -1346,13 +1436,13 @@ events:
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|wild|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|wild))("|,| |$)]
-        ignore line: [Change Dir: '/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles/CMakeScratch/TryCompile-KLMJ0C']
+        ignore line: [Change Dir: '/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles/CMakeScratch/TryCompile-Jsa7zD']
         ignore line: []
-        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_d498a/fast]
-        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_d498a.dir/build.make CMakeFiles/cmTC_d498a.dir/build]
-        ignore line: [make[1]: Entering directory '/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles/CMakeScratch/TryCompile-KLMJ0C']
-        ignore line: [Building CXX object CMakeFiles/cmTC_d498a.dir/CMakeCXXCompilerABI.cpp.o]
-        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_d498a.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_d75c8/fast]
+        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_d75c8.dir/build.make CMakeFiles/cmTC_d75c8.dir/build]
+        ignore line: [make[1]: Entering directory '/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles/CMakeScratch/TryCompile-Jsa7zD']
+        ignore line: [Building CXX object CMakeFiles/cmTC_d75c8.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_d75c8.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/c++]
         ignore line: [Target: x86_64-pc-linux-gnu]
@@ -1360,8 +1450,8 @@ events:
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib zstd]
         ignore line: [gcc version 16.2.1 20260810 (GCC) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d498a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d498a.dir/']
-        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/16/cc1plus -quiet -v -D_GNU_SOURCE /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_d498a.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o /tmp/cc33oZOT.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d75c8.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d75c8.dir/']
+        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/16/cc1plus -quiet -v -D_GNU_SOURCE /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_d75c8.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o /tmp/cc2k4cEz.s]
         ignore line: [GNU C++20 (GCC) version 16.2.1 20260810 (x86_64-pc-linux-gnu)]
         ignore line: [	compiled by GNU C version 16.2.1 20260810  GMP version 6.3.0  MPFR version 4.2.2  MPC version 1.4.1  isl version isl-0.28-GMP]
         ignore line: []
@@ -1378,14 +1468,14 @@ events:
         ignore line: [ /usr/include]
         ignore line: [End of search list.]
         ignore line: [Compiler executable checksum: 4e9ac8b201f4ca740be09d0c7a39f82f]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d498a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d498a.dir/']
-        ignore line: [ as -v --64 -o CMakeFiles/cmTC_d498a.dir/CMakeCXXCompilerABI.cpp.o /tmp/cc33oZOT.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d75c8.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d75c8.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_d75c8.dir/CMakeCXXCompilerABI.cpp.o /tmp/cc2k4cEz.s]
         ignore line: [GNU assembler version 2.47 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.47]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d498a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d498a.dir/CMakeCXXCompilerABI.cpp.']
-        ignore line: [Linking CXX executable cmTC_d498a]
-        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d498a.dir/link.txt --verbose=1]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d75c8.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d75c8.dir/CMakeCXXCompilerABI.cpp.']
+        ignore line: [Linking CXX executable cmTC_d75c8]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d75c8.dir/link.txt --verbose=1]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/c++]
         ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/16/lto-wrapper]
@@ -1396,13 +1486,13 @@ events:
         ignore line: [gcc version 16.2.1 20260810 (GCC) ]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d498a' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_d498a.']
-        link line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/16/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/16/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16/lto-wrapper -plugin-opt=-fresolution=/tmp/ccMRFYm5.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-latomic_asneeded -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_d498a /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/16 -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_d498a.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -latomic_asneeded -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crtn.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d75c8' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_d75c8.']
+        link line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/16/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/16/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16/lto-wrapper -plugin-opt=-fresolution=/tmp/ccFI7c58.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-latomic_asneeded -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_d75c8 /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/16 -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_d75c8.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -latomic_asneeded -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crtn.o]
           arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16/collect2] ==> ignore
           arg [-plugin] ==> ignore
           arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16/liblto_plugin.so] ==> ignore
           arg [-plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/ccMRFYm5.res] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccFI7c58.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-latomic_asneeded] ==> ignore
@@ -1418,7 +1508,7 @@ events:
           arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
           arg [-pie] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_d498a] ==> ignore
+          arg [cmTC_d75c8] ==> ignore
           arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/Scrt1.o]
           arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o]
           arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o]
@@ -1430,7 +1520,7 @@ events:
           arg [-L/lib] ==> dir [/lib]
           arg [-L/usr/lib] ==> dir [/usr/lib]
           arg [-v] ==> ignore
-          arg [CMakeFiles/cmTC_d498a.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [CMakeFiles/cmTC_d75c8.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
           arg [-lstdc++] ==> lib [stdc++]
           arg [-lm] ==> lib [m]
           arg [-lgcc_s] ==> lib [gcc_s]
@@ -1442,9 +1532,9 @@ events:
           arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16/crtendS.o]
           arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crtn.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crtn.o]
         ignore line: [collect2 version 16.2.1 20260810]
-        link line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/16/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16/lto-wrapper -plugin-opt=-fresolution=/tmp/ccMRFYm5.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-latomic_asneeded -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_d498a /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/16 -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_d498a.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -latomic_asneeded -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crtn.o] ==> linker [/usr/bin/ld]
-        link line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/16/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16/lto-wrapper -plugin-opt=-fresolution=/tmp/ccMRFYm5.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-latomic_asneeded -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_d498a /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/16 -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_d498a.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -latomic_asneeded -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crtn.o] ==> linker architecture flags [-m;elf]
-        ignore line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/16/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16/lto-wrapper -plugin-opt=-fresolution=/tmp/ccMRFYm5.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-latomic_asneeded -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_d498a /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/16 -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_d498a.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -latomic_asneeded -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crtn.o]
+        link line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/16/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16/lto-wrapper -plugin-opt=-fresolution=/tmp/ccFI7c58.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-latomic_asneeded -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_d75c8 /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/16 -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_d75c8.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -latomic_asneeded -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crtn.o] ==> linker [/usr/bin/ld]
+        link line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/16/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16/lto-wrapper -plugin-opt=-fresolution=/tmp/ccFI7c58.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-latomic_asneeded -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_d75c8 /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/16 -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_d75c8.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -latomic_asneeded -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crtn.o] ==> linker architecture flags [-m;elf]
+        ignore line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/16/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16/lto-wrapper -plugin-opt=-fresolution=/tmp/ccFI7c58.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-latomic_asneeded -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_d75c8 /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/16 -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_d75c8.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -latomic_asneeded -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crtn.o]
         linker tool for 'CXX': /usr/bin/ld -m;elf
         collapse obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/Scrt1.o] ==> [/usr/lib/Scrt1.o]
         collapse obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o] ==> [/usr/lib/crti.o]
@@ -1476,7 +1566,7 @@ events:
     kind: "find-v1"
     backtrace:
       - "/usr/share/cmake/Modules/FindPkgConfig.cmake:517 (find_program)"
-      - "CMakeLists.txt:14 (find_package)"
+      - "CMakeLists.txt:12 (find_package)"
     mode: "program"
     variable: "PKG_CONFIG_EXECUTABLE"
     description: "pkg-config executable"
@@ -1498,6 +1588,8 @@ events:
       - "/home/shawn/.local/bin/"
       - "/home/shawn/.cargo/bin/"
       - "/home/shawn/.npm-global/bin/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/bin/"
@@ -1538,6 +1630,10 @@ events:
       - "/home/shawn/.cargo/bin/pkgconf"
       - "/home/shawn/.npm-global/bin/pkg-config"
       - "/home/shawn/.npm-global/bin/pkgconf"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/pkg-config"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/pkgconf"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/pkg-config"
+      - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/pkgconf"
       - "/usr/local/sbin/pkg-config"
       - "/usr/local/sbin/pkgconf"
       - "/usr/local/bin/pkg-config"
@@ -1553,6 +1649,8 @@ events:
         - "/home/shawn/.cargo/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.npm-global/bin"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/home/shawn/.local/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.local/bin"
@@ -1583,7 +1681,7 @@ events:
       - "/usr/share/cmake/Modules/FindPkgConfig.cmake:811 (_pkg_find_libs)"
       - "/usr/share/cmake/Modules/FindPkgConfig.cmake:1149 (_pkg_recalculate)"
       - "/usr/share/cmake/Modules/FindPkgConfig.cmake:1166 (_pkg_check_modules_internal)"
-      - "CMakeLists.txt:15 (pkg_check_modules)"
+      - "CMakeLists.txt:13 (pkg_check_modules)"
     mode: "library"
     variable: "pkgcfg_lib_SDL2_SDL2"
     description: "Path to a library."
@@ -1610,6 +1708,8 @@ events:
         - "/home/shawn/.cargo/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.npm-global/bin"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/shawn/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/home/shawn/.local/bin"
         - "/home/shawn/.npm-global/bin"
         - "/home/shawn/.local/bin"
