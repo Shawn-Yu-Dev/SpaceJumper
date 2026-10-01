@@ -2,6 +2,7 @@
 #include "Audio.hpp"
 #include "Level.hpp"
 #include "Physics.hpp"
+#include "Save.hpp"
 #include <algorithm>
 #include <cmath>
 #include <cstdio>
@@ -37,6 +38,72 @@ void App::loadLevelKeepScore(int idx) {
   cam = {0, 0};
   paused = false;
   state = ST_PLAY;
+}
+
+// ---- 存档: unlocked + 当前关 + 分数/碎片/心 ----
+void App::saveProgress() {
+  int lc = levelCount();
+  int ul = unlockedLevel;
+  if (ul < 0) ul = 0;
+  if (ul >= lc) ul = lc - 1;
+  unlockedLevel = ul;
+  int lv = currentLevelIndex;
+  if (lv < 0) lv = 0;
+  if (lv >= lc) lv = lc - 1;
+  SaveData d;
+  d.unlocked = ul;
+  d.level = lv;
+  d.score = game.score;
+  d.coins = game.coinCount;
+  d.lives = game.lives;
+  saveGameToFile(d);
+}
+
+bool App::loadUnlockedOnly() {
+  SaveData d;
+  if (!loadGameFromFile(d)) { unlockedLevel = 0; return false; }
+  int lc = levelCount();
+  if (d.unlocked < 0) d.unlocked = 0;
+  if (d.unlocked >= lc) d.unlocked = lc - 1;
+  unlockedLevel = d.unlocked;
+  return true;
+}
+
+bool App::loadProgress() {
+  SaveData d;
+  if (!loadGameFromFile(d)) return false;
+  int lc = levelCount();
+  if (d.unlocked < 0) d.unlocked = 0;
+  if (d.unlocked >= lc) d.unlocked = lc - 1;
+  unlockedLevel = d.unlocked;
+  int lv = d.level;
+  if (lv < 0) lv = 0;
+  if (lv >= lc) lv = lc - 1;
+  if (lv > unlockedLevel) lv = unlockedLevel;
+  currentLevelIndex = lv;
+  buildLevel(game, currentLevelIndex);
+  game.score = d.score; game.coinCount = d.coins; game.lives = d.lives;
+  game.timeLeft = 300;
+  cpSaved = false;
+  cpPos = {(float)levelCheckpointCol(currentLevelIndex) * TILE_SIZE, 12.0f * TILE_SIZE};
+  player = Player(); player.pos = game.spawn; player.size = {24, 40};
+  cam = {0, 0};
+  paused = false;
+  state = ST_PLAY;
+  return true;
+}
+
+void App::continueFromSave() {
+  if (!loadProgress()) resetToFirstLevel();
+}
+
+bool App::trySelectLevel(int idx) {
+  int lc = levelCount();
+  if (idx < 0 || idx >= lc) return false;
+  if (idx > unlockedLevel) return false; // 未解锁不可跳
+  currentLevelIndex = idx;
+  resetRun(); // 选关为全新分数 (街机规则), 解锁进度保留
+  return true;
 }
 
 void updateFx(Game &g, float DT) {
@@ -93,6 +160,54 @@ static bool hurtPlayer(Game &g, Player &pl, float srcX) {
   pl.pos.x += (pl.pos.x + pl.size.x / 2 < srcX) ? -14.0f : 14.0f;
   pl.vel.y = -260.0f;
   return g.lives <= 0;
+}
+
+// ============================================================================
+// 怪物智能 AI: 边缘感知 / 墙体感知 / 尖刺回避 / 追击 / 跳跃
+// 修复旧 bug: 旧代码用 e.vel.y==0 判断着地, 但重力每帧先累加导致 vel.y 几乎
+// 永不为 0, 悬崖检测形同虚设 -> 怪物直直掉坑. 现改用 grounded 标志.
+// 策略 (每 0.12s 决策一次, 防抖动):
+//   巡逻者(ai0): 悬崖/尖刺/墙 -> 掉头
+//   追击者(ai1): 玩家在 320x120 内加速追击; 悬崖前急停 (窄坑<=3 则跳过去追),
+//               绝不主动跳崖
+//   跳跃者(ai2): 追击 + 矮墙起跳 + 窄坑跳跃 (宽坑则掉头)
+//   飞行种: 巡逻者在出生点 ±250 内游荡; 追击者在 450 内立体追踪玩家
+// ============================================================================
+static bool enemyFootSupported(const Game &g, float footX, float footY) {
+  int c = (int)floorf(footX / TILE_SIZE);
+  int r = (int)floorf((footY + 6.0f) / TILE_SIZE);
+  int t = getT(g, c, r);
+  if (solidTile(t)) return true;
+  // 移动平台也算落脚点 (避免把平台边缘误判成悬崖)
+  for (const auto &p : g.plats) {
+    if (footX >= p.pos.x - 2 && footX <= p.pos.x + p.size.x + 2 &&
+        fabsf(footY - p.pos.y) < 12.0f)
+      return true;
+  }
+  return false;
+}
+
+// 前方 pit 宽度 (格): 沿 dir 方向数连续无支撑列, 最多数 6 格
+static int enemyPitWidth(const Game &g, const Goomba &e, int dir) {
+  float footY = e.pos.y + e.size.y;
+  int footR = (int)floorf((footY + 6.0f) / TILE_SIZE);
+  int startC = (int)floorf(((dir > 0 ? e.pos.x + e.size.x + 4 : e.pos.x - 4)) / TILE_SIZE);
+  int w = 0;
+  for (int k = 0; k < 6; ++k) {
+    int c = startC + (dir > 0 ? k : -k);
+    int t = getT(g, c, footR);
+    bool sup = solidTile(t);
+    if (!sup) {
+      float fx = (float)(c * TILE_SIZE + TILE_SIZE / 2);
+      for (const auto &p : g.plats) {
+        if (fx >= p.pos.x && fx <= p.pos.x + p.size.x &&
+            fabsf(footY - p.pos.y) < 14.0f) { sup = true; break; }
+      }
+    }
+    if (sup) break;
+    w++;
+  }
+  return w;
 }
 
 void updateFixedStep(App &app, float DT, const Uint8 *kb) {
@@ -332,42 +447,191 @@ void updateFixedStep(App &app, float DT, const Uint8 *kb) {
       }
     }
 
-    // ---- 敌人 ----
+    // ---- 敌人 (智能 AI: 悬崖/墙/刺感知 + 追击/跳跃, 绝不无脑跳崖) ----
     for (auto &e : g.foes) {
       if (!e.alive) { if (e.squashT > 0) e.squashT -= DT; continue; }
       e.anim += DT;
       if (e.flyer) {
-        e.phase += DT * 2.0f;
-        e.pos.x += -60 * DT;
-        if (e.pos.x < 0) e.pos.x = WORLD_WIDTH - 30;
-        e.pos.y = e.baseY + sinf(e.phase) * 40.0f;
-        // 飞出屏幕左则绕回右(保持关卡压力)
-        if (e.pos.x + 30 < cam.x - 100) { e.pos.x = cam.x + WINDOW_WIDTH + 100; e.baseY = 200 + rand()%250; }
+        // ===== 飞行种: 巡逻 / 追击二态 =====
+        e.phase += DT * 2.2f;
+        float dx = pl.pos.x - e.pos.x;
+        float dy = (pl.pos.y - 20) - e.pos.y;
+        float dist = sqrtf(dx * dx + dy * dy);
+        bool chase = (e.ai == 1) && !pl.dead && dist < 450.0f;
+        float vx = 0, vy = 0;
+        if (chase) {
+          // 立体追踪: 水平趋近 + 垂直趋近 + 正弦抖动 (避免完全锁定太难躲)
+          vx = dx * 2.0f;
+          if (vx > 150) vx = 150; if (vx < -150) vx = -150;
+          vy = dy * 1.6f + cosf(e.phase) * 50.0f;
+          if (vy > 160) vy = 160; if (vy < -160) vy = -160;
+          e.moveDir = (vx >= 0) ? 1 : -1;
+        } else {
+          // 巡逻: 以 homeX 为中心 ±250 游荡, 到界掉头
+          if (e.moveDir == 0) e.moveDir = -1;
+          if (e.pos.x < e.homeX - 250) e.moveDir = 1;
+          else if (e.pos.x > e.homeX + 250) e.moveDir = -1;
+          vx = (float)e.moveDir * 60.0f;
+          vy = cosf(e.phase) * 55.0f;
+          // 缓慢回归基准高度 (避免越飞越偏)
+          vy += (e.baseY - e.pos.y) * 0.8f;
+          if (vy > 120) vy = 120; if (vy < -120) vy = -120;
+        }
+        float nx = e.pos.x + vx * DT;
+        float ny = e.pos.y + vy * DT;
+        // 撞墙感知: 试探下一步, 撞实心砖则掉头/反弹 (不再穿墙)
+        {
+          Goomba probe = e; probe.pos.x = nx; probe.pos.y = e.pos.y;
+          if (boxHitTile(g, probe.pos, probe.size)) {
+            e.moveDir = -e.moveDir;
+            nx = e.pos.x + (float)e.moveDir * 60.0f * DT;
+          }
+          probe.pos.x = nx; probe.pos.y = ny;
+          if (boxHitTile(g, probe.pos, probe.size)) {
+            ny = e.pos.y; // 垂直受阻则悬停
+          }
+        }
+        e.pos.x = nx; e.pos.y = ny;
+        if (e.pos.x < 0) { e.pos.x = 0; e.moveDir = 1; }
+        if (e.pos.x > WORLD_WIDTH - e.size.x) { e.pos.x = WORLD_WIDTH - e.size.x; e.moveDir = -1; }
+        if (e.pos.y < 40) e.pos.y = 40;
+        if (e.pos.y > 16 * TILE_SIZE - 20) e.pos.y = 16 * TILE_SIZE - 20;
+        e.vel.x = vx; e.vel.y = vy;
+        // 掉队迁巢: 落后镜头太远则前移到镜头前方 (保持压力, 同时更新 homeX)
+        if (e.pos.x + 30 < cam.x - 400) {
+          e.pos.x = cam.x + WINDOW_WIDTH + 80;
+          e.homeX = e.pos.x; e.baseY = 180 + rand() % 260;
+        }
       } else {
+        // ===== 地面种: 重力 + 感知决策 + 位移解算 =====
         e.vel.y += GRAVITY * DT; if (e.vel.y > MAX_FALL) e.vel.y = MAX_FALL;
-        // 远处敌人休眠省性能 + 避免乱跑
-        if (fabsf(e.pos.x - pl.pos.x) < 700) {
+        if (e.moveDir == 0) e.moveDir = (e.vel.x >= 0 ? 1 : -1);
+        // 远处休眠 (省性能, 但仍做重力沉降 + 着地标记)
+        if (fabsf(e.pos.x - pl.pos.x) < 750) {
+          e.thinkT -= DT;
+          bool doThink = (e.thinkT <= 0);
+          if (doThink) e.thinkT = 0.12f;
+          float pdx = pl.pos.x - e.pos.x;
+          float pdy = fabsf(pl.pos.y - e.pos.y);
+          bool playerNear = !pl.dead && fabsf(pdx) < 320 && pdy < 130;
+          bool chasing = (e.ai == 1 || e.ai == 2) && playerNear;
+
+          // --- 感知 (仅着地时有效, 空中不决策) ---
+          bool holdAtEdge = false;   // 追击者悬崖前急停
+          bool wantJump = false;     // 跳跃者起跳意图
+          if (doThink && e.grounded) {
+            int dir = e.moveDir;
+            // 追击转向
+            if (chasing) dir = (pdx > 0) ? 1 : -1;
+            float frontX = (dir > 0) ? e.pos.x + e.size.x + 4 : e.pos.x - 4;
+            float footY = e.pos.y + e.size.y;
+            int aheadC = (int)floorf(frontX / TILE_SIZE);
+            int footR = (int)floorf((footY + 6.0f) / TILE_SIZE);
+            int bodyR = (int)floorf((e.pos.y + e.size.y * 0.5f) / TILE_SIZE);
+            int belowT = getT(g, aheadC, footR);
+            int aheadT = getT(g, aheadC, bodyR);
+            bool belowSup = enemyFootSupported(g, frontX, footY);
+            bool spikeAhead = (belowT == T_SPIKE || aheadT == T_SPIKE);
+            bool wallAhead = solidTile(aheadT);
+            bool cliff = !belowSup;
+
+            if (spikeAhead) {
+              // 尖刺回避: 任何 AI 都掉头 (追击者也不踩刺)
+              dir = -dir;
+            } else if (wallAhead) {
+              if (e.ai == 2) {
+                // 跳跃者: 矮墙(头顶两格空)则跳, 高墙则掉头
+                int above1 = getT(g, aheadC, bodyR - 1);
+                int above2 = getT(g, aheadC, bodyR - 2);
+                if (!solidTile(above1) && !solidTile(above2)) wantJump = true;
+                else dir = -dir;
+              } else {
+                dir = -dir; // 巡逻/追击者撞墙掉头
+              }
+            } else if (cliff) {
+              int w = enemyPitWidth(g, e, dir);
+              if (e.ai == 0) {
+                dir = -dir; // 巡逻者: 悬崖掉头, 绝不掉下
+              } else if (e.ai == 1) {
+                if (w <= 3 && chasing) wantJump = true; // 窄坑跳过去追
+                else if (chasing) holdAtEdge = true;    // 宽坑急停等玩家
+                else dir = -dir;
+              } else { // ai==2 跳跃者
+                if (w <= 4) wantJump = true;
+                else dir = -dir;
+              }
+            }
+            e.moveDir = dir;
+          }
+
+          // --- 速度 (追击加速, 急停则为 0) ---
+          float spd = e.baseSpeed;
+          if (chasing) spd *= 1.6f;
+          if (holdAtEdge) e.vel.x = 0;
+          else e.vel.x = (float)e.moveDir * spd;
+
+          // --- X 位移 + 撞墙掉头 (即时, 不等 think) ---
           e.pos.x += e.vel.x * DT;
           if (boxHitTile(g, e.pos, e.size)) {
-            if (e.vel.x > 0) e.pos.x = floorf((e.pos.x+e.size.x)/TILE_SIZE)*TILE_SIZE - e.size.x - 0.5f;
-            else e.pos.x = floorf(e.pos.x/TILE_SIZE)*TILE_SIZE + TILE_SIZE + 0.5f;
-            e.vel.x = -e.vel.x;
+            if (e.vel.x > 0) e.pos.x = floorf((e.pos.x + e.size.x) / TILE_SIZE) * TILE_SIZE - e.size.x - 0.5f;
+            else if (e.vel.x < 0) e.pos.x = floorf(e.pos.x / TILE_SIZE) * TILE_SIZE + TILE_SIZE + 0.5f;
+            else {
+              // 急停状态下被挤进墙: 微调出来
+              if (boxHitTile(g, e.pos, e.size)) e.pos.x += (float)e.moveDir * -4.0f;
+            }
+            if (e.vel.x != 0) {
+              e.moveDir = -e.moveDir;
+              // 跳跃者撞墙且着地: 尝试起跳翻墙
+              if (e.ai == 2 && e.grounded) {
+                int dir2 = e.moveDir;
+                float fx2 = (dir2 > 0) ? e.pos.x + e.size.x + 4 : e.pos.x - 4;
+                int ac2 = (int)floorf(fx2 / TILE_SIZE);
+                int br2 = (int)floorf((e.pos.y + e.size.y * 0.5f) / TILE_SIZE);
+                if (!solidTile(getT(g, ac2, br2 - 1)) && !solidTile(getT(g, ac2, br2 - 2)))
+                  e.vel.y = -560.0f;
+              }
+              e.vel.x = (float)e.moveDir * spd;
+            }
           }
-          // 悬崖回头 (更聪明)
-          int aheadX = (int)((e.vel.x > 0 ? e.pos.x + e.size.x + 4 : e.pos.x - 4) / TILE_SIZE);
-          int belowR = (int)((e.pos.y + e.size.y + 6) / TILE_SIZE);
-          if (e.vel.y == 0 && !solidTile(getT(g, aheadX, belowR)) && getT(g, aheadX, belowR) != T_FLAG)
-            e.vel.x = -e.vel.x;
+          // --- Y 位移 + 着地标记 (核心修复: grounded 取代 vel.y==0) ---
           e.pos.y += e.vel.y * DT;
+          e.grounded = false;
           if (boxHitTile(g, e.pos, e.size)) {
-            if (e.vel.y > 0) e.pos.y = floorf((e.pos.y+e.size.y)/TILE_SIZE)*TILE_SIZE - e.size.y;
-            else e.pos.y = floorf(e.pos.y/TILE_SIZE)*TILE_SIZE + TILE_SIZE;
+            if (e.vel.y > 0) {
+              e.pos.y = floorf((e.pos.y + e.size.y) / TILE_SIZE) * TILE_SIZE - e.size.y;
+              e.grounded = true;
+            } else if (e.vel.y < 0) {
+              e.pos.y = floorf(e.pos.y / TILE_SIZE) * TILE_SIZE + TILE_SIZE;
+            }
             e.vel.y = 0;
           }
+          // 平台支撑也算着地
+          if (!e.grounded && e.vel.y >= 0) {
+            for (const auto &p : g.plats) {
+              bool over = e.pos.x + e.size.x > p.pos.x + 2 && e.pos.x < p.pos.x + p.size.x - 2;
+              if (over && fabsf((e.pos.y + e.size.y) - p.pos.y) < 9.0f) {
+                e.pos.y = p.pos.y - e.size.y;
+                e.vel.y = 0; e.grounded = true;
+                // 随平台平移 (避免被落下)
+                e.pos.x += p.delta().x;
+                break;
+              }
+            }
+          }
+          // 起跳执行 (着地后)
+          if (wantJump && e.grounded) {
+            e.vel.y = -560.0f;
+            e.grounded = false;
+          }
         } else {
+          // 休眠: 只沉降
           e.pos.y += e.vel.y * DT;
+          e.grounded = false;
           if (boxHitTile(g, e.pos, e.size)) {
-            if (e.vel.y > 0) e.pos.y = floorf((e.pos.y+e.size.y)/TILE_SIZE)*TILE_SIZE - e.size.y;
+            if (e.vel.y > 0) {
+              e.pos.y = floorf((e.pos.y + e.size.y) / TILE_SIZE) * TILE_SIZE - e.size.y;
+              e.grounded = true;
+            }
             e.vel.y = 0;
           }
         }
@@ -375,8 +639,8 @@ void updateFixedStep(App &app, float DT, const Uint8 *kb) {
       if (e.pos.y > WORLD_HEIGHT + 80) { e.alive = false; continue; }
       // 与玩家交互 (踩踏已移除, 接触即受伤; 子弹攻击, 盾牌防卫; 无敌帧内免伤)
       if (!pl.dead && pl.invincT <= 0 && aabb(pl.pos, pl.size, e.pos, e.size)) {
-        // 仅实际受伤时才弹开敌人, 无敌帧内不翻转避免抖动
-        e.vel.x = -e.vel.x;
+        // 仅实际受伤时才让怪物掉头, 无敌帧内不翻转避免抖动
+        if (!e.flyer) e.moveDir = -e.moveDir;
         if (hurtPlayer(g, pl, e.pos.x + e.size.x / 2)) {
           SFX.die(); state = ST_DYING; g.stateT = 0; pl.dead = true; pl.vel = {60,-650};
           app.respawnLevel = false;
@@ -414,7 +678,7 @@ void updateFixedStep(App &app, float DT, const Uint8 *kb) {
             burst(g, {e.pos.x + 14, e.pos.y + 10}, 6, {255,90,90,255}, 150, 500, 3);
             g.popups.push_back({{e.pos.x, e.pos.y - 18}, "HIT!", 0.7f, {255,120,120,255}});
             e.pos.x += (b.vel.x > 0) ? 10.0f : -10.0f;
-            if (!e.flyer) e.vel.x = -e.vel.x;
+            if (!e.flyer) e.moveDir = -e.moveDir;
           }
           break;
         }
@@ -487,12 +751,19 @@ void updateFixedStep(App &app, float DT, const Uint8 *kb) {
       int bonus = (int)g.timeLeft * 10;
       g.score += 2000 + bonus;
       // 多关卡结算: 还有后续关卡则进入过渡态, 否则大结局
+      // 存档: 解锁下一关并落盘 (10 关进度不断线, 下次 C 继续)
       app.currentLevelIndex++;
       if (app.currentLevelIndex >= levelCount()) {
+        app.unlockedLevel = levelCount() - 1;
+        app.currentLevelIndex = levelCount() - 1; // 钳制在末关, HUD 显示 SECTOR 1-10
+        app.saveProgress();
         state = ST_WIN;
       } else {
+        if (app.currentLevelIndex > app.unlockedLevel)
+          app.unlockedLevel = app.currentLevelIndex;
+        app.saveProgress();
         state = ST_NEXTLEVEL; g.stateT = 0;
-        g.popups.push_back({{pl.pos.x, pl.pos.y - 60}, "LOAD NEXT LEVEL", 2.0f, {255, 230, 90, 255}});
+        g.popups.push_back({{pl.pos.x, pl.pos.y - 60}, "SAVED! LOAD NEXT", 2.0f, {255, 230, 90, 255}});
         SFX.power();
       }
     }

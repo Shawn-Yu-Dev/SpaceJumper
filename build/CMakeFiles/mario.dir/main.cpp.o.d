@@ -313,4 +313,5 @@ CMakeFiles/mario.dir/main.cpp.o: \
  /usr/include/c++/16/bits/vector.tcc \
  /home/shawn/Projects/CC++/custom_mario/GameLogic.hpp \
  /home/shawn/Projects/CC++/custom_mario/Level.hpp \
- /home/shawn/Projects/CC++/custom_mario/Renderer.hpp
+ /home/shawn/Projects/CC++/custom_mario/Renderer.hpp \
+ /home/shawn/Projects/CC++/custom_mario/Save.hpp

@@ -23,6 +23,7 @@ add_executable(mario
   Level.cpp
   Renderer.cpp
   GameLogic.cpp
+  Save.cpp
 )
 
 target_include_directories(mario PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} ${SDL2_INCLUDE_DIRS})

@@ -8,6 +8,7 @@
 #include "GameLogic.hpp"
 #include "Level.hpp"
 #include "Renderer.hpp"
+#include "Save.hpp"
 
 // ============================================================================
 // SUPER PLATFORMER - 瘦主函数: 仅负责 SDL 初始化 / 事件分发 / 固定步长调度
@@ -35,6 +36,7 @@ int main(int argc, char *argv[]) {
 
   App app;
   buildLevel(app.game, app.currentLevelIndex);
+  app.loadUnlockedOnly(); // 启动即读解锁进度 (标题屏显示 CONTINUE/选关)
 
   // 烟雾测试模式: 传参 --smoke 则跑 4 秒自动退出(供 CI/无头验证)
   app.smoke = argc > 1 && std::string(argv[1]) == "--smoke";
@@ -65,9 +67,36 @@ int main(int argc, char *argv[]) {
         if (sym == SDLK_m) SFX.muted = !SFX.muted;
         if (sym == SDLK_p && app.state == ST_PLAY) app.paused = !app.paused;
         if (sym == SDLK_r) { app.resetRun(); } // 按当前关索引重开 (分数清零, 地形按索引加载)
+        // ---- 存档快捷键 ----
+        if (sym == SDLK_F5 && (app.state == ST_PLAY || app.state == ST_NEXTLEVEL)) {
+          app.saveProgress();
+          app.game.popups.push_back({{app.player.pos.x, app.player.pos.y - 40}, "SAVED!", 1.2f, {120,255,120,255}});
+          SFX.power();
+        }
+        if (sym == SDLK_F9) {
+          // 任意状态读档继续 (标题/暂停/死亡后均可)
+          if (app.loadProgress()) SFX.power();
+        }
         if (sym == SDLK_RETURN || sym == SDLK_KP_ENTER) {
-          if (app.state == ST_TITLE) { app.resetRun(); }
+          if (app.state == ST_TITLE) { app.resetToFirstLevel(); }
           else if (app.state == ST_WIN || app.state == ST_GAMEOVER) { app.resetToFirstLevel(); } // 通关/失败重试: 归零从第一关起
+        }
+        // ---- 标题屏: 继续 / 选关 / 清档 ----
+        if (app.state == ST_TITLE) {
+          if (sym == SDLK_c) { app.continueFromSave(); } // 继续上次进度
+          if (sym == SDLK_x) { // 清档 (解锁归零, 本局不动)
+            clearSaveFile();
+            app.unlockedLevel = 0;
+            SFX.bump();
+          }
+          // 数字选关 1..9,0(=10): 仅已解锁可跳, 全新分数开局
+          int sel = -1;
+          if (sym >= SDLK_1 && sym <= SDLK_9) sel = sym - SDLK_1;
+          else if (sym == SDLK_0) sel = 9;
+          if (sel >= 0) {
+            if (!app.trySelectLevel(sel)) SFX.bump(); // 未解锁: 顶部反馈
+            else SFX.power();
+          }
         }
         if ((sym == SDLK_SPACE || sym == SDLK_w || sym == SDLK_UP) && app.state == ST_PLAY && !app.paused) {
           app.player.buffer = BUFFER_TIME; app.player.jumpHeld = true;

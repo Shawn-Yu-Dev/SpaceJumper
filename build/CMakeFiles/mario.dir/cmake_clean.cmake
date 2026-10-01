@@ -14,6 +14,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/mario.dir/Physics.cpp.o.d"
   "CMakeFiles/mario.dir/Renderer.cpp.o"
   "CMakeFiles/mario.dir/Renderer.cpp.o.d"
+  "CMakeFiles/mario.dir/Save.cpp.o"
+  "CMakeFiles/mario.dir/Save.cpp.o.d"
   "CMakeFiles/mario.dir/main.cpp.o"
   "CMakeFiles/mario.dir/main.cpp.o.d"
   "mario"

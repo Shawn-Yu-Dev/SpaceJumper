@@ -297,6 +297,30 @@ Renderer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/Renderer.cpp.s
 .PHONY : Renderer.cpp.s
 
+Save.o: Save.cpp.o
+.PHONY : Save.o
+
+# target to build an object file
+Save.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/Save.cpp.o
+.PHONY : Save.cpp.o
+
+Save.i: Save.cpp.i
+.PHONY : Save.i
+
+# target to preprocess a source file
+Save.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/Save.cpp.i
+.PHONY : Save.cpp.i
+
+Save.s: Save.cpp.s
+.PHONY : Save.s
+
+# target to generate assembly for a file
+Save.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mario.dir/build.make CMakeFiles/mario.dir/Save.cpp.s
+.PHONY : Save.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -351,6 +375,9 @@ help:
 	@echo "... Renderer.o"
 	@echo "... Renderer.i"
 	@echo "... Renderer.s"
+	@echo "... Save.o"
+	@echo "... Save.i"
+	@echo "... Save.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -7,14 +7,15 @@
 struct Game; // 前置声明 (完整定义见 Entities.hpp)
 
 // ---- 配表上限 (固定大小, 栈上/静态数组, 绝不动态增长) ----
-constexpr int MAX_PITS     = 8;
-constexpr int MAX_BRICKROW = 4;
-constexpr int MAX_STAIR    = 8;
-constexpr int MAX_SPECIAL  = 64;
-constexpr int MAX_COIN     = 32;
-constexpr int MAX_COINARC  = 8;
-constexpr int MAX_GOOMBA   = 20;
-constexpr int MAX_PLAT     = 4;
+// 10 关规模: 最多 10 坑 / 32 怪 / 96 特殊砖, 仍为 .rodata 静态只读
+constexpr int MAX_PITS     = 12;
+constexpr int MAX_BRICKROW = 6;
+constexpr int MAX_STAIR    = 10;
+constexpr int MAX_SPECIAL  = 96;
+constexpr int MAX_COIN     = 40;
+constexpr int MAX_COINARC  = 12;
+constexpr int MAX_GOOMBA   = 32;
+constexpr int MAX_PLAT     = 6;
 
 // ---- 只读配置结构体: 无指针, 内存对齐, 可平凡拷贝 ----
 struct PitData         { int c0, c1; };            // 半开区间 [c0,c1), 与老 inPit 语义一致
@@ -23,7 +24,8 @@ struct StairData       { int c0, rBase, steps, tile, dx, dy; };
 struct SpecialTileData { int c, r, tile; };        // 零散 Q/BRICK/STONE/SPIKE
 struct CoinData        { int c, r; float anim; };  // 像素 x=c*32+2, y=r*32 (与老逻辑逐位一致)
 struct CoinArcData     { int c0, n, rBase; };      // 坑上弧线, 弧高公式与老 coinArc 一致
-struct GoombaSpawnData { int c, r, flyer; };       // flyer: 0/1
+// ai: 地面 0=巡逻 1=追击 2=跳跃; 飞行 0=巡逻 1=追击. speed<=0 则用默认 70+关卡加成
+struct GoombaSpawnData { int c, r, flyer; int ai; float speed; };
 struct PlatformSpawnData {
   float ax, ay, bx, by;   // 像素坐标 (老逻辑 58.0f*TILE_SIZE 等已预乘)
   float w, h, speed, t;

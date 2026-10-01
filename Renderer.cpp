@@ -674,12 +674,12 @@ void renderAll(SDL_Renderer *ren, App &app) {
   if (state == ST_TITLE) {
     SDL_SetRenderDrawColor(ren, 0, 0, 0, 160);
     SDL_Rect o{0,0,WINDOW_WIDTH,WINDOW_HEIGHT}; SDL_RenderFillRect(ren, &o);
-    drawTextCenter(ren, "SPACE JUMPER", WINDOW_WIDTH/2, 130, 6, {120,240,255,255});
-    drawTextCenter(ren, "TAI KONG TIAO YUE", WINDOW_WIDTH/2, 180, 2, {170,200,255,255});
+    drawTextCenter(ren, "SPACE JUMPER", WINDOW_WIDTH/2, 110, 6, {120,240,255,255});
+    drawTextCenter(ren, "TAI KONG TIAO YUE", WINDOW_WIDTH/2, 160, 2, {170,200,255,255});
     // 演示宇航员跳跃
     {
       Player demo; demo.pos = {0,0}; demo.size={24,40}; demo.face=1;
-      int bx = WINDOW_WIDTH/2 - 60, by = 300;
+      int bx = WINDOW_WIDTH/2 - 60, by = 270;
       int hop = (int)(fabsf(sinf(globalT*3))*40);
       drawPlayer(ren, demo, bx, by - hop, globalT);
       // 月面演示台
@@ -688,17 +688,34 @@ void renderAll(SDL_Renderer *ren, App &app) {
       SDL_SetRenderDrawColor(ren, 55, 225, 255, 255);
       SDL_Rect strip{bx-80, by+42, 220, 3}; SDL_RenderFillRect(ren, &strip);
     }
-    drawTextCenter(ren, "A/D MOVE  SPACE JUMP  SHIFT BOOST", WINDOW_WIDTH/2, 380, 2, {255,255,255,255});
-    drawTextCenter(ren, "E FIRE  I/K AIM  Q SHIELD  REACH BEACON", WINDOW_WIDTH/2, 404, 2, {170,240,255,255});
-    drawTextCenter(ren, "3 HEARTS  SHIELD X2  FOES X2 HITS", WINDOW_WIDTH/2, 428, 2, {255,220,150,255});
+    drawTextCenter(ren, "A/D MOVE  SPACE JUMP  SHIFT BOOST", WINDOW_WIDTH/2, 340, 2, {255,255,255,255});
+    drawTextCenter(ren, "E FIRE  I/K AIM  Q SHIELD  REACH BEACON", WINDOW_WIDTH/2, 362, 2, {170,240,255,255});
+    drawTextCenter(ren, "3 HEARTS  SHIELD X2  FOES X2 HITS", WINDOW_WIDTH/2, 384, 2, {255,220,150,255});
+    // ---- 存档/选关提示 (10 关) ----
+    {
+      char buf[96];
+      int unl = app.unlockedLevel;
+      if (unl < 0) unl = 0;
+      if (unl >= levelCount()) unl = levelCount() - 1;
+      snprintf(buf, sizeof(buf), "SECTORS 10  UNLOCKED 1-%d", unl + 1);
+      drawTextCenter(ren, buf, WINDOW_WIDTH/2, 408, 2, {150,220,255,255});
+      if (unl > 0) {
+        snprintf(buf, sizeof(buf), "C CONTINUE 1-%d  1-%d SELECT  X CLEAR", unl + 1, unl + 1);
+        drawTextCenter(ren, buf, WINDOW_WIDTH/2, 430, 1, {120,255,180,255});
+      } else {
+        drawTextCenter(ren, "C CONTINUE  X CLEAR  1-0 SELECT", WINDOW_WIDTH/2, 430, 1, {130,150,180,255});
+      }
+    }
     if ((int)(globalT*2)%2==0)
-      drawTextCenter(ren, "PRESS ENTER TO START", WINDOW_WIDTH/2, 480, 3, {255,255,255,255});
-    drawTextCenter(ren, "M MUTE  R RESTART", WINDOW_WIDTH/2, 530, 1, {150,150,150,255});
+      drawTextCenter(ren, "PRESS ENTER TO START", WINDOW_WIDTH/2, 460, 3, {255,255,255,255});
+    drawTextCenter(ren, "M MUTE  R RESTART  F5 SAVE  F9 LOAD", WINDOW_WIDTH/2, 510, 1, {150,150,150,255});
+    drawTextCenter(ren, "SMART FOES: EDGE STOP  SPIKE DODGE  CHASE  JUMP", WINDOW_WIDTH/2, 530, 1, {130,150,180,255});
   } else if (paused) {
     SDL_SetRenderDrawColor(ren, 0, 0, 0, 150);
     SDL_Rect o{0,0,WINDOW_WIDTH,WINDOW_HEIGHT}; SDL_RenderFillRect(ren, &o);
-    drawTextCenter(ren, "PAUSED", WINDOW_WIDTH/2, 260, 5, {255,255,255,255});
-    drawTextCenter(ren, "PRESS P TO RESUME", WINDOW_WIDTH/2, 320, 2, {200,200,200,255});
+    drawTextCenter(ren, "PAUSED", WINDOW_WIDTH/2, 240, 5, {255,255,255,255});
+    drawTextCenter(ren, "PRESS P TO RESUME", WINDOW_WIDTH/2, 300, 2, {200,200,200,255});
+    drawTextCenter(ren, "F5 SAVE  F9 LOAD  R RESTART", WINDOW_WIDTH/2, 330, 1, {150,220,255,255});
   } else if (state == ST_DYING) {
     // 红闪 (通用受击反馈, 非马里奥专属)
     if (g.stateT < 0.2f) {
@@ -732,6 +749,7 @@ void renderAll(SDL_Renderer *ren, App &app) {
     drawTextCenter(ren, buf, WINDOW_WIDTH/2, 240, 3, {120,240,255,255});
     snprintf(buf, sizeof(buf), "SHARDS X%d  TIME %d", g.coinCount, (int)g.timeLeft);
     drawTextCenter(ren, buf, WINDOW_WIDTH/2, 280, 2, {255,255,255,255});
+    drawTextCenter(ren, "PROGRESS SAVED  C CONTINUE  X CLEAR", WINDOW_WIDTH/2, 310, 1, {120,255,180,255});
     drawTextCenter(ren, "PRESS ENTER TO PLAY AGAIN", WINDOW_WIDTH/2, 340, 2, {200,220,255,255});
   } else if (state == ST_GAMEOVER) {
     SDL_SetRenderDrawColor(ren, 0, 0, 0, 180);
@@ -739,6 +757,6 @@ void renderAll(SDL_Renderer *ren, App &app) {
     drawTextCenter(ren, "GAME OVER", WINDOW_WIDTH/2, 200, 6, {255,100,120,255});
     char buf[64]; snprintf(buf, sizeof(buf), "SCORE %06d", g.score);
     drawTextCenter(ren, buf, WINDOW_WIDTH/2, 290, 3, {255,255,255,255});
-    drawTextCenter(ren, "PRESS ENTER TO RETRY", WINDOW_WIDTH/2, 350, 2, {200,200,200,255});
+    drawTextCenter(ren, "PRESS ENTER TO RETRY  F9 LOAD SAVE", WINDOW_WIDTH/2, 350, 2, {200,200,200,255});
   }
 }

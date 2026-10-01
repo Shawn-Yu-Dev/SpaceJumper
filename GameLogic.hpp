@@ -21,12 +21,22 @@ struct App {
   // 多关卡: 当前关索引 (0..LEVEL_COUNT-1). resetRun 按此索引加载地形.
   int currentLevelIndex = 0;
 
+  // 存档: 已解锁的最大关索引 (0..LEVEL_COUNT-1). 启动时从 save.dat 载入,
+  // 通关时自动推进并落盘; 标题屏按 C 继续, 数字键选关 (仅已解锁).
+  int unlockedLevel = 0;
+
   // 死亡原因: true = 掉坑/超时 (当前关卡重开), false = 心归零 (直接 GAMEOVER)
   bool respawnLevel = false;
 
   void resetRun();          // 全重置 (分数/心/盾牌/时间清零) 并按 currentLevelIndex 加载
   void resetToFirstLevel(); // 回到第一关并全重置 (WIN/GAMEOVER 重试用)
   void loadLevelKeepScore(int idx); // 切关加载: 保留分数/金币/心, 重置时间/检查点/玩家/相机
+  // ---- 存档接口 (实现见 GameLogic.cpp, 文件 IO 见 Save.cpp) ----
+  void saveProgress();            // 落盘: unlocked/当前关/分数/碎片/心
+  bool loadProgress();            // 读档: 恢复 unlocked + 当前关 + 分数 (返回是否成功)
+  bool loadUnlockedOnly();        // 仅恢复 unlocked (启动用, 不切关)
+  void continueFromSave();        // 标题屏 C: 读档并跳到存档关 (保留分数)
+  bool trySelectLevel(int idx);   // 标题屏数字选关: 仅已解锁可跳 (全新分数)
 };
 
 // 单个固定步长 (DT = 1/60) 的状态推进; kb 来自 SDL_GetKeyboardState

@@ -35,6 +35,14 @@ struct Goomba {
   bool alive = true, flyer = false;
   float anim = 0, squashT = 0, baseY = 0, phase = 0;
   int hp = 2; // 怪物血量: 需 2 发子弹消灭
+  // ---- 智能 AI 新增字段 (存档无关, 运行时重建即可) ----
+  // ai: 地面怪 0=巡逻 1=追击者 2=跳跃者; 飞行怪 0=巡逻 1=追击者
+  int ai = 0;
+  float baseSpeed = 70.0f; // 巡逻速度 (配表驱动, 随关卡递增)
+  float homeX = 0.0f;      // 出生点 X (飞行怪巡逻中心, 追击超出范围即返巢)
+  bool grounded = false;   // 本帧是否着地 (取代旧的 vel.y==0 误判)
+  float thinkT = 0.0f;     // 感知节流计时 (0.12s 决策一次, 防抖动)
+  int moveDir = -1;        // 当前巡逻/追击方向 (-1 左, +1 右)
 };
 
 struct Shroom {

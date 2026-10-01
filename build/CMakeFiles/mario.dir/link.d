@@ -10,6 +10,7 @@ mario: \
   CMakeFiles/mario.dir/Level.cpp.o \
   CMakeFiles/mario.dir/Renderer.cpp.o \
   CMakeFiles/mario.dir/GameLogic.cpp.o \
+  CMakeFiles/mario.dir/Save.cpp.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/libSDL2.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16/libstdc++.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/libm.so \
@@ -64,6 +65,8 @@ CMakeFiles/mario.dir/Level.cpp.o:
 CMakeFiles/mario.dir/Renderer.cpp.o:
 
 CMakeFiles/mario.dir/GameLogic.cpp.o:
+
+CMakeFiles/mario.dir/Save.cpp.o:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/libSDL2.so:
 
