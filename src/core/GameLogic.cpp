@@ -571,15 +571,21 @@ void updateFixedStep(App &app, float DT, const Uint8 *kb) {
           else e.vel.x = (float)e.moveDir * spd;
 
           // --- X 位移 + 撞墙掉头 (即时, 不等 think) ---
+          float prevX = e.pos.x;
           e.pos.x += e.vel.x * DT;
           if (boxHitTile(g, e.pos, e.size)) {
-            if (e.vel.x > 0) e.pos.x = floorf((e.pos.x + e.size.x) / TILE_SIZE) * TILE_SIZE - e.size.x - 0.5f;
-            else if (e.vel.x < 0) e.pos.x = floorf(e.pos.x / TILE_SIZE) * TILE_SIZE + TILE_SIZE + 0.5f;
-            else {
-              // 急停状态下被挤进墙: 微调出来
-              if (boxHitTile(g, e.pos, e.size)) e.pos.x += (float)e.moveDir * -4.0f;
-            }
-            if (e.vel.x != 0) {
+            if (e.vel.x > 0)
+              e.pos.x = floorf((e.pos.x + e.size.x) / TILE_SIZE) * TILE_SIZE - e.size.x - 0.5f;
+            else if (e.vel.x < 0)
+              e.pos.x = floorf(e.pos.x / TILE_SIZE) * TILE_SIZE + TILE_SIZE + 0.5f;
+            else
+              e.pos.x += (e.pos.x > pl.pos.x ? 4.0f : -4.0f); // 被挤入墙: 向远离玩家方向微调
+            // 兜底: 回拉失败则放弃本次 X 推进, 避免卡进方块
+            if (boxHitTile(g, e.pos, e.size)) {
+              e.pos.x = prevX;
+              e.moveDir = -e.moveDir;
+              e.vel.x = (float)e.moveDir * spd;
+            } else if (e.vel.x != 0) {
               e.moveDir = -e.moveDir;
               // 跳跃者撞墙且着地: 尝试起跳翻墙
               if (e.ai == 2 && e.grounded) {

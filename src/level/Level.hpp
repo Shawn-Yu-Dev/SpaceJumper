@@ -32,17 +32,35 @@ struct PlatformSpawnData {
 };
 
 struct LevelConfig {
-  PitData          pits[MAX_PITS];       int pitCount;
-  BrickRowData     brickRows[MAX_BRICKROW]; int brickRowCount;
-  StairData        stairs[MAX_STAIR];    int stairCount;
-  SpecialTileData  specials[MAX_SPECIAL]; int specialCount;
-  CoinData         coins[MAX_COIN];      int coinCount;
-  CoinArcData      coinArcs[MAX_COINARC]; int coinArcCount;
-  GoombaSpawnData  goombas[MAX_GOOMBA];  int goombaCount;
-  PlatformSpawnData plats[MAX_PLAT];     int platCount;
+  PitData          pits[MAX_PITS];
+  BrickRowData     brickRows[MAX_BRICKROW];
+  StairData        stairs[MAX_STAIR];
+  SpecialTileData  specials[MAX_SPECIAL];
+  CoinData         coins[MAX_COIN];
+  CoinArcData      coinArcs[MAX_COINARC];
+  GoombaSpawnData  goombas[MAX_GOOMBA];
+  PlatformSpawnData plats[MAX_PLAT];
   int flagCol;        // 旗杆列 (旗杆 r=5..16, 城堡在 flagCol+3)
   int checkpointCol;  // 检查点列 (激活阈值 pl.x > checkpointCol*32)
 };
+
+// 自动推导计数: 数组初始化为 {0} 哨兵, 无需手动维护 count 字段
+inline int pitCount(const LevelConfig &L) {
+  int n = 0; while (n < MAX_PITS && !(L.pits[n].c0 == 0 && L.pits[n].c1 == 0)) ++n; return n; }
+inline int brickRowCount(const LevelConfig &L) {
+  int n = 0; while (n < MAX_BRICKROW && !(L.brickRows[n].c0 == 0 && L.brickRows[n].c1 == 0)) ++n; return n; }
+inline int stairCount(const LevelConfig &L) {
+  int n = 0; while (n < MAX_STAIR && L.stairs[n].steps != 0) ++n; return n; }
+inline int specialCount(const LevelConfig &L) {
+  int n = 0; while (n < MAX_SPECIAL && L.specials[n].tile != 0) ++n; return n; }
+inline int coinCount(const LevelConfig &L) {
+  int n = 0; while (n < MAX_COIN && !(L.coins[n].c == 0 && L.coins[n].r == 0)) ++n; return n; }
+inline int coinArcCount(const LevelConfig &L) {
+  int n = 0; while (n < MAX_COINARC && L.coinArcs[n].n != 0) ++n; return n; }
+inline int goombaCount(const LevelConfig &L) {
+  int n = 0; while (n < MAX_GOOMBA && !(L.goombas[n].c == 0 && L.goombas[n].r == 0)) ++n; return n; }
+inline int platCount(const LevelConfig &L) {
+  int n = 0; while (n < MAX_PLAT && !(L.plats[n].w == 0 && L.plats[n].h == 0)) ++n; return n; }
 
 // ---- 只读关卡表: 定义在 Level.cpp, 单一 .rodata 实例 (extern, 非头文件静态拷贝) ----
 extern const LevelConfig ALL_LEVELS[];

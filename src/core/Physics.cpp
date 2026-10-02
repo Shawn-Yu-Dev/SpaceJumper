@@ -23,8 +23,10 @@ bool aabb(gml::vec2 a, gml::vec2 as, gml::vec2 b, gml::vec2 bs) {
 }
 
 void burst(Game &g, gml::vec2 p, int n, SDL_Color col, float spd, float grav, int sz) {
+  int remaining = 350 - (int)g.parts.size();
+  if (remaining <= 0) return;
+  if (n > remaining) n = remaining;
   for (int i = 0; i < n; ++i) {
-    if (g.parts.size() > 350) break;
     float a = (rand() % 360) * 3.14159f / 180.0f;
     float s = spd * (0.4f + (rand() % 100) / 100.0f);
     Particle pt{{p.x, p.y}, {cosf(a)*s, sinf(a)*s - spd*0.4f}, 0, 0,

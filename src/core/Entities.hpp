@@ -21,9 +21,9 @@ struct Player {
   bool dead = false;
   // 受伤无敌: 受伤后 1 秒内免伤 (HURT_INVINCIBLE_TIME), 渲染层据此做红色闪烁
   float invincT = 0;
-  // 新机制: 盾牌 (按住 Q 展开, 松开收回, 最多格挡 2 次后损毁)
+  // 新机制: 盾牌 (按住 Q 展开, 松开收回, 最多格挡 SHIELD_MAX_CHARGES 次后损毁)
   bool shieldUp = false;
-  int shieldCharges = 2;
+  int shieldCharges = SHIELD_MAX_CHARGES;
   // 新机制: 射击 (E 发射, I/K 控制上下分量, 无限弹药 + 冷却限制)
   float fireCd = 0;
   int aimY = 0; // -1 上, 0 平, +1 下

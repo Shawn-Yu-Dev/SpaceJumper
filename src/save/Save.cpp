@@ -1,11 +1,21 @@
 #include "Save.hpp"
 #include "Level.hpp"
+#include <SDL2/SDL.h>
 #include <cstdio>
 #include <cstring>
+#include <string>
 
 static const unsigned int SAVE_MAGIC = 0x5641534D; // "MSAV" little-endian
 
-const char *saveFilePath() { return "save.dat"; }
+const char *saveFilePath() {
+  static std::string path;
+  if (path.empty()) {
+    char *pref = SDL_GetPrefPath("superplatformer", "saves");
+    path = pref ? (std::string(pref) + "save.dat") : "save.dat";
+    SDL_free(pref);
+  }
+  return path.c_str();
+}
 
 bool saveGameToFile(const SaveData &d) {
   FILE *f = fopen(saveFilePath(), "wb");
@@ -70,5 +80,6 @@ bool hasSaveFile() {
 }
 
 bool clearSaveFile() {
-  return std::remove(saveFilePath()) == 0;
+  std::remove(saveFilePath()); // 文件不存在或删除失败均视为已清除
+  return true;
 }
