@@ -45,11 +45,6 @@ struct Goomba {
   int moveDir = -1;        // 当前巡逻/追击方向 (-1 左, +1 右)
 };
 
-struct Shroom {
-  gml::vec2 pos, vel{90, 0}, size{28, 28};
-  bool active = false, dead = false;
-};
-
 struct CoinItem {
   gml::vec2 pos;
   bool taken = false;
@@ -100,7 +95,6 @@ enum State {
 struct Game {
   std::vector<int> tiles;
   std::vector<Goomba> foes;
-  std::vector<Shroom> shrooms; // 已弃用: 蘑菇机制移除, 保留字段避免破坏存档/关卡加载
   std::vector<CoinItem> coins;
   std::vector<Bullet> bullets; // 新机制: 玩家子弹 (攻击用, 无法穿透方块)
   std::vector<Particle> parts;

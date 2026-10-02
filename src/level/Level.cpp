@@ -715,7 +715,7 @@ void buildLevel(Game &g, int levelIndex) {
 
   // 先 clear 运行时数组 (保留 vector 容量, 不产生新分配; 与老逻辑一致)
   g.tiles.assign(MAP_COLS * MAP_ROWS, T_EMPTY);
-  g.foes.clear(); g.shrooms.clear(); g.coins.clear(); g.bullets.clear();
+  g.foes.clear(); g.coins.clear(); g.bullets.clear();
   g.parts.clear(); g.popups.clear(); g.bumps.clear(); g.plats.clear();
   g.checkpointOn = false; g.checkpoint = g.spawn = {64, 400};
   g.combo = 0;

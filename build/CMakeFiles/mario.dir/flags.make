@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/shawn/Projects/CC++/custom_mario/src/core -I/home/shawn/Projects/CC++/custom_mario/src/level -I/home/shawn/Projects/CC++/custom_mario/src/render -I/home/shawn/Projects/CC++/custom_mario/src/audio -I/home/shawn/Projects/CC++/custom_mario/src/save -isystem /usr/include/SDL2
 
-CXX_FLAGS = -O3 -DNDEBUG -std=gnu++17 -O3 -march=native
+CXX_FLAGS = -g -std=gnu++17
 

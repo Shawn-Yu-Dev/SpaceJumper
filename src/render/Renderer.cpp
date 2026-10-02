@@ -257,10 +257,9 @@ void drawPlayer(SDL_Renderer *r, const Player &p, int sx, int sy, float time) {
   // 举盾形态: 按住 Q 展开青色护盾 (剩余格挡次数越多越亮)
   if (p.shieldUp && p.shieldCharges > 0) {
     int a = 140 + 60 * p.shieldCharges / SHIELD_MAX_CHARGES;
-    SDL_SetRenderDrawColor(r, 90, 240, 255, 255);
+    SDL_SetRenderDrawColor(r, 90, 240, 255, a);
     SDL_Rect o{dx-4, dy-10, dw+8, dh+12};
     SDL_RenderDrawRect(r, &o);
-    (void)a;
     // 四角加固线以示护盾
     SDL_RenderDrawLine(r, o.x, o.y, o.x+7, o.y);
     SDL_RenderDrawLine(r, o.x, o.y, o.x, o.y+7);

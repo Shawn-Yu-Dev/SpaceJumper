@@ -22,7 +22,7 @@ void Sfx::tone(int f0, int f1, int ms, int vol, int wave) {
   for (int i = 0; i < n; ++i) {
     float f = f0 + (f1 - f0) * (float)i / (float)n;
     phase += 2.0f * 3.1415926f * f / sr;
-    if (phase > 6.283185f) phase -= 6.283185f; // 防浮点溢出，保持 sinf 精度
+    while (phase > 6.283185f) phase -= 6.283185f; // 完全包裹相位，保持 sinf 精度
     float s = 0;
     if (wave == 0) s = (sinf(phase) > 0 ? 1.0f : -1.0f) * 0.6f; // 方波
     else if (wave == 1) s = sinf(phase);                        // 正弦
