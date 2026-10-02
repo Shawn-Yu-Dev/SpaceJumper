@@ -3,34 +3,50 @@
 #include <cstdio>
 #include <cstring>
 
+static const unsigned int SAVE_MAGIC = 0x5641534D; // "MSAV" little-endian
+
 const char *saveFilePath() { return "save.dat"; }
 
 bool saveGameToFile(const SaveData &d) {
-  FILE *f = fopen(saveFilePath(), "w");
+  FILE *f = fopen(saveFilePath(), "wb");
   if (!f) return false;
-  // 魔数 + 5 个整数, 附简单校验和 (异或, 防手改/截断)
+
+  int fields[5] = {d.unlocked, d.level, d.score, d.coins, d.lives};
   int chk = d.unlocked * 31 + d.level * 17 + d.score * 7 + d.coins * 13 + d.lives * 19;
-  fprintf(f, "MARIO1 %d %d %d %d %d %d\n", d.unlocked, d.level, d.score,
-          d.coins, d.lives, chk);
+
+  fwrite(&SAVE_MAGIC, sizeof(SAVE_MAGIC), 1, f);
+  fwrite(fields, sizeof(int), 5, f);
+  fwrite(&chk, sizeof(int), 1, f);
+
   fclose(f);
   return true;
 }
 
 bool loadGameFromFile(SaveData &d) {
-  FILE *f = fopen(saveFilePath(), "r");
+  FILE *f = fopen(saveFilePath(), "rb");
   if (!f) return false;
-  char magic[16] = {0};
-  int unlocked = 0, level = 0, score = 0, coins = 0, lives = 3, chk = 0;
-  int n = fscanf(f, "%15s %d %d %d %d %d %d", magic, &unlocked, &level,
-                 &score, &coins, &lives, &chk);
+
+  unsigned int magic = 0;
+  if (fread(&magic, sizeof(magic), 1, f) != 1) { fclose(f); return false; }
+  if (magic != SAVE_MAGIC) { fclose(f); return false; }
+
+  int fields[5] = {0};
+  if (fread(fields, sizeof(int), 5, f) != 5) { fclose(f); return false; }
+
+  int chk = 0;
+  if (fread(&chk, sizeof(int), 1, f) != 1) { fclose(f); return false; }
+
   fclose(f);
-  if (n != 7) return false;
-  // C++17 起 __func__ 外可用; 此处用普通字符串比较
-  bool okMagic = (strncmp(magic, "MARIO1", 6) == 0);
-  if (!okMagic) return false;
+
+  int unlocked = fields[0];
+  int level    = fields[1];
+  int score    = fields[2];
+  int coins    = fields[3];
+  int lives    = fields[4];
+
   int expect = unlocked * 31 + level * 17 + score * 7 + coins * 13 + lives * 19;
   if (expect != chk) return false;
-  // 钳制 (防坏档导致越界)
+
   if (unlocked < 0) unlocked = 0;
   if (unlocked > LEVEL_COUNT - 1) unlocked = LEVEL_COUNT - 1;
   if (level < 0) level = 0;
@@ -39,6 +55,7 @@ bool loadGameFromFile(SaveData &d) {
   if (coins < 0) coins = 0;
   if (lives < 1) lives = 3;
   if (lives > 3) lives = 3;
+
   d.unlocked = unlocked;
   d.level = level;
   d.score = score;

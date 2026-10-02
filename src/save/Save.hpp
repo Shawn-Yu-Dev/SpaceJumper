@@ -1,6 +1,6 @@
 #pragma once
 // Save.hpp — 游戏进度存档 (10 关解锁进度 + 分数/碎片/心)
-// 文本格式 save.dat: "MARIO1 unlocked level score coins lives\n"
+// 二进制格式 save.dat: 28 字节 (4B 魔数 + 5*4B 字段 + 4B 校验和)
 // 无外部依赖, 无动态分配, 失败静默 (不弹窗, 不崩溃).
 
 struct SaveData {
