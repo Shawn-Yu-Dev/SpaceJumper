@@ -224,6 +224,7 @@ mario: CMakeFiles/mario.dir/src/audio/Audio.cpp.o
 mario: CMakeFiles/mario.dir/src/save/Save.cpp.o
 mario: CMakeFiles/mario.dir/build.make
 mario: CMakeFiles/mario.dir/compiler_depend.ts
+mario: /usr/lib/libSDL2-2.0.so.0.3200.72
 mario: CMakeFiles/mario.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/shawn/Projects/CC++/custom_mario/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable mario"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mario.dir/link.txt --verbose=$(VERBOSE)

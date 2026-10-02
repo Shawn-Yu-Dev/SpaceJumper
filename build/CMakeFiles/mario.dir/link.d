@@ -11,7 +11,7 @@ mario: \
   CMakeFiles/mario.dir/src/render/Font.cpp.o \
   CMakeFiles/mario.dir/src/audio/Audio.cpp.o \
   CMakeFiles/mario.dir/src/save/Save.cpp.o \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/libSDL2.so \
+  /usr/lib/libSDL2-2.0.so.0.3200.72 \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16/libstdc++.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/libm.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/libm.so \
@@ -68,7 +68,7 @@ CMakeFiles/mario.dir/src/audio/Audio.cpp.o:
 
 CMakeFiles/mario.dir/src/save/Save.cpp.o:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/libSDL2.so:
+/usr/lib/libSDL2-2.0.so.0.3200.72:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/16/libstdc++.so:
 
